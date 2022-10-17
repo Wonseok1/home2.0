@@ -1,0 +1,88 @@
+spring:
+  profiles:
+    active: test
+  devtools:
+    livereload:
+      enable: true
+    restart:
+      enable: true
+
+  jpa:
+    hibernate:
+      use-new-id-generator-mappings: true
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+      show-sql: true
+
+  thymeleaf:
+    cache: false
+
+  session:
+    store-type: jdbc
+
+  messages:
+    basename: messages,ValidationMessages,PropertyNames
+    cache-duration: -1
+    encoding: UTF-8
+
+server:
+  port: 8107
+  servlet:
+    session:
+      timeout: 60m
+  ssl:
+    enabled: false
+    key-alias: inaf
+    key-store: inaf.pkcs12
+    key-store-password: test1234
+    key-password: test1234
+    trust-store: inaftrust.pkcs12
+    trust-store-password: test1234
+  error:
+    whitelabel:
+      enabled: false
+---
+spring:
+  profiles: test
+  cache:
+    type: NONE
+  datasource:
+    url: jdbc:mariadb://211.44.183.197:3307/home?zeroDateTimeBehavior=convertToNull
+    username: itzon
+    password: itzon1234!
+    driver-class-name: org.mariadb.jdbc.Driver
+    driver: org.mariadb.jdbc.Driver
+    hikari:
+      max-lifetime: 30000
+      idle-timeout: 3000
+      maximum-pool-size: 50
+  exposed:
+    generate-ddl: true
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+
+logging:
+  level:
+    Exposed: debug
+
+cti:
+  klcns:
+    url: 124.139.166.173
+    #    url: 211.253.38.136
+    port: 18088
+
+
+itzon:
+  server:
+    url: 211.44.183.197
+    port: 443
+    sample:
+      url: 1.2.3.4
+      port: 2020
+
+---

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<th:block th:fragment="Menu">
+    <div id="divMenuLeft" class="menu-area hidden z-10 md:flex md:w-14 hover:w-64 md:flex-col md:fixed md:inset-y-0 overflow-x-hidden" style="transition: width 0.5s">
+        <!-- Sidebar component, swap this element with another sidebar if you like -->
+        <div class="flex flex-col flex-grow bg-blue-200 overflow-y-auto overflow-x-hidden">
+            <div class="flex items-center flex-shrink-0 px-3 text-2xl font-medium rounded-md text-white" >
+                <img class="h-8 w-auto" src="/img/logo/itz-logo.png" alt="Workflow" onclick="menu.goToMainPage()">
+                <div class="flex-1 px-4 py-4 overflow-x-hidden" style="white-space: nowrap;" onclick="menu.goToMainPage()"> IT-ZON</div>
+                <i class="fa-solid fa-power-off" style="cursor: pointer" onclick="menu.goToPage('/logout')"></i>
+            </div>
+            <div class="mt-5 flex-1 flex flex-col">
+                <nav class="flex-1 px-2 pb-4 space-y-1 text-2xl font-medium rounded-md text-white">
+                    <div id="divMenu_divForAppend" class="space-y-1">
+                        <button id="menu_my" onclick="menu_myDivForAppend.classList.toggle('hidden');" type="button" class="bg-blue-300 hover:bg-blue-300 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="menu_myDivForAppend" aria-expanded="false">
+                            <i class="fa-solid fa-computer mr-3 flex-shrink-0 h-6 w-6 "></i>
+                            <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">커스텀 설정</span>
+                            <i class="fa-solid fa-angle-right ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150"></i>
+                        </button>
+                        <div class="menu-spread space-y-1 ml-2 hidden" id="menu_myDivForAppend">
+                            <button id="menu_my_menu" onclick="menu_my_menuDivForAppend.classList.toggle('hidden');" type="button" class="bg-blue-400 hover:bg-blue-400 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="menu_my_menuDivForAppend" aria-expanded="false">
+                                <i class="fa-solid fa-folder-open mr-3 flex-shrink-0 h-6 w-6 "></i>
+                                <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">마이메뉴 설정</span>
+                            </button>
+                            <div class="menu-spread space-y-1 hidden ml-2" id="menu_my_menuDivForAppend"></div>
+                            <button id="menu_my_page" onclick="menu_my_pageDivForAppend.classList.toggle('hidden');" type="button" class="bg-blue-400 hover:bg-blue-400 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="menu_my_pageDivForAppend" aria-expanded="false">
+                                <i class="fa-solid fa-tv mr-3 flex-shrink-0 h-6 w-6 "></i>
+                                <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">마이페이지 설정</span>
+                            </button>
+                            <div class="menu-spread space-y-1 hidden ml-2" id="menu_my_pageDivForAppend"></div>
+                        </div>
+                        <button id="menu_system" onclick="menu_systemDivForAppend.classList.toggle('hidden');" type="button" class="bg-blue-300 hover:bg-blue-300 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="menu_systemDivForAppend" aria-expanded="false">
+                            <i class="fa-solid fa-gears mr-3 flex-shrink-0 h-6 w-6 "></i>
+                            <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">시스템관리</span>
+                            <i class="fa-solid fa-angle-right ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150"></i>
+                        </button>
+                        <div class="menu-spread space-y-1 hidden ml-2" id="menu_systemDivForAppend">
+                            <button id="menu_system_auth" onclick="menu_system_authDivForAppend.classList.toggle('hidden');" type="button" class="bg-blue-400 hover:bg-blue-400 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="menu_system_authDivForAppend" aria-expanded="false">
+                                <i class="fa-solid fa-user-lock mr-3 flex-shrink-0 h-6 w-6 "></i>
+                                <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">권한</span>
+                                <i class="fa-solid fa-angle-right ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150"></i>
+                            </button>
+                            <div class="menu-spread space-y-1 hidden ml-2" id="menu_system_authDivForAppend">
+                            <button id="menu_system_auth_grid" onclick="menu_system_auth_gridDivForAppend.classList.toggle('hidden');" type="button" class="bg-blue-500 hover:bg-blue-500 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="menu_system_auth_gridDivForAppend" aria-expanded="false">
+                                <i class="fa-regular fa-rectangle-list mr-3 flex-shrink-0 h-6 w-6 "></i>
+                                <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">그리드 권한 관리</span>
+                            </button>
+                            </div>
+                            <button id="menu_system_user" onclick="menu_system_userDivForAppend.classList.toggle('hidden');" type="button" class="bg-blue-400 hover:bg-blue-400 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="menu_system_userDivForAppend" aria-expanded="false">
+                                <i class="fa-solid fa-user mr-3 flex-shrink-0 h-6 w-6 "></i>
+                                <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">사용자</span>
+                                <i class="fa-solid fa-angle-right ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150"></i>
+                            </button>
+                            <div class="menu-spread space-y-1 ml-2 hidden" id="menu_system_userDivForAppend">
+                                <a href="/system/user/user">
+                                <button id="menu_system_user_manage" onclick="menu_system_user_manageDivForAppend.classList.toggle('hidden');" type="button" class="bg-blue-500 hover:bg-blue-500 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="menu_system_user_manageDivForAppend" aria-expanded="false">
+                                    <i class="fa-solid fa-users mr-3 flex-shrink-0 h-6 w-6 "></i>
+                                    <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">사용자 관리</span>
+                                </button>
+                                </a>
+                                <div class="menu-spread space-y-1 hidden ml-2" id="menu_system_user_manageDivForAppend"></div></div>
+
+
+                        </div>
+                        <button id="menu_sample" onclick="menu.goToPage('/sample/sample');" type="button" class="bg-blue-300 hover:bg-blue-300 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="menu_myDivForAppend" aria-expanded="false">
+                            <i class="fa-regular fa-object-group mr-3 flex-shrink-0 h-6 w-6 "></i>
+                            <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">샘플 페이지</span>
+                        </button>
+
+                        <!--  페이지 관리 (혜진)-->
+                        <button aria-controls="menu_page_list" id="menu_page" onclick="menu_page_list.classList.toggle('hidden');" type="button" class="bg-blue-300 hover:bg-blue-300 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white"  aria-expanded="false">
+                            <i class="fa-solid fa-file-lines mr-3 flex-shrink-0 h-6 w-6 "></i>
+                            <span class="flex-1 text-sm ml-2" style="white-space: nowrap;"> 페이지 관리</span>
+                            <i class="fa-solid fa-angle-right ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150"></i>
+                        </button>
+                        <div id="menu_page_list"  class="menu-spread space-y-1 hidden ml-2">
+                            <div>
+                                <a href="/projHistory">
+                                    <button class="bg-blue-400 hover:bg-blue-400 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="company_projHistory_manageDivForAppend" aria-expanded="false">
+                                        <i class="fa-solid fa-dice-d20 mr-3 flex-shrink-0 h-6 w-6  "></i>
+                                        <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">구축사례 관리</span>
+                                    </button>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="/noticeNoticeManage" class="pt-2">
+                                    <button class="tm-2 bg-blue-400 hover:bg-blue-400 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="company_projHistory_manageDivForAppend" aria-expanded="false">
+                                        <i class="fa-solid fa-bullhorn mr-3 flex-shrink-0 h-6 w-6  "></i>
+                                        <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">공지사항 관리</span>
+                                    </button>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="/noticeQnAManage" class="pt-2">
+                                    <button class="tm-2 bg-blue-400 hover:bg-blue-400 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="company_projHistory_manageDivForAppend" aria-expanded="false">
+                                        <i class="fa-solid fa-question mr-3 flex-shrink-0 h-6 w-6  "></i>
+                                        <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">Q&A 관리</span>
+                                    </button>
+                                </a>
+                            </div>
+
+
+                        </div><!-- 페이지관리  END-->
+
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</th:block>
+<th:block th:replace="/fragments/common/importFragment :: i-footer"></th:block>
+<script src="/js/system/systemMenuManage.js"></script>
+</html>

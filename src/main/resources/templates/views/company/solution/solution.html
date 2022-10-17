@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/common/importFragment :: i-header"></th:block>
+    <th:block th:replace="fragments/common/headerFragment :: header"></th:block>
+</head>
+<body>
+<div>
+    <div class="hidden sm:block" style="right: 1%;" id="lnb">
+        <div class="border-b border-gray-200 mx-3" id="lnb_div">
+            <nav class="flex  sticky justify-center pt-20 pb-4" aria-label="Tabs" id="lnb_nav" >
+                <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
+                <a onclick="document.getElementById('img1').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> ITZ-FrameWork </a>
+
+                <a onclick="document.getElementById('img4').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> 상담관리시스템 </a>
+
+                <a onclick="document.getElementById('img6').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> ITZ-WFMS </a>
+
+                <a onclick="document.getElementById('img8').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> 재택근무 지원시스템 </a>
+
+                <a onclick="document.getElementById('img12').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> 대면녹취 시스템 </a>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="hidden sm:block fixed" style="right: 1%;" id="lnb-side">
+        <div class=" border-gray-200 mx-3" id="lnb_div-side">
+            <nav class="flex flex-col sticky justify-center pt-20 pb-4" aria-label="Tabs" id="lnb_nav-side" >
+                <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
+                <a onclick="document.getElementById('img1').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> ITZ-FrameWork </a>
+
+                <a onclick="document.getElementById('img4').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> 상담관리시스템 </a>
+
+                <a onclick="document.getElementById('img6').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> ITZ-WFMS </a>
+
+                <a onclick="document.getElementById('img8').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> 재택근무 지원시스템 </a>
+
+                <a onclick="document.getElementById('img12').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});" class="border-transparent mx-2 text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"> 대면녹취 시스템 </a>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div id="divImg" class="max-w-7xl mx-auto pt-4 pl-20 ">
+    <img class="pb-4" src="/img/1.png" id="img1">
+    <img class="pb-4" src="/img/2.png">
+    <img class="pb-4" src="/img/3.png">
+    <img class="pb-4" src="/img/4.png" id="img4">
+    <img class="pb-4" src="/img/5.png">
+    <img class="pb-4" src="/img/6.png" id="img6">
+    <img class="pb-4" src="/img/7.png">
+    <img class="pb-4" src="/img/8.png" id="img8">
+    <img class="pb-4" src="/img/9.png">
+    <img class="pb-4" src="/img/10.png">
+    <img class="pb-4" src="/img/12.png" id="img12">
+    <img class="pb-4" src="/img/13.png">
+</div>
+</body>
+<th:block th:replace="fragments/common/importFragment :: i-footer"></th:block>
+<script src="/js/web/solution/solution.js"></script>
+</html>
