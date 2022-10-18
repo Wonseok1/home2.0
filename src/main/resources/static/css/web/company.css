@@ -1,0 +1,22 @@
+h1::before{
+
+}
+
+.test{
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: black;
+    font-size: 14px;
+    margin: 8px 0px;
+}
+
+.test::before{
+    content: "";
+    width: 30px;
+    margin: 0px 16px;
+    height: 3px;
+    font-size: 0px;
+    line-height: 0px;
+    background-color: #44403c;
+}

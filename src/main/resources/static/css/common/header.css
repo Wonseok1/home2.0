@@ -1,0 +1,98 @@
+.mainMenu{
+    width: 150px;
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.item{
+    overflow: hidden;
+}
+
+.btn{
+    display: block;
+    padding: 16px 20px;
+    background-color: #e0f2fe;
+    color: #292524;
+    position: relative;
+}
+
+.btn:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right:8px solid transparent;
+    border-top:10px solid #e0f2fe;
+    right: 15px;
+    bottom: -10px;
+    z-index: 9;
+}
+
+.subMenu{
+    background: #e0f2fe;
+    transition: max-height 0.7s;
+    max-height: 0;
+}
+.subMenu a{
+    display: block;
+    padding: 15px 20px;
+    color: #44403c;
+    font-size: 14px;
+    border-bottom: 1px solid #e0f2fe;
+    position: relative;
+}
+.subMenu a:before{
+    content: '';
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+.subMenu a:hover:before{
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 6px;
+    left: 0;
+    top:0;
+    opacity: 1;
+    /* background-color: #d8d824; */
+    border-top: 24px solid transparent;
+    border-left: 11px solid #3b82f6;
+    border-bottom: 24px solid transparent;
+}
+.subMenu a:after{
+    content: '';
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+.subMenu a:hover:after{
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 6px;
+    right: 0px;
+    top:0;
+    opacity: 1;
+    /* background-color: #d8d824; */
+    border-top: 24px solid transparent;
+    border-right: 11px solid #3b82f6;
+    border-bottom: 24px solid transparent;
+}
+.subMenu a:hover{
+    background: #e0f2fe;
+    background: -moz-linear-gradient(top, #e0f2fe 0%, #e0f2fe 50%, #e0f2fe 51%, #e0f2fe 100%);
+    background: -webkit-linear-gradient(top, #e0f2fe 0%,#e0f2fe 50%,#e0f2fe 51%,#e0f2fe 100%);
+    background: linear-gradient(to bottom, #e0f2fe 0%,#e0f2fe 50%,#e0f2fe 51%,#e0f2fe 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#273057', endColorstr='#394c7f',GradientType=0 );
+    transition: all 0.3s;
+    border-bottom: 1px solid #e0f2fe;
+}
+.subMenu a:last-child{
+    border:none;
+}
+.item:target .subMenu{
+    max-height: 20em;
+}

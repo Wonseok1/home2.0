@@ -26,7 +26,7 @@ class SecurityConfig (
         http
             .authorizeHttpRequests()
 //            .antMatchers("/**").permitAll()
-            .antMatchers("/").permitAll()
+            .antMatchers("/", "/file/**","/getPage/file/**").permitAll()
             .antMatchers("/company", "/intro/comp/history", "/directions", "/business", "/solution", "/job", "/api/intro/comp/**",  "/consulting", "/noticeQnA" ,"/noticeNotice","/projHistoryView", "/web/notice/noticeNotice/**","/web/notice/noticeQnA/**","/web/company/projHistory/**","/api/system/comp/**", "/web/company/projHistory/**","/fileDownload2**").permitAll()
             .antMatchers("/api/common/signup/check","/api/common/signup", "/login", "/","/js/**","/css/**","/lib/**").permitAll()
             .anyRequest().authenticated()

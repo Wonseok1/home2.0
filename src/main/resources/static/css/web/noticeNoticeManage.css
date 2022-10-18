@@ -1,0 +1,57 @@
+.insert {
+    padding: 20px 30px;
+    display: block;
+    width: 600px;
+    margin: 5vh auto;
+    height: 90vh;
+    border: 1px solid #dbdbdb;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.insert .file-list {
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #989898;
+    padding: 10px;
+}
+.insert .file-list .filebox p {
+    font-size: 14px;
+    margin-top: 10px;
+    display: inline-block;
+}
+.insert .file-list .filebox .delete i{
+    color: #ff5353;
+    margin-left: 5px;
+}
+
+/*.filebox .upload-name {*/
+/*    display: inline-block;*/
+/*    height: 30px;*/
+/*    padding: 0 10px;*/
+/*    vertical-align: middle;*/
+/*    border: 1px solid #dddddd;*/
+/*    width: 78%;*/
+/*    color: #999999;*/
+/*}*/
+
+.filebox label {
+    display: inline-block;
+    padding: 2px 4px;
+    color: #ffffff;
+    vertical-align: middle;
+    background-color: #0d2e92;
+    cursor: pointer;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+

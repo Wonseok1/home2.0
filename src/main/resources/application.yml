@@ -84,5 +84,9 @@ itzon:
     sample:
       url: 1.2.3.4
       port: 2020
-
+  sftp:
+    url: 211.44.183.197
+    port: 22
+    id: itzon
+    password: itzon1234!0
 ---
