@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      style="height: 100%;">
+<head>
+    <th:block th:replace="fragments/common/importFragment :: i-header"></th:block>
+    <th:block th:replace="fragments/common/headerFragment :: header"></th:block>
+</head>
+<body>
+
+<div class="max-w-7xl m-0 m-auto flex border bg-cover w-100% h-20 blur-sm" style="background-image: url(/img/QnAImg.png)">
+    <div class="text-2xl leading-6 font-bold  text-gray-900 mb-3 "> 　</div>  <div class="font-bold"> </div>
+</div>
+<div class="max-w-7xl m-0 m-auto">
+
+    <div class=" flex-1 flex flex-col h-full" id="divRight">
+        <div class="px-4  max-h-screen">
+            <div class="ml-4 py-5 flex bg-red w-100% -mt-20 z-50">
+                <p class="text-3xl leading-6 font-bold  text-white mb-3   z-50">Q&A게시판　  <span class="text-sm">무엇을 도와드릴까요?</span>　</p>
+            </div>
+            <!--            <div class="ml-4 mt-2">-->
+            <!--                <h3 class="text-2xl leading-6 font-bold  text-gray-900 mb-3 ">Q&A게시판</h3>-->
+            <!--            </div>-->
+            <div class=" grid-cols-2 sm:flex " style="height: 75vh;">
+
+                <!--조회조건 + QnA목록 그리드 + 상세정보-->
+                <div class = "px-4 w-full h-full">
+                    <!--조회조건-->
+                    <div class="bg-white px-4 py-5 border-y-2 border-gray-300 sm:px-6 relative">
+                        <div class="ml-4 mb-2 flex flex-col md:flex-row items-left justify-between flex-wrap sm:flex-nowrap absolute bottom-0 left-0" style="width:90%">
+                            <!--                            <div class="mx-6 mt-2 font-black invisible  md:visible">-->
+                            <!--                                조회기간-->
+                            <!--                                <input class="border-b  bg-white border-gray-500 text-sm text-gray-500 "  type="date" id="searchQnAStartDt">-->
+                            <!--                                ~-->
+                            <!--                                <input class="border-b  bg-white border-gray-500 text-sm text-gray-500 "  type="date" id="searchQnAEndDt">-->
+                            <!--                            </div>-->
+                            <div class="ml-2 mt-2 flex flex-auto font-black rounded" >구분
+                                <select  id="searchSelectBox" class="border bg-white border-gray-500 text-sm text-gray-500 rounded" >
+                                    <option value="all">전체</option>
+                                    <option value="title">제목</option>
+                                    <option value="content">내용</option>
+                                </select>
+                                <input class="rounded flex-Initial border bg-white border-gray-500 text-sm text-gray-500 w-[200px]" placeholder="  검색어를 입력해주세요 " type="text" id="qnASearchCondition">
+                            </div>
+
+                        </div>
+                        <div class="-ml-4 mb-1 flex items-center justify-between flex-wrap sm:flex-nowrap absolute bottom-0 right-3">
+                            <div class="ml-4 mt-2 flex-shrink-0">
+
+                                <button type="button" id = "btnSearchQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">　<i class="fa-solid fa-magnifying-glass"></i>　</button>
+                            </div>
+                        </div>
+                    </div>  <!--조회조건End-->
+
+                    <!-- QnA목록 그리드 -->
+                    <div class = "ag-theme-balham  h-1/2 mt-3" id="NoticeQnAGrid" ></div>
+
+
+                    <div class="flex relative ">
+                        <div class="mt-2">
+                            <h3 class="text-lg leading-6 font-black  text-gray-900">문의내용</h3>
+                        </div>
+                        <!--답변popup/신규/저장/삭제Btn-->
+                        <div class="text-lg leading-6 font-medium text-gray-900 mr-2 mt-3 z-10 absolute bottom-0 right-4  " >
+                            <button type="button" id = "btnAnswer" name="btnAnswer" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">답변</button>
+                            <button type="button" id = "btnNewQnA" name="btnNewQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">신규</button>
+                            <button type="button" id = "btnSaveQnA" name="btnSaveQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">저장</button>
+                            <button type="button" id = "btnDeleteQnA" name="btnDeleteQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">삭제</button>
+                            <!--                            <input   id="qnAAnswer" name="qnAAnswer" class="hidden">-->
+                        </div>
+                    </div>
+
+
+                    <!--상세정보 + 신규/저장/삭제Btn-->
+                    <div class="border-2  bg-white border-gray-300 text-sm text-gray-800 h-1/2 relative" >
+                        <form id="noticeQnA_form" class="bg-white h-5/6" action="File" method="post" enctype="multipart/form-data" >
+                            <!--상세정보-->
+                            <div class="flex flex-row md:flex-row full  my-5 relative h-full absolute bottom-0 left-0" style="width:100%">
+
+                                <div class="flex mt-1 flex-col px-5" style="width:70%">
+                                    <div class="mr-2 relative flex flex-col md:flex-row flex-auto font-black ">
+                                        <div class="w-[40px]">제목</div>
+                                        <input id="qnATitle" name="qnATitle" class="rounded flex h-max w-full flex-col md:flex-row border flex-auto border-gray-500 text-sm text-gray-500 " type="text">
+                                    </div>
+                                    <!--  hidden컬럼들-->
+                                    <input   id="qnAPassWordHidden" name="qnAPassWordHidden" class="hidden" type="password">
+                                    <input   id="qnAState" name="qnAState" class="hidden" type="password">
+                                    <input   id="qnAId" name="qnAId" class="hidden" >
+                                    <input   id="qnAOriginId" name="qnAOriginId" class="hidden">
+                                    <input   id="qnAOrdId" name="qnAOrdId" class="hidden">
+                                    <input   id="qnAGroupId" name="qnAGroupId" class="hidden">
+                                    <div class="mr-2  relative flex flex-col md:flex-row flex-auto font-black ">
+                                        <div class="w-[40px]">내용</div>
+                                        <textarea id="qnAContent" name="qnAContent" class="rounded flex  flex-col md:flex-row border flex-auto border-gray-500 text-sm text-gray-500 " rows="9" ></textarea>
+                                    </div>
+                                </div>
+                                <div class="pl-5  flex mt-1 flex-col " style="width:30%">
+                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-6 md:mb-12 " >
+                                        <div class="w-[60px]">비밀번호</div>
+                                        <input id="qnAPassWord" name="qnAPassWord" class="rounded  border   border-gray-500 text-sm text-gray-500  w-[70px]" type="password">
+                                    </div>
+                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-2 ">
+                                        <div class="w-[60px]">고객명</div>
+                                        <input id="qnAUserNm" name="qnAUserNm" class="rounded  border   white border-gray-500 text-sm text-gray-500 w-[70px]" type="text">
+                                    </div>
+                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-2 " >
+                                        <div class="w-[60px]">회사명</div>
+                                        <input id="qnACompNm" name="qnACompNm" class="rounded  border    border-gray-500 text-sm text-gray-500  w-[110px]" type="text">
+                                    </div>
+                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-2 " >
+                                        <div class="w-[60px]">핸드폰</div>
+                                        <input id="qnAPhoneNo" name="qnAPhoneNo" class="rounded  border   border-gray-500 text-sm text-gray-500  w-[110px]" type="text">
+                                    </div>
+                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-2 " >
+                                        <div class="w-[60px]">연락처</div>
+                                        <input id="qnATelNo" name="qnATelNo" class="rounded  border   border-gray-500 text-sm text-gray-500  w-[110px]" type="text">
+                                    </div>
+
+                                </div>
+                                <!--첨부파일 보류 ... -->
+                                <!--                        <div class="mr-5 flex">-->
+                                <!--                            <label for="file">첨부파일</label>-->
+                                <!--                            <input multiple='multiple' style="z-index: 1" class="border bg-white border-gray-500 text-sm text-gray-500 " type="file" id="file" name="file"  accept="image/png, image/jpeg">-->
+                                <!--                            <input type="submit" class="-ml-7 border bg-white border-gray-500" style="z-index:2" 파일등록>-->
+                                <!--                        </div>-->
+
+                            </div>
+
+
+                            <!--                    <input type="file" id="fileUpload" />-->
+
+                        </form>
+
+                    </div> <!--상세정보 + 신규/저장/삭제Btn End-->
+
+                </div> <!--조회조건 + QnA목록 그리드 + 상세정보 End-->
+            </div>
+        </div>
+    </div>
+    <footer class="mt-40 md:mt-40  px-12 inset-x-0 bottom-0 text-center object-none object-right-bottom ">
+        <hr class="six mb-0 md:mb-5">
+        <p class="font-extralight text-xs"> 서울특별시 금천구 가산디지털2로 166, 9층 901호 (가산동, 에이스 K1타워) </p>
+        <p class="font-extralight text-xs">
+            <span class="font-semibold">Tel.</span>
+            070-8786-7295~6 　
+            <span class="font-semibold">Fax.</span>
+            070-8787-9632　
+            <span class="font-semibold">대표자</span> 장재혁　
+            <span class="font-semibold">사업자등록번호</span>
+            204-81-81190
+        </p>
+        <p class="font-extralight text-xs">Copyright ITZON CO., Ltd. All Rights reserved.</p>
+    </footer>
+</div>
+<th:block th:replace="fragments/common/importFragment :: i-footer"></th:block>
+<script src="/js/web/notice/noticeQnA.js"></script>
+<script src="/js/web/notice/noticeQnAPopupAnswer.js"></script>
+</body>
+
+</html>
