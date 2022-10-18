@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      style="height: 100%;">
+<head>
+    <th:block th:replace="fragments/common/importFragment :: i-header"></th:block>
+</head>
+<body class="overflow-hidden">
+<div>
+    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+    <th:block th:replace="fragments/common/loaderFragment :: loader"></th:block>
+
+    <th:block th:replace="fragments/common/menuFragment :: mobileMenu"></th:block>
+    <div class="hidden" id="divNotice">
+        <th:block th:replace="fragments/common/alertFragment :: notice"></th:block>
+    </div>
+    <div class="hidden" id="divAlert">
+        <th:block th:replace="fragments/common/alertFragment :: alert"></th:block>
+    </div>
+    <div class="hidden" id="divConfirm">
+        <th:block th:replace="fragments/common/alertFragment :: confirm"></th:block>
+    </div>
+    <div class="hidden" id="divError">
+        <th:block th:replace="fragments/common/alertFragment :: error"></th:block>
+    </div>
+    <!-- Static sidebar for desktop -->
+    <th:block th:replace="fragments/common/menuFragment :: desktopMenu"></th:block>
+
+
+    <div id="divRight" class="md:pl-14 flex flex-col flex-1 h-screen" >
+        <!--header area-->
+        <div id="divHeader" class="bg-white sticky top-0 flex-shrink-0 flex h-16">
+            <button type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+                <span class="sr-only">Open sidebar</span>
+                <!-- Heroicon name: outline/menu-alt-2 -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
+                </svg>
+            </button>
+            <div class="flex-1 px-4 flex justify-between">
+                <div class="md:flex-1 flex ">
+
+                </div>
+                <div class="flex flex-wrap items-center">
+                    <input class="hidden" id="sessionUser" th:value="${session.user}"/>
+                    <input class="hidden" id="cti_klcns_url" th:value="${@environment.getProperty('cti.klcns.url')}"/>
+                    <input class="hidden" id="cti_klcns_port" th:value="${@environment.getProperty('cti.klcns.port')}"/>
+                    <input class="hidden" id="cti_ext_no" th:value="${@environment.getProperty('cti.klcns.port')}"/>
+                    <div class="flex items-center">
+                        <span class="m-2" th:text="${session.user.userNm}"></span>
+                        <div>(</div>
+                        <span th:text="${session.user.userExtPhone}"></span>
+                        <div class="mr-2">)</div>
+                    </div>
+                    <div class="flex items-center mx-1 inline-flex items-center  rounded-full  px-3 py-1 text-base font-medium shadow-sm">
+                        <div class="flex w-1/2 bg-white min-w-fit">
+                            <div class="rounded-l-full  text-slate-800 p-2 border border-zinc-600">상태</div>
+                            <div class="rounded-r-full  bg-zinc-800 text-white main-header-btn-selected p-2 border border-zinc-600">12:33:21</div>
+                        </div>
+                        <div class="w-1/2"></div>
+                    </div>
+
+                    <button id="mainHeader_btnCallWait" type="button" class="mx-1 inline-flex items-center main-header-btn-selected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:text-white hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-phone mx-1 mt-1"></i>대기
+                    </button>
+                    <button id="mainHeader_btnCallUp" type="button" class="mx-1 inline-flex items-center main-header-btn-unselected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-phone-alt mx-1 mt-1"></i>받기
+                    </button>
+                    <button id="mainHeader_btnCallHangup" type="button" class="mx-1 inline-flex items-center main-header-btn-unselected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-phone-slash mx-1 mt-1"></i>끊기
+                    </button>
+                    <button type="button" id="mainHeader_btnCallHold" class="mx-1 inline-flex items-center main-header-btn-unselected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-hourglass-half mx-1 mt-1"></i>보류
+                    </button>
+                    <button type="button" id="mainHeader_btnCallTransfer" class="mx-1 inline-flex items-center main-header-btn-unselected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-right-left mx-1 mt-1"></i>호전환
+                    </button>
+                    <button type="button" id="mainHeader_btnLogout" class="mx-1 inline-flex items-center main-header-btn-disabled rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-power-off mx-1 mt-1"></i>로그아웃
+                    </button>
+
+                    <!-- Profile dropdown -->
+                    <div class="ml-3 relative hidden">
+
+                        <div>
+                            <button type="button" class="max-w-xs bg-white flex items-center text-sm rounded-full" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <span class="sr-only">Open user menu</span>
+                                <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                            </button>
+                        </div>
+
+                        <!--
+                          Dropdown menu, show/hide based on menu state.
+
+                          Entering: "transition ease-out duration-100"
+                            From: "transform opacity-0 scale-95"
+                            To: "transform opacity-100 scale-100"
+                          Leaving: "transition ease-in duration-75"
+                            From: "transform opacity-100 scale-100"
+                            To: "transform opacity-0 scale-95"
+                        -->
+                        <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <!-- Active: "bg-gray-100", Not Active: "" -->
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--tab area-->
+        <div class="flex sticky h-8 top-16 m-0">
+            <div id= "divTab" class="flex  flex-shrink-0 bg-stone-200 h-auto text-sm pt-1 justify-left focus:border-3 focus:border-indigo-500 border-b-0">
+
+            </div>
+            <div class="border-b-2 border-indigo-900 flex flex-1 bg-stone-200"></div>
+        </div>
+
+        <div id="divPage" class="flex-1 w-full overflow-y-auto">
+        </div>
+    </div>
+</div>
+
+<!--<th:block th:replace="fragments/main/mainHeaderFragment :: mainHeader"></th:block>
+<th:block th:replace="fragments/main/mainTabFragment :: mainTab"></th:block>
+-->
+<th:block th:replace="fragments/common/importFragment :: i-footer"></th:block>
+</body>
+
+</html>

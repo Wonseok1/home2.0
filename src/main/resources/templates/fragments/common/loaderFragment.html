@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+
+
+<th:block th:fragment = "loader">
+
+<link href="/css/common/loader.css" rel="stylesheet">
+<div class="fixed h-screen w-screen bg-black opacity-50 flex justify-center items-center z-40 hidden" id="loader">
+    <div class="loader">
+        <div class="loader__bar"></div>
+        <div class="loader__bar"></div>
+        <div class="loader__bar"></div>
+        <div class="loader__bar"></div>
+        <div class="loader__bar"></div>
+        <div class="loader__ball"></div>
+    </div>
+</div>
+
+</th:block>
+
+</html>

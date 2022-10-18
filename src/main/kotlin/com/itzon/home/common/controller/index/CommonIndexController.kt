@@ -17,6 +17,12 @@ class CommonIndexController {
     fun getMainFrame(): String {
         return "views/main/main"
     }
+
+    @GetMapping("/login")
+    fun getMainFrame2(): String {
+        return "views/main/main"
+    }
+
     @GetMapping("/loginView")
     fun getLoginPage(model: Model, request : HttpServletRequest, response: HttpServletResponse): String {
         model.addAttribute("exception",request.getAttribute("loginFailMsg"));
@@ -31,7 +37,7 @@ class CommonIndexController {
 
     @GetMapping("/signup")
     fun getSignUpPage(): String {
-        return "views/common/signup/signup"
+        return "views/signup/signup"
     }
     @GetMapping("/getPage/{path1}/{pageId}")
     fun getPage1Depth(@PathVariable path1 : String, @PathVariable pageId : String, model: Model) : String {
