@@ -43,7 +43,7 @@ class SecurityConfig (
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http
             .authorizeHttpRequests()
-            .antMatchers("/**").permitAll()
+//            .antMatchers("/**").permitAll()
             .antMatchers("/css/**", "/js/**", "/img/**", "/lib/**", "/signup").permitAll()
             .antMatchers("/api/common/signup/check","/api/common/signup", "/login").permitAll()
             .anyRequest().authenticated()

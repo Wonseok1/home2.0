@@ -1,5 +1,6 @@
 package com.itzon.home.common.controller.index
 
+import com.itzon.home.common.service.MenuService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
@@ -11,8 +12,9 @@ import javax.servlet.http.HttpServletResponse
 
 
 @Controller
-class CommonIndexController {
-
+class CommonIndexController (
+    private val menuService: MenuService
+){
     @GetMapping("/")
     fun getMainFrame(): String {
         return "views/main/main"
@@ -41,23 +43,23 @@ class CommonIndexController {
     }
     @GetMapping("/getPage/{path1}/{pageId}")
     fun getPage1Depth(@PathVariable path1 : String, @PathVariable pageId : String, model: Model) : String {
-//        model["menu"] = menuService.findByPageId(pageId)
+        model["menu"] = menuService.findByPageId(pageId)
         return "views/"+path1+"/"+pageId
     }
     @GetMapping("/getPage/{path1}/{path2}/{pageId}")
     fun getPage2Depth(@PathVariable path1 : String, @PathVariable path2 : String, @PathVariable pageId : String, model: Model) : String {
-//        model["menu"] = menuService.findByPageId(pageId)
+        model["menu"] = menuService.findByPageId(pageId)
         return "views/"+path1+"/"+path2+"/"+pageId
     }
     @GetMapping("/getPage/{path1}/{path2}/{path3}/{pageId}")
     fun getPage3Depth(@PathVariable path1 : String, @PathVariable path2 : String, @PathVariable path3 : String, @PathVariable pageId : String, model: Model) : String {
-//        model["menu"] = menuService.findByPageId(pageId)
+        model["menu"] = menuService.findByPageId(pageId)
         return "views/"+path1+"/"+path2+"/"+path3+"/"+pageId
 
     }
     @GetMapping("/getPage/{path1}/{path2}/{path3}/{path4}/{pageId}")
     fun getPage4Depth(@PathVariable path1 : String, @PathVariable path2 : String, @PathVariable path3 : String, @PathVariable path4 : String, @PathVariable pageId : String, model: Model) : String {
-//        model["menu"] = menuService.findByPageId(pageId)
+        model["menu"] = menuService.findByPageId(pageId)
         return "views/"+path1+"/"+path2+"/"+path3+"/"+path4+"/"+pageId
     }
 

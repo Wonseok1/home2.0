@@ -30,7 +30,7 @@ spring:
     encoding: UTF-8
 
 server:
-  port: 8107
+  port: 8109
   servlet:
     session:
       timeout: 60m
@@ -51,15 +51,14 @@ spring:
   cache:
     type: NONE
   datasource:
-    url: jdbc:mariadb://211.44.183.197:3307/home?zeroDateTimeBehavior=convertToNull
+    url: jdbc:mariadb://211.44.183.197:3308/home?zeroDateTimeBehavior=convertToNull
     username: itzon
-    password: itzon1234!
+    password: itzon12345
     driver-class-name: org.mariadb.jdbc.Driver
     driver: org.mariadb.jdbc.Driver
     hikari:
-      max-lifetime: 30000
-      idle-timeout: 3000
-      maximum-pool-size: 50
+      max-lifetime: 10
+      idle-timeout: 10
   exposed:
     generate-ddl: true
 #  jpa:

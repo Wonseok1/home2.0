@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<div class="flex h-full w-full">
+    <div class="w-auto md:w-1/3 h-full p-2 overflow-y-auto" id="systemMenuManage_divMenu">
+        <!-- Sidebar component, swap this element with another sidebar if you like -->
+        <div class="flex flex-col flex-grow bg-indigo-900 overflow-y-auto overflow-x-hidden">
+            <div class="flex items-center flex-shrink-0 px-3 text-2xl font-medium rounded-md text-white">
+                <img class="h-8 w-auto" src="/img/logo/itz-logo-gray.png" alt="Workflow">
+                <div class="flex-1 px-4 py-4 overflow-x-hidden" style="white-space: nowrap;"> IT-ZON</div>
+            </div>
+            <div class="mt-5 flex-1 flex flex-col">
+                <nav class="flex-1 px-2 pb-4 space-y-1 text-2xl font-medium rounded-md text-white">
+                    <div id="systemMenuManage_divForAppend" class="space-y-1">
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="md:flex-1 w-full pb-2">
+        <div class="w-full  px-2 flex flex-col">
+            <div>
+                <h3 class="mt-2 text-lg leading-6 font-medium text-gray-900"  th:text="${menu.menuNm}"></h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500" th:text="${menu.menuComment}" ></p>
+            </div>
+            <div class="flex my-2 h-10">
+                <button id="systemGridManage_btnNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-circle-plus -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    신규
+                </button>
+                <button id="systemGridManage_btnSave" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-900 hover:bg-indigo-800 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-floppy-disk -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    저장
+                </button>
+                <button id="systemGridManage_btnDelete" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-trash-can -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    삭제
+                </button>
+            </div>
+
+            <!--            <div class="sixteen wide ag-theme-balham flex-1 w-full" id="systemGridManage_gridInfo"></div>-->
+            <!--tree 필요-->
+            <div>
+
+                <div>
+                    <label for="systemGridManage_menuId" class="block text-sm font-medium text-gray-700"> 메뉴 ID </label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuId" name="systemGridManage_menuId" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuNm" class="block text-sm font-medium text-gray-700">메뉴명</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuNm" name="systemGridManage_menuNm" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuComment" class="block text-sm font-medium text-gray-700">메뉴 설명</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuComment" name="systemGridManage_menuComment" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuLevel" class="block text-sm font-medium text-gray-700">메뉴 레벨</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuLevel" name="systemGridManage_menuLevel" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuIcon" class="block text-sm font-medium text-gray-700">메뉴 아이콘</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuIcon" name="systemGridManage_menuIcon" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuPageId" class="block text-sm font-medium text-gray-700">메뉴 페이지ID</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuPageId" name="systemGridManage_menuPageId" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuParentId" class="block text-sm font-medium text-gray-700">상위 메뉴 ID</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuParentId" name="systemGridManage_menuParentId" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuParentUrl" class="block text-sm font-medium text-gray-700">상위 메뉴 URL</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuParentUrl" name="systemGridManage_menuParentUrl" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuUrl" class="block text-sm font-medium text-gray-700">메뉴 URL</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuUrl" name="systemGridManage_menuUrl" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuPopupType" class="block text-sm font-medium text-gray-700">팝업 종류</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuPopupType" name="systemGridManage_menuPopupType" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_menuPopupYn" class="block text-sm font-medium text-gray-700">팝업 여부</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_menuPopupYn" name="systemGridManage_menuPopupYn" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_ordNo" class="block text-sm font-medium text-gray-700">정렬 순서</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_ordNo" name="systemGridManage_ordNo" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="systemGridManage_useYn" class="block text-sm font-medium text-gray-700">사용 여부</label>
+                    <div class="mt-1">
+                        <input id="systemGridManage_useYn" name="systemGridManage_useYn" type="text" autocomplete="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
