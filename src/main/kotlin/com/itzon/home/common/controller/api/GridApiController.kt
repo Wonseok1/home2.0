@@ -1,8 +1,8 @@
 package com.itzon.home.common.controller.api
 
+import com.itzon.home.common.constant.REST_COMMON_GRID
 import com.itzon.home.common.service.GridService
 import com.itzon.home.domain.table.TGridColumnDetailDto
-import com.itzon.itz.common.constant.REST_COMMON_GRID
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam

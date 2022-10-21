@@ -1,8 +1,8 @@
 package com.itzon.home.web.system.menu.controller
 
+import com.itzon.home.common.constant.REST_SYSTEM_MENU_MANAGE
 import com.itzon.home.domain.table.TMenuInfoDto
 import com.itzon.home.web.system.menu.service.SystemMenuManageService
-import com.itzon.itz.common.constant.REST_SYSTEM_MENU_MANAGE
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
 

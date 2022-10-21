@@ -30,12 +30,12 @@ spring:
     encoding: UTF-8
 
 server:
-  port: 8109
+  port: 443
   servlet:
     session:
       timeout: 60m
   ssl:
-    enabled: false
+    enabled: true
     key-alias: inaf
     key-store: inaf.pkcs12
     key-store-password: test1234
@@ -88,4 +88,5 @@ itzon:
     port: 22
     id: itzon
     password: itzon1234!0
+    defaultpath : /root/file/share
 ---

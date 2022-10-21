@@ -1,9 +1,9 @@
 package com.itzon.home.common.controller.api
 
+import com.itzon.home.common.constant.REST_COMMON_MENU
 import com.itzon.home.common.service.MenuService
 import com.itzon.home.domain.table.TMenuInfoDto
 import com.itzon.home.domain.table.TUserInfoDto
-import com.itzon.itz.common.constant.REST_COMMON_MENU
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

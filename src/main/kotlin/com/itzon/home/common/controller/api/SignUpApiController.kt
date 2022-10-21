@@ -1,8 +1,8 @@
 package com.itzon.home.common.controller.api
 
+import com.itzon.home.common.constant.REST_COMMON_SIGNUP
 import com.itzon.home.common.service.SignUpService
 import com.itzon.home.domain.table.TUserInfoDto
-import com.itzon.itz.common.constant.REST_COMMON_SIGNUP
 import org.springframework.web.bind.annotation.*
 
 

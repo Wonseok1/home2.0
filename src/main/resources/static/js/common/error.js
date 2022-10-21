@@ -5,5 +5,10 @@ $(document).ajaxError(function(event, jqxhr, settings, thrownError) {
     console.log("jqxhr ",jqxhr);
     console.log("settings ",settings);
     console.log("thrownError ",thrownError);
-    itzAlert.error(itzAlert.makeMsgJson("오류코드:"+ jqxhr.status, "발생시간: "+ jqxhr.timestamp+ "<br>"+ jqxhr.message, "확인") );
+    if (jqxhr.responseJSON) {
+        itzAlert.error(itzAlert.makeMsgJson("오류코드:"+ jqxhr.responseJSON.status, "발생시간: "+ jqxhr.responseJSON.timestamp+ "<br>"+ jqxhr.responseJSON.message, "확인") );
+    }else{
+        itzAlert.error(itzAlert.makeMsgJson("오류코드: 404", "발생시간: "+ new Date()+ "<br>"+ "파일이 존재하지 않습니다." +"<br>"+ settings.url, "확인") );
+    }
+
 });

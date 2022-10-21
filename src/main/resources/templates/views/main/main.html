@@ -8,9 +8,9 @@
 <head>
     <th:block th:replace="fragments/common/importFragment :: i-header"></th:block>
     <th:block th:replace="fragments/common/headerFragment :: header"></th:block>
+    <th:block th:replace="fragments/common/mobileHeaderFragment :: mobileHeader"></th:block>
 </head>
 <body >
-<th:block th:replace="fragments/common/mobileHeaderFragment :: mobileHeader"></th:block>
 
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-gray-800 py-32 px-6 md:visible lg:px-16">
@@ -313,7 +313,7 @@
     </footer>
 </div>
 <th:block th:replace="fragments/common/importFragment :: i-footer"></th:block>
-<script src="/js/main/main.js"></script>
+<script src="/js/web/main/main.js"></script>
 </body>
 
 </html>

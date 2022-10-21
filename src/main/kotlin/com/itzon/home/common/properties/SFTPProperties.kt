@@ -10,5 +10,6 @@ class SFTPProperties (
     val port: String,
     val id: String,
     val password: String,
+    val defaultpath: String,
         ){
 }
