@@ -1,4 +1,4 @@
-package com.itzon.itz.common.constant
+package com.itzon.home.common.constant
 
 private const val REST_ROOT = "/api"
 
@@ -8,6 +8,7 @@ const val REST_COMMON_GRID                  = "$REST_COMMON/grid"
 const val REST_COMMON_SIGNUP                = "$REST_COMMON/signup"
 const val REST_COMMON_CODE                  = "$REST_COMMON/code"
 const val REST_COMMON_ORG                   = "$REST_COMMON/org"
+const val REST_COMMON_NOTICE                = "$REST_COMMON/notice"
 
 const val REST_SYSTEM                       = "$REST_ROOT/system"
 
