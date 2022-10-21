@@ -24,6 +24,10 @@ class CommonIndexController (
     fun getMainFrame2(): String {
         return "views/main/main"
     }
+    @GetMapping("/system/main/main")
+    fun getSystemFrame2(): String {
+        return "views/system/main/main"
+    }
 
     @GetMapping("/loginView")
     fun getLoginPage(model: Model, request : HttpServletRequest, response: HttpServletResponse): String {
