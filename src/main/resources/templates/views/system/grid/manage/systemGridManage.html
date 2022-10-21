@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<div class="flex h-full w-full">
+    <div class="md:flex w-full pb-2">
+        <div class="w-full  mx-2 flex flex-col">
+            <div>
+                <h3 class="mt-2 text-lg leading-6 font-medium text-gray-900"  th:text="${menu.menuNm}"></h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500" th:text="${menu.menuComment}" ></p>
+            </div>
+            <div class="flex my-2 h-10">
+                <button id="systemGridManage_btnNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-circle-plus -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    신규
+                </button>
+                <button id="systemGridManage_btnSave" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-900 hover:bg-indigo-800 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-floppy-disk -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    저장
+                </button>
+                <button id="systemGridManage_btnDelete" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-trash-can -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    삭제
+                </button>
+            </div>
+            <div class="sixteen wide ag-theme-balham flex-1 w-full" id="systemGridManage_gridInfo"></div>
+        </div>
+    </div>
+</div>
+
+</html>

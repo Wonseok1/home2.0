@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="flex h-full w-full">
+    <div class="md:flex w-full pb-2">
+
+        <div class="w-full md:w-1/2  mx-2 flex flex-col border-2 border-stone-300 rounded-md mt-4">
+            <div class="flex mx-2 my-2 justify-between">
+                <div class="ml-2">
+                    <h4 class=" text-base leading-6 font-bold text-gray-900" th:text="${menu.menuNm}"></h4>
+                </div>
+            </div>
+            <div class="sixteen wide ag-theme-balham flex-1 mx-2 my-2 border border-stone-300 rounded-lg p-2 items-center" id="systemOrgManage_divTree" name="systemOrgManage_divTree"></div>
+        </div>
+        <div class="w-full md:w-1/2  mx-2 flex flex-col border-2 border-stone-300 rounded-md mt-4">
+            <div class="h-full">
+                <div class="flex mx-2 my-3 float-right ">
+                    <button id="systemOrgManage_btnNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-slate-500 hover:bg-slate-600 focus:outline-none ">
+                        <i class="fa-solid fa-circle-plus -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                        신규
+                    </button>
+                    <button id="systemOrgManage_btnSave" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-slate-500 hover:bg-slate-600 focus:outline-none ">
+                        <i class="fa-solid fa-floppy-disk -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                        저장
+                    </button>
+                    <button id="systemOrgManage_btnDelete" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-rose-500 hover:bg-rose-600 focus:outline-none ">
+                        <i class="fa-solid fa-trash-can -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                        삭제
+                    </button>
+                </div>
+                <div class="flex flex-col w-full">
+                    <div class="my-1 mx-2 ">
+                        <label for="systemOrgManage_org_id" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">조직 ID</label>
+                        <input type="text" id="systemOrgManage_org_id" class="mt-1 w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="my-1 mx-2">
+                        <label for="systemOrgManage_org_nm" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">조직명</label>
+                        <input type="text" name="name" id="systemOrgManage_org_nm" class="mt-1 w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder=""autocomplete="off" >
+                    </div>
+                    <div class="my-1 mx-2">
+                        <label for="systemOrgManage_org_lv" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">조직 LV</label>
+                        <input type="text" name="name" id="systemOrgManage_org_lv" class="mt-1 w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="my-1 mx-2">
+                        <label for="systemOrgManage_org_parent_id" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">부모 ID</label>
+                        <input type="text" id="systemOrgManage_org_parent_id" class="mt-1 w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="my-1 mx-2">
+                        <label for="systemOrgManage_org_parent_url" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">부모 URL</label>
+                        <input type="text" id="systemOrgManage_org_parent_url" class="mt-1 w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="my-1 mx-2">
+                        <label for="systemOrgManage_use_yn" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">사용여부</label>
+                        <input type="text" id="systemOrgManage_use_yn" class="mt-1 w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="my-1 mx-2">
+                        <label for="systemOrgManage_ord_no" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">정렬순서</label>
+                        <input type="text" id="systemOrgManage_ord_no" class="mt-1 w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

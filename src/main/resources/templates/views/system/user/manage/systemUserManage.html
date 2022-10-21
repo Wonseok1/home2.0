@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+
+<div class="flex h-full w-full">
+    <div class="flex w-full py-2">
+        <div class="md:w-3/4 mx-5 p-2 flex flex-col  mt-4">
+            <div class="flex my-1 mx-1 justify-between border border-stone-300 rounded-lg items-center p-3">
+                <div class="flex-none ml-2">
+                    <h3 class=" text-lg leading-6 font-bold text-gray-900" th:text="${menu.menuNm}"></h3>
+                </div>
+            </div>
+            <div class="ag-theme-balham flex-1 mx-1 mt-1" id="systemUserManage_grid"></div>
+        </div>
+        <div class="md:w-1/4 mx-5 p-2 h-full flex-1 flex flex-col  mt-4">
+            <div class="flex justify-end">
+                <div class="lg:flex my-2 mx-1 flex-wrap">
+                    <button id="systemUserManage_btnNew" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
+                        <i class="fa-solid fa-circle-plus -ml-1 mr-2 h-3 w-3"></i>
+                        신규
+                    </button>
+                    <button id="systemUserManage_btnSave" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
+                        <i class="fa-solid fa-floppy-disk -ml-1 mr-2 h-3 w-3"></i>
+                        저장
+                    </button>
+                    <button id="systemUserManage_btnDelete" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-rose-500 hover:bg-rose-600 focus:outline-none">
+                        <i class="fa-solid fa-trash-can -ml-1 mr-2 h-3 w-3"></i>
+                        삭제
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col flex-1">
+                <div class="lg:flex align-middle py-1">
+                    <div class="lg:w-1/2 md:w-full mx-1" id="userIdDiv">
+                        <label for="systemUserManage_userId" class="my-2 mr-1 text-sm font-medium bg-zinc-400 text-white rounded-md px-2">사용자ID</label>
+                        <input type="text" name="name" id="systemUserManage_userId" class="w-full mr-2 appearance-none block flex py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" readonly>
+                    </div>
+                    <div class="lg:w-1/2 md:w-full mx-1" id="userNmDiv">
+                        <label for="systemUserManage_userNm" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">사용자명</label>
+                        <input type="text" name="name" id="systemUserManage_userNm" class="w-full appearance-none block py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm"  >
+                    </div>
+                </div>
+                <div class="lg:flex align-middle py-1">
+                    <div class="lg:w-1/2 md:w-full mx-1" id="userPwDiv">
+                        <label for="systemUserManage_userPw" class="my-2 mr-1 text-sm font-medium bg-zinc-400 text-white rounded-md px-2">비밀번호</label>
+                        <input type="password" name="name" id="systemUserManage_userPw" class="w-full mr-2 appearance-none block py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm"  >
+                    </div>
+                    <div class="lg:w-1/2 md:w-full mx-1">
+                        <label for="systemUserManage_userPw_check" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">비밀번호 확인</label>
+                        <input type="password" name="name" id="systemUserManage_userPw_check" class="w-full appearance-none block py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm"  >
+                    </div>
+                </div>
+                <div class="lg:flex align-middle py-1">
+                    <div class="lg:w-1/2 md:w-full mx-1">
+                        <label for="systemUserManage_userExtPhone" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">내선번호</label>
+                        <input type="text" name="name" id="systemUserManage_userExtPhone" class="w-full appearance-none block py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm"  >
+                    </div>
+                    <div class="lg:w-1/2 md:w-full mx-1">
+                        <label for="systemUserManage_userAuthId" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">사용자권한</label>
+                        <select name="name" id="systemUserManage_userAuthId" class="w-full appearance-none block py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm">
+                            <option value="" selected>선택</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="lg:flex align-middle py-1">
+                    <div class="lg:w-full md:w-full mx-1 sixteen wide ag-theme-balham mx-2 my-2 border border-stone-300 rounded-lg p-2 items-center" id="systemUserManage_divTree" name="systemUserManage_divTree" style="min-width: 200px;"></div>
+                </div>
+                <div class="lg:flex align-middle py-1">
+                    <div class="lg:w-1/2 md:w-full mx-1">
+                        <label for="systemUserManage_useYn" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">재직구분</label>
+                        <select required="required"  data-bind="value: state" name="name" id="systemUserManage_useYn" class="w-full appearance-none block py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm">
+                        </select>
+                    </div>
+                    <div class="lg:w-1/2 md:w-full mx-1">
+                        <label for="systemUserManage_ctiYn" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">CTI사용여부</label>
+                        <select required="required"  name="name" id="systemUserManage_ctiYn" class="w-full appearance-none block py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm">
+                        </select>
+                    </div>
+                </div>
+                <div class="lg:flex align-middle py-1">
+                    <div class="lg:w-1/2 md:w-full mx-1">
+                        <label for="systemUserManage_work_start" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">입사일자</label>
+                        <input type="date" id="systemUserManage_work_start" class="w-full block p-1 rounded-md border border-zinc-300 cursor-pointer" style="font-size: small;">
+                    </div>
+                    <div class="lg:w-1/2 md:w-full mx-1">
+                        <label for="systemUserManage_work_end" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">퇴직일자</label>
+                        <input type="date" id="systemUserManage_work_end" class="w-full block p-1 rounded-md border border-zinc-300 cursor-pointer" style="font-size: small;">
+                    </div>
+                </div>
+            </div>
+
+
+            <!--<div class="my-1 flex-1 flex-col">
+                <div class="w-full px-1 pt-1 flex-1">
+                    <label for="systemUserManage_userId" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">사용자ID</label>
+                    <input type="text" name="name" id="systemUserManage_userId" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" >
+                </div>
+                <div class="w-full px-1 pt-1">
+                    <label for="systemUserManage_userPw" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">비밀번호</label>
+                    <input type="text" name="name" id="systemUserManage_userPw" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm"  >
+                </div>
+                <div class="w-full px-1 pt-1">
+                    <label for="systemUserManage_userPw_check" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">비밀번호 확인</label>
+                    <input type="text" name="name" id="systemUserManage_userPw_check" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm"  >
+                </div>
+                <div class="w-full px-1 pt-1">
+                    <label for="systemUserManage_userNm" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">사용자명</label>
+                    <input type="text" name="name" id="systemUserManage_userNm" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm"  >
+                </div>
+                <div class="w-full px-1 pt-1">
+                    <label for="systemUserManage_userAuthId" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">권한</label>
+                    <select name="name" id="systemUserManage_userAuthId" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm">
+                    </select>
+                </div>
+
+                <div class="sixteen wide ag-theme-balham flex-1 mx-2 my-2 border border-stone-300 rounded-lg p-2 items-center" id="systemUserManage_divTree" name="systemUserManage_divTree"></div>
+
+                <div class="w-full px-1 pt-1">
+                    <label for="systemUserManage_useYn" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">재직구분</label>
+                    <select name="name" id="systemUserManage_useYn" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm">
+                    </select>
+                </div>
+                <div class="w-full px-1 pt-1">
+                    <label for="systemUserManage_ctiYn" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">CTI사용여부</label>
+                    <select name="name" id="systemUserManage_ctiYn" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm">
+                    </select>
+                </div>
+                <div class="w-full px-1 pt-1">
+                    <label for="systemUserManage_userExtNo" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">내선번호</label>
+                    <input type="text" name="name" id="systemUserManage_userExtNo" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm"  >
+                </div>
+                <div class="w-full px-1 pt-1">
+                    <label for="systemUserManage_userEmail" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">메일주소</label>
+                    <input type="text" name="name" id="systemUserManage_userEmail" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" >
+                </div>
+                <div class="w-full px-1 pt-1">
+                    <label for="systemUserManage_userPhone" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">전화번호</label>
+                    <input type="text" name="name" id="systemUserManage_userPhone" class="w-full appearance-none block flex-1 py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm"  >
+                </div>
+            </div>-->
+
+        </div>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<div class="flex h-full w-full">
+    <div class="md:flex w-full pb-2">
+        <div class="w-full md:w-1/3  mx-2 flex flex-col">
+            <div>
+                <h3 class="mt-2 text-lg leading-6 font-medium text-gray-900">그리드</h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">그리드의 목록을 보여줍니다.</p>
+            </div>
+            <!--<div class="flex my-2 h-10">
+                <button id="systemGridHeader_btnInfoNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none ">
+                    &lt;!&ndash; Heroicon name: solid/mail &ndash;&gt;
+                    <i class="fa-solid fa-circle-plus -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    신규
+                </button>
+                <button id="systemGridHeader_btnInfoSave" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-900 hover:bg-indigo-800 focus:outline-none ">
+                    &lt;!&ndash; Heroicon name: solid/mail &ndash;&gt;
+                    <i class="fa-solid fa-floppy-disk -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    저장
+                </button>
+                <button id="systemGridHeader_btnInfoDelete" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 focus:outline-none ">
+                    &lt;!&ndash; Heroicon name: solid/mail &ndash;&gt;
+                    <i class="fa-solid fa-trash-can -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    삭제
+                </button>
+            </div>-->
+            <div class="mt-2 sixteen wide ag-theme-balham flex-1 w-full" id="systemGridHeader_gridInfo"></div>
+        </div>
+        <div class="w-full md:w-2/3  px-2 flex flex-col">
+            <div>
+                <h3 class="mt-2 text-lg leading-6 font-medium text-gray-900"  th:text="${menu.menuNm}"></h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500" th:text="${menu.menuComment}" ></p>
+            </div>
+            <div class="flex my-2 h-10">
+                <button id="systemGridHeader_btnDetailNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-circle-plus -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    신규
+                </button>
+                <button id="systemGridHeader_btnDetailSave" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-900 hover:bg-indigo-800 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-floppy-disk -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    저장
+                </button>
+                <button id="systemGridHeader_btnDetailDelete" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-trash-can -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    삭제
+                </button>
+            </div>
+            <div class="sixteen wide ag-theme-balham flex-1 w-full" id="systemGridHeader_gridColumn"></div>
+        </div>
+    </div>
+</div>
+
+</html>

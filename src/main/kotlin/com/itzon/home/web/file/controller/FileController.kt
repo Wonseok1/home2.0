@@ -17,4 +17,28 @@ class FileController (
         println(sftpProperties.id)
 
     }
+
+    fun mkdir() {
+    }
+
+    fun uploadFile() {
+
+    }
+
+    fun downloadFile() {
+
+    }
+
+    fun uploadMultiFiles() {
+
+    }
+
+    fun downloadMultiFiles() {
+
+    }
+
+    fun getFilesList() {
+
+    }
+
 }

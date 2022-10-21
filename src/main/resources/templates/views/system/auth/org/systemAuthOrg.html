@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<div class="flex h-full w-full">
+    <div class="md:flex w-full pb-2">
+
+        <div class="w-full h-full md:w-1/2 mx-2 flex flex-col p-2 flex flex-col border border-zinc-500 rounded-md mt-4">
+            <div class="flex w-full my-2 p-2 border border-zinc-500 rounded-lg">
+                <div class="flex-none ml-2">
+                    <h3 class="text-lg font-bold leading-6 font-medium text-gray-900">권한목록</h3>
+                </div>
+            </div>
+            <div class="mt-2 sixteen wide ag-theme-balham flex-1 w-full" id="systemAuthOrg_grid"></div>
+        </div>
+
+        <div class="w-full md:w-1/2 mx-2 flex flex-col p-2 flex flex-col border border-zinc-500 rounded-md mt-4">
+            <div class="flex w-full my-2 p-2 border border-zinc-500 rounded-lg">
+                <div class="flex-none ml-2">
+                    <h3 class="text-lg font-bold leading-6 font-medium text-gray-900"  th:text="${menu.menuNm}"></h3>
+                </div>
+            </div>
+            <div class="flex mt-2 pt-1 border-solid border border-zinc-500" style="height: 90%;">
+
+                <div class="sixteen wide ag-theme-balham flex-1 w-full overflow-auto" id="systemAuthOrg_divTree"></div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+</html>

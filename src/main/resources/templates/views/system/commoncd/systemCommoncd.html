@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<div class="flex h-full w-full">
+    <div class="md:flex w-full pb-2">
+        <div class="w-full md:w-1/2  mx-2 flex flex-col">
+            <div>
+            </div>
+            <div class="flex my-2 h-10 justify-between">
+                <h3 class="mt-4 text-xl leading-6 font-bold text-gray-900"  th:text="${menu.menuNm}"></h3>
+                <div class="mt-2">
+                    <button id="systemCommoncd_btnInfoNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                        <i class="fa-solid fa-circle-plus -ml-1 mr-2 h-3 w-3"></i>
+                        신규
+                    </button>
+                    <button id="systemCommoncd_btnInfoRefresh" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-stone-400 hover:bg-stone-500 focus:outline-none ">
+                        <i class="fa-solid fa-arrows-spin -ml-1 mr-2 h-3 w-3"></i>
+                        새로고침
+                    </button>
+                    <button id="systemCommoncd_btnInfoSave" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                        <i class="fa-solid fa-floppy-disk -ml-1 mr-2 h-3 w-3"></i>
+                        저장
+                     </button>
+                </div>
+
+
+            </div>
+            <div class="mt-2 sixteen wide ag-theme-balham flex-1 w-full" id="systemCommonCdInfo_grid"></div>
+        </div>
+        <div class="w-full md:w-1/2  mx-2 flex flex-col">
+            <div>
+
+            </div>
+                <div class="flex my-2 h-10 justify-between">
+                <h3 class="mt-4 text-xl leading-6 font-bold text-gray-900" >상세코드 관리</h3>
+                    <div class="mt-2">
+                        <button id="systemCommoncd_btnDetailNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                            <i class="fa-solid fa-circle-plus -ml-1 mr-2 h-3 w-3"></i>
+                            신규
+                        </button>
+                        <button id="systemCommoncd_btnDetailRefresh" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-stone-400 hover:bg-stone-500 focus:outline-none ">
+                            <i class="fa-solid fa-arrows-spin -ml-1 mr-2 h-3 w-3"></i>
+                            새로고침
+                        </button>
+                        <button id="systemCommoncd_btnDetailSave" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                            <span><i class="fa-solid fa-floppy-disk -ml-1 mr-2 h-3 w-3"></i></span>
+                            <span>저장</span>
+                        </button>
+                    </div>
+            </div>
+            <div class="mt-2 sixteen wide ag-theme-balham flex-1 w-full" id="systemCommoncdDtl_grid"></div>
+        </div>
+
+    </div>
+</div>
+
+</html>
