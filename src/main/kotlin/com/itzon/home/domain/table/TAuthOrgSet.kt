@@ -8,7 +8,7 @@ import org.jetbrains.exposed.sql.Table
 
 object TAuthOrgSet : Table(name = "t_auth_org_set"){
     val authOrgPk = integer("auth_org_pk")
-    override val primaryKey     = PrimaryKey(authOrgPk, name = "api_pk")
+    override val primaryKey     = PrimaryKey(authOrgPk, name = "auth_org_pk")
 
     val authId = varchar("auth_id", 100)
     val orgId = varchar("org_id", 100)

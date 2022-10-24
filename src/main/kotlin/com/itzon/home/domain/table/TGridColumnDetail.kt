@@ -8,7 +8,7 @@ import org.jetbrains.exposed.sql.Table
 
 object TGridColumnDetail : Table(name = "t_grid_column_detail"){
     val gridColumnPk =  integer("grid_column_pk").autoIncrement()
-    override val primaryKey = PrimaryKey(gridColumnPk, name= "t_my_page_set")
+    override val primaryKey = PrimaryKey(gridColumnPk, name= "grid_column_pk")
 
     val gridId              = varchar("grid_id", 100)
     val gridColumn          = varchar("grid_column", 100)
