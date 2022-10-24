@@ -34,6 +34,7 @@
     background: #e0f2fe;
     transition: max-height 0.7s;
     max-height: 0;
+    z-index: 31;
 }
 .subMenu a{
     display: block;

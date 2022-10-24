@@ -5,11 +5,12 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IdTable
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.ResultRow
+import org.jetbrains.exposed.sql.Table
 
-object TAuthGridSet : IdTable<Int>(name = "t_auth_grid_set") {
+object TAuthGridSet : Table(name = "t_auth_grid_set") {
 
     val authGridPk = integer("auth_grid_pk").autoIncrement()
-    override val id: Column<EntityID<Int>> = authGridPk.entityId()
+    override val primaryKey     = PrimaryKey(authGridPk, name = "api_pk")
 
     val authId = varchar("auth_id", 100)
     val gridId = varchar("grid_id", 100)

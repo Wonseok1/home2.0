@@ -4,10 +4,11 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IdTable
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.ResultRow
+import org.jetbrains.exposed.sql.Table
 
-object TAuthOrgSet : IdTable<Int>(name = "t_auth_org_set"){
+object TAuthOrgSet : Table(name = "t_auth_org_set"){
     val authOrgPk = integer("auth_org_pk")
-    override val id: Column<EntityID<Int>> = authOrgPk.entityId()
+    override val primaryKey     = PrimaryKey(authOrgPk, name = "api_pk")
 
     val authId = varchar("auth_id", 100)
     val orgId = varchar("org_id", 100)

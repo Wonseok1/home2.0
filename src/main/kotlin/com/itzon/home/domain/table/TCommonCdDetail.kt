@@ -4,10 +4,11 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IdTable
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.ResultRow
+import org.jetbrains.exposed.sql.Table
 
-object TCommonCdDetail : IdTable<Int>(name = "t_common_cd_detail"){
+object TCommonCdDetail : Table(name = "t_common_cd_detail"){
     val commonCdDetailPk = integer("common_cd_detail_pk").autoIncrement()
-    override val id: Column<EntityID<Int>> = commonCdDetailPk.entityId()
+    override val primaryKey     = PrimaryKey(commonCdDetailPk, name = "api_pk")
 
     val commonCd = varchar("common_cd", 100)
     val commonCdDetail = varchar("common_cd_detail", 100)
