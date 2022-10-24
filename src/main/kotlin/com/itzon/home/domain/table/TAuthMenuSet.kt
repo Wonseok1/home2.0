@@ -8,7 +8,7 @@ import org.jetbrains.exposed.sql.Table
 
 object TAuthMenuSet : Table(name = "t_auth_menu_set"){
     val authMenuPk = integer("auth_menu_pk").autoIncrement()
-    override val primaryKey = PrimaryKey(authMenuPk, name= "t_my_page_set")
+    override val primaryKey = PrimaryKey(authMenuPk, name= "auth_menu_pk")
     val authId = varchar("auth_id", 100)
     val menuId = varchar("menu_id", 100)
 }

@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<div id="divImg" class="max-w-7xl mx-auto pt-4 pl-20 ">
+<div id="divImg" class="max-w-7xl md:w-auto mx-auto pt-4 pl-20 ">
     <img class="pb-4" src="/img/1.png" id="img1">
     <img class="pb-4" src="/img/2.png">
     <img class="pb-4" src="/img/3.png">
@@ -61,6 +61,8 @@
     <img class="pb-4" src="/img/13.png">
 </div>
 </body>
+
+<th:block th:replace="fragments/common/footerFragment :: footer"></th:block>
 <th:block th:replace="fragments/common/importFragment :: i-footer"></th:block>
 <script src="/js/web/solution/solution.js"></script>
 </html>

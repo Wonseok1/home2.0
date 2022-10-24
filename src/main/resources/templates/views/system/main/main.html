@@ -4,28 +4,28 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       style="height: 100%;">
 <head>
-    <th:block th:replace="/fragments/common/importFragment :: i-header"></th:block>
+    <th:block th:replace="fragments/common/importFragment :: i-header"></th:block>
 </head>
 <body class="overflow-hidden">
 <div>
     <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-    <th:block th:replace="/fragments/common/loaderFragment :: loader"></th:block>
+    <th:block th:replace="fragments/common/loaderFragment :: loader"></th:block>
 
-<!--    <th:block th:replace="/fragments/common/menuFragment :: mobileMenu"></th:block>-->
+<!--    <th:block th:replace="fragments/common/menuFragment :: mobileMenu"></th:block>-->
     <div class="hidden" id="divNotice">
-        <th:block th:replace="/fragments/common/alertFragment :: notice"></th:block>
+        <th:block th:replace="fragments/common/alertFragment :: notice"></th:block>
     </div>
     <div class="hidden" id="divAlert">
-        <th:block th:replace="/fragments/common/alertFragment :: alert"></th:block>
+        <th:block th:replace="fragments/common/alertFragment :: alert"></th:block>
     </div>
     <div class="hidden" id="divConfirm">
-        <th:block th:replace="/fragments/common/alertFragment :: confirm"></th:block>
+        <th:block th:replace="fragments/common/alertFragment :: confirm"></th:block>
     </div>
     <div class="hidden" id="divError">
-        <th:block th:replace="/fragments/common/alertFragment :: error"></th:block>
+        <th:block th:replace="fragments/common/alertFragment :: error"></th:block>
     </div>
     <!-- Static sidebar for desktop -->
-    <th:block th:replace="/fragments/common/menuFragment :: desktopMenu"></th:block>
+    <th:block th:replace="fragments/common/menuFragment :: desktopMenu"></th:block>
 
 
     <div id="divRight" class="md:pl-14 flex flex-col flex-1 h-screen" >
@@ -120,7 +120,7 @@
 <!--<th:block th:replace="fragments/main/mainHeaderFragment :: mainHeader"></th:block>
 <th:block th:replace="fragments/main/mainTabFragment :: mainTab"></th:block>
 -->
-<th:block th:replace="/fragments/common/importFragment :: i-framefooter"></th:block>
+<th:block th:replace="fragments/common/importFragment :: i-framefooter"></th:block>
 </body>
 
 </html>

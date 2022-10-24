@@ -22,7 +22,7 @@ spring:
     cache: false
 
   session:
-    store-type: jdbc
+    jdbc.initialize-schema: always
 
   messages:
     basename: messages,ValidationMessages,PropertyNames
@@ -30,12 +30,10 @@ spring:
     encoding: UTF-8
 
 server:
-  port: 443
   servlet:
     session:
       timeout: 60m
   ssl:
-    enabled: true
     key-alias: inaf
     key-store: inaf.pkcs12
     key-store-password: test1234
@@ -45,6 +43,7 @@ server:
   error:
     whitelabel:
       enabled: false
+
 ---
 spring:
   profiles: test
@@ -69,12 +68,74 @@ logging:
   level:
     Exposed: debug
 
+
+server:
+  port: 443
+  ssl:
+    enabled: true
+
 cti:
   klcns:
     url: 124.139.166.173
     #    url: 211.253.38.136
     port: 18088
 
+port:
+  http: 80
+  https: 443
+
+itzon:
+  server:
+    url: 211.44.183.197
+    port: 443
+    sample:
+      url: 1.2.3.4
+      port: 2020
+  sftp:
+    url: 211.44.183.197
+    port: 22
+    id: itzon
+    password: itzon1234!0
+    defaultpath : /root/file/share
+---
+---
+spring:
+  profiles: local
+  cache:
+    type: NONE
+  datasource:
+    url: jdbc:mariadb://211.44.183.197:3308/home?zeroDateTimeBehavior=convertToNull
+    username: itzon
+    password: itzon12345
+    driver-class-name: org.mariadb.jdbc.Driver
+    driver: org.mariadb.jdbc.Driver
+    hikari:
+      max-lifetime: 30000
+      idle-timeout: 10000
+  exposed:
+    generate-ddl: true
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+
+logging:
+  level:
+    Exposed: debug
+
+server:
+  port: 8104
+  ssl:
+    enabled: false
+
+cti:
+  klcns:
+    url: 124.139.166.173
+    #    url: 211.253.38.136
+    port: 18088
+
+port:
+  http: 8103
+  https: 8104
 
 itzon:
   server:

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      style="height: 100%;">
+<head>
+    <th:block th:replace="fragments/common/importFragment :: i-header"></th:block>
+</head>
+<body class="overflow-hidden">
+<div>
+    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+    <th:block th:replace="fragments/common/loaderFragment :: loader"></th:block>
+
+    <!--    <th:block th:replace="fragments/common/menuFragment :: mobileMenu"></th:block>-->
+    <div class="hidden" id="divNotice">
+        <th:block th:replace="fragments/common/alertFragment :: notice"></th:block>
+    </div>
+    <div class="hidden" id="divAlert">
+        <th:block th:replace="fragments/common/alertFragment :: alert"></th:block>
+    </div>
+    <div class="hidden" id="divConfirm">
+        <th:block th:replace="fragments/common/alertFragment :: confirm"></th:block>
+    </div>
+    <div class="hidden" id="divError">
+        <th:block th:replace="fragments/common/alertFragment :: error"></th:block>
+    </div>
+    <!-- Static sidebar for desktop -->
+    <th:block th:replace="fragments/common/menuFragment :: desktopMenu"></th:block>
+
+
+    <div id="divRight" class="md:pl-14 flex flex-col flex-1 h-screen" >
+        <!--header area-->
+        <div id="divHeader" class="bg-white sticky top-0 flex-shrink-0 flex h-10">
+            <button type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+                <span class="sr-only">Open sidebar</span>
+                <!-- Heroicon name: outline/menu-alt-2 -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
+                </svg>
+            </button>
+            <div class="flex-1 px-4 flex justify-between">
+                <div class="md:flex-1 flex ">
+
+                </div>
+                <div class="flex flex-wrap items-center">
+                    <div class="flex items-center">
+                    </div>
+                    <div class="flex items-center mx-1 inline-flex items-center  rounded-full  px-3 py-1 text-base font-medium shadow-sm">
+                        <div class="flex w-1/2 bg-white min-w-fit">
+                            <div class="rounded-l-full  text-slate-800 p-2 border border-zinc-600">상태</div>
+                            <div class="rounded-r-full  bg-zinc-800 text-white main-header-btn-selected p-2 border border-zinc-600">12:33:21</div>
+                        </div>
+                        <div class="w-1/2"></div>
+                    </div>
+
+                    <button id="mainHeader_btnCallWait" type="button" class="mx-1 inline-flex items-center main-header-btn-selected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:text-white hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-phone mx-1 mt-1"></i>대기
+                    </button>
+                    <button id="mainHeader_btnCallUp" type="button" class="mx-1 inline-flex items-center main-header-btn-unselected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-phone-alt mx-1 mt-1"></i>받기
+                    </button>
+                    <button id="mainHeader_btnCallHangup" type="button" class="mx-1 inline-flex items-center main-header-btn-unselected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-phone-slash mx-1 mt-1"></i>끊기
+                    </button>
+                    <button type="button" id="mainHeader_btnCallHold" class="mx-1 inline-flex items-center main-header-btn-unselected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-hourglass-half mx-1 mt-1"></i>보류
+                    </button>
+                    <button type="button" id="mainHeader_btnCallTransfer" class="mx-1 inline-flex items-center main-header-btn-unselected rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-right-left mx-1 mt-1"></i>호전환
+                    </button>
+                    <button type="button" id="mainHeader_btnLogout" class="mx-1 inline-flex items-center main-header-btn-disabled rounded-full border border-zinc-600 px-3 py-1 text-base font-medium shadow-sm hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2">
+                        <i class="fa-solid fa-power-off mx-1 mt-1"></i>로그아웃
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="divPage" class="flex-1 w-full overflow-y-auto">
+        </div>
+    </div>
+</div>
+
+<!--<th:block th:replace="fragments/main/mainHeaderFragment :: mainHeader"></th:block>
+<th:block th:replace="fragments/main/mainTabFragment :: mainTab"></th:block>
+-->
+<th:block th:replace="fragments/common/importFragment :: i-framefooter"></th:block>
+</body>
+
+</html>
