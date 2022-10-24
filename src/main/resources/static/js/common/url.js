@@ -5,6 +5,9 @@ const REST_COMMON_MENU_URL                      = REST_COMMON_URL + "/menu";
 const REST_COMMON_GRID_URL                      = REST_COMMON_URL + "/grid";
 const REST_COMMON_CODE_URL                      = REST_COMMON_URL + "/code";
 const REST_COMMON_ORG_URL                       = REST_COMMON_URL + "/org";
+// const REST_COMMON_NOTICE_URL                    = REST_COMMON_URL + "/notice";
+
+const REST_COMPANY_URL                           = REST_ROOT_URL + "/company";
 
 const REST_SYSTEM_URL                           = REST_ROOT_URL + "/system";
 const REST_STAT_URL                             = REST_ROOT_URL + "/stat";
@@ -63,8 +66,10 @@ const  REST_COUNSEL_SCRIPT_URL                  = REST_COUNSEL_URL+"/script" ;
 const  REST_COUNSEL_MAIN_URL                    = REST_COUNSEL_URL+"/main";
 
 
-
-
 const  REST_SMS_URL                             = REST_ROOT_URL+"/sms";
 const  REST_SMS_SCRIPT_URL                      = REST_SMS_URL+"/script";
 const  REST_SMS_SEND_URL                        = REST_SMS_URL+"/send";
+
+
+const  REST_COMPANY_NOTICE_URL                  = REST_COMPANY_URL+"/notice";
+const  REST_COMPANY_NOTICE_NOTICE_URL           = REST_COMPANY_NOTICE_URL+"/notice";

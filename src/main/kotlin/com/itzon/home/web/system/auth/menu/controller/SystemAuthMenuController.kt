@@ -1,10 +1,10 @@
 package com.itzon.home.web.system.auth.menu.controller
 
+import com.itzon.home.common.constant.REST_SYSTEM_AUTH_MENU
 import com.itzon.home.domain.table.TAuthInfoDto
 import com.itzon.home.domain.table.TAuthMenuSetDto
 import com.itzon.home.domain.table.TMenuInfoDto
 import com.itzon.home.web.system.auth.menu.service.SystemAuthMenuService
-import com.itzon.itz.common.constant.REST_SYSTEM_AUTH_MENU
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
 

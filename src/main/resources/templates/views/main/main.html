@@ -8,312 +8,203 @@
 <head>
     <th:block th:replace="fragments/common/importFragment :: i-header"></th:block>
     <th:block th:replace="fragments/common/headerFragment :: header"></th:block>
+    <th:block th:replace="fragments/common/mobileHeaderFragment :: mobileHeader"></th:block>
 </head>
 <body >
-<th:block th:replace="fragments/common/mobileHeaderFragment :: mobileHeader"></th:block>
 
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative bg-gray-800 py-32 px-6 md:visible lg:px-16">
-    <div class="absolute inset-0 overflow-hidden md:visible">
-        <img src="/img/hompageimg.jpg" alt="" class="w-full h-full object-center object-cover">
-    </div>
-    <div aria-hidden="true" class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
-    <div class="relative max-w-3xl mx-auto flex flex-col items-left text-left">
-        <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">고객의 고객을 위한 기업</h2>
-        <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">혁신을 선도하는 (주)아이티존</h2>
-        <p class="mt-3 text-xl text-white">아이티존은 혁신을 선도하는 기업으로 더 나은 기술을 지향합니다.</p>
-    </div>
-</div>
-<div class="w-full xl:flex m-2">
-    <div class="xl:w-1/3 m-1">
-        <div class="justify-center">
-            <div class=" text-2xl font-bold flex-wrap m-2">Quick Link</div>
-            <hr class="six mb-0 md:mb-5">
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div class="relative bg-gray-800 py-32 px-6 md:visible lg:px-16">
+        <div class="absolute inset-0 overflow-hidden md:visible">
+            <img src="/img/hompageimg.jpg" alt="" class="w-full h-full object-center object-cover">
         </div>
-        <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-3 sm:gap-px sm:divide-y-0" onclick="location.href='/company/job/job'">
-            <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
-                <div>
-                  <span class="rounded-lg inline-flex p-3 bg-teal-50 text-teal-700 ring-4 ring-white">
-                    <!-- Heroicon name: outline/clock -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </span>
-                </div>
-                <div class="mt-8 flex">
-                    <h3 class="text-lg font-medium">
-                        <a href="#" class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true"></span>
-                                채용정보
-                        </a>
-                    </h3>
-                </div>
-                <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                  </svg>
-                </span>
-            </div>
-
-            <div class="sm:rounded-tr-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/direction/direction'">
-                <div>
-                  <span class="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
-                    <!-- Heroicon name: outline/check-badge -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-                    </svg>
-                  </span>
-                </div>
-                <div class="mt-8 flex">
-                    <h3 class="text-lg font-medium">
-                        <a href="#" class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true"></span>
-                            오시는길
-                        </a>
-                    </h3>
-<!--                                <p class="mt-2 text-sm text-gray-500">Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.</p>-->
-                </div>
-                <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                  </svg>
-                </span>
-            </div>
-
-            <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/solution/solution'">
-                <div>
-                  <span class="rounded-lg inline-flex p-3 bg-sky-50 text-sky-700 ring-4 ring-white">
-                    <!-- Heroicon name: outline/users -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                    </svg>
-                  </span>
-                </div>
-                <div class="mt-8">
-                    <h3 class="text-lg font-medium">
-                        <a href="#" class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true"></span>
-                            솔루션
-                        </a>
-                    </h3>
-                </div>
-                <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                  </svg>
-                </span>
-            </div>
-
-            <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/consulting/consulting'">
-                <div>
-                  <span class="rounded-lg inline-flex p-3 bg-yellow-50 text-yellow-700 ring-4 ring-white">
-                    <!-- Heroicon name: outline/banknotes -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-                    </svg>
-                  </span>
-                </div>
-                <div class="mt-8">
-                    <h3 class="text-lg font-medium">
-                        <a href="#" class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true"></span>
-                            컨설팅
-                        </a>
-                    </h3>
-                </div>
-                <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                  </svg>
-                </span>
-            </div>
-
-            <div class="sm:rounded-bl-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/business/business'">
-                <div>
-                  <span class="rounded-lg inline-flex p-3 bg-rose-50 text-rose-700 ring-4 ring-white">
-                    <!-- Heroicon name: outline/receipt-refund -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9.75h4.875a2.625 2.625 0 010 5.25H12M8.25 9.75L10.5 7.5M8.25 9.75L10.5 12m9-7.243V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185z" />
-                    </svg>
-                  </span>
-                </div>
-                <div class="mt-8">
-                    <h3 class="text-lg font-medium">
-                        <a href="#" class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true"></span>
-                            시스템통합
-                        </a>
-                    </h3>
-                </div>
-                <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                  </svg>
-                </span>
-            </div>
-
-            <div class="rounded-bl-lg rounded-br-lg sm:rounded-bl-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/project/project'">
-                <div>
-                  <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
-                    <!-- Heroicon name: outline/academic-cap -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-                    </svg>
-                  </span>
-                </div>
-                <div class="mt-8">
-                    <h3 class="text-lg font-medium">
-                        <a href="#" class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true"></span>
-                            구축사례
-                        </a>
-                    </h3>
-                </div>
-                <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                  </svg>
-                </span>
-            </div>
-        </div>
-
-    </div>
-    <div class="xl:w-1/3 m-1">
-        <div class="flex">
-            <div class=" text-2xl font-bold">Notice</div>
-            <button onclick="location.href='/company/notice/notice'"  type="button" class="m-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
-        </div>
-        <hr class="six mb-5">
-        <div class=" grid-cols-2 sm:flex " style="height: 20vh;">
-            <div class = "px-4 w-full h-full">
-                <div class = "ag-theme-balham h-full " id="mainNoticeQuickGrid" ></div>
-            </div>
+        <div aria-hidden="true" class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+        <div class="relative max-w-3xl mx-auto flex flex-col items-left text-left">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">고객의 고객을 위한 기업</h2>
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">혁신을 선도하는 (주)아이티존</h2>
+            <p class="mt-3 text-xl text-white">아이티존은 혁신을 선도하는 기업으로 더 나은 기술을 지향합니다.</p>
         </div>
     </div>
-    <div class="xl:w-1/3 m-1">
-        <div class="flex">
-            <div class=" text-2xl font-bold">Q&A</div>
-            <button onclick="location.href='/company/notice/qna'"  type="button" class="m-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
-        </div>
-        <hr class="six mb-5">
-        <div class=" grid-cols-2 sm:flex " style="height: 20vh;">
-            <div class = "px-4 w-full h-full">
-                <div class = "ag-theme-balham h-full " id="mainQnAQuickGrid"  ></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!----------------------------------------------메인 하단 혜진-------------------------------------------------------------------------->
-<!--<div>
-    <div class="gap-5 md:gap-12 my-5 flex px-1 md:px-10 flex-col md:flex-row">
-    &lt;!&ndash;    바로가기링크&ndash;&gt;
-        <div class="w-full md:w-1/5  flex-auto md:flex-initial">
+    <div class="w-full xl:flex p-2 ">
+        <div class="xl:w-1/3 m-1">
             <div class="justify-center">
-                <div class=" text-2xl font-bold flex-wrap">Quick Link</div>
+                <div class=" text-2xl font-bold flex-wrap m-2">Quick Link</div>
                 <hr class="six mb-0 md:mb-5">
             </div>
-            <div class="flex  flex-col gap-5">
-                <div class="flex  flex-row justify-center ">
-                    <div class="flex flex-row md:flex-col mt-4 md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center" >채용정보</div>
-                        <button onclick="location.href='/job'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
+            <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-3 sm:gap-px sm:divide-y-0" onclick="location.href='/company/job/job'">
+                <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                    <div>
+                      <span class="rounded-lg inline-flex p-3 bg-teal-50 text-teal-700 ring-4 ring-white">
+                        <!-- Heroicon name: outline/clock -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </span>
                     </div>
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">오시는길</div>
-                        <button onclick="location.href='/directions'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ">GO</button>
+                    <div class="mt-8 flex">
+                        <h3 class="text-lg font-medium">
+                            <a href="#" class="focus:outline-none">
+                                <!-- Extend touch target to entire panel -->
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                    채용정보
+                            </a>
+                        </h3>
                     </div>
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">솔루션</div>
-                        <button onclick="location.href='/solution'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
-                    </div>
+                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
+                      </svg>
+                    </span>
                 </div>
-                <div class="flex  flex-row justify-center">
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">컨설팅</div>
-                        <button onclick="location.href='/consulting'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
+
+                <div class="sm:rounded-tr-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/direction/direction'">
+                    <div>
+                      <span class="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
+                        <!-- Heroicon name: outline/check-badge -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                        </svg>
+                      </span>
                     </div>
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">시스템통합</div>
-                        <button onclick="location.href='/business'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
+                    <div class="mt-8 flex">
+                        <h3 class="text-lg font-medium">
+                            <a href="#" class="focus:outline-none">
+                                <!-- Extend touch target to entire panel -->
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                오시는길
+                            </a>
+                        </h3>
+    <!--                                <p class="mt-2 text-sm text-gray-500">Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.</p>-->
                     </div>
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">구축사례</div>
-                        <button onclick="location.href='/projHistoryView'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
+                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
+                      </svg>
+                    </span>
+                </div>
+
+                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/solution/solution'">
+                    <div>
+                      <span class="rounded-lg inline-flex p-3 bg-sky-50 text-sky-700 ring-4 ring-white">
+                        <!-- Heroicon name: outline/users -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                        </svg>
+                      </span>
                     </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-medium">
+                            <a href="#" class="focus:outline-none">
+                                <!-- Extend touch target to entire panel -->
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                솔루션
+                            </a>
+                        </h3>
+                    </div>
+                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
+                      </svg>
+                    </span>
+                </div>
+
+                <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/consulting/consulting'">
+                    <div>
+                      <span class="rounded-lg inline-flex p-3 bg-yellow-50 text-yellow-700 ring-4 ring-white">
+                        <!-- Heroicon name: outline/banknotes -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-medium">
+                            <a href="#" class="focus:outline-none">
+                                <!-- Extend touch target to entire panel -->
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                컨설팅
+                            </a>
+                        </h3>
+                    </div>
+                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
+                      </svg>
+                    </span>
+                </div>
+
+                <div class="sm:rounded-bl-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/business/business'">
+                    <div>
+                      <span class="rounded-lg inline-flex p-3 bg-rose-50 text-rose-700 ring-4 ring-white">
+                        <!-- Heroicon name: outline/receipt-refund -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9.75h4.875a2.625 2.625 0 010 5.25H12M8.25 9.75L10.5 7.5M8.25 9.75L10.5 12m9-7.243V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185z" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-medium">
+                            <a href="#" class="focus:outline-none">
+                                <!-- Extend touch target to entire panel -->
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                시스템통합
+                            </a>
+                        </h3>
+                    </div>
+                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
+                      </svg>
+                    </span>
+                </div>
+
+                <div class="rounded-bl-lg rounded-br-lg sm:rounded-bl-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500" onclick="location.href='/company/project/project'">
+                    <div>
+                      <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
+                        <!-- Heroicon name: outline/academic-cap -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-medium">
+                            <a href="#" class="focus:outline-none">
+                                <!-- Extend touch target to entire panel -->
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                구축사례
+                            </a>
+                        </h3>
+                    </div>
+                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
+                      </svg>
+                    </span>
                 </div>
             </div>
 
         </div>
-    &lt;!&ndash;    공지사항&ndash;&gt;
-        <div  class="w-full md:w-1/3 flex-auto md:flex-1 ">
-    &lt;!&ndash;     hidden input:   공지사항 팝업에 넘길 데이터&ndash;&gt;
-            <input id="PopupParentsNoticeTitle" type="hidden">
-            <input id="PopupParentsNoticeCreId" type="hidden">
-            <input id="PopupParentsNoticeStartDt" type="hidden">
-            <input id="PopupParentsNoticeEndDt" type="hidden">
-            <input id="PopupParentsNoticeContent" type="hidden">
-            <div class="justify-center relative" type="hidden">
-                <div class="flex">
-                    <div class=" text-2xl font-bold">Notice</div>
-                    <button onclick="location.href='/noticeNotice'"  type="button" class="absolute left-20 top-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
-                </div>
-                    <hr class="six mb-5">
-                <div class=" grid-cols-2 sm:flex " style="height: 20vh;">
-                    <div class = "px-4 w-full h-full">
-                        <div class = "ag-theme-balham h-full " id="mainNoticeQuickGrid" ></div>
-                    </div>
-                </div>
+        <div class="xl:w-1/3 w-full flex flex-col p-2" >
+            <div class="flex">
+                <div class=" text-2xl font-bold">Notice</div>
+                <button onclick="location.href='/company/notice/notice'"  type="button" class="m-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
             </div>
+            <hr class="six mb-5">
+            <div class="sixteen wide ag-theme-balham  w-full h-[30vh] xl:flex-1" id="mainNoticeQuickGrid"></div>
         </div>
-    &lt;!&ndash;    Q&A&ndash;&gt;
-        <div  class="w-full md:w-1/3  flex-auto md:flex-1">
-
-    &lt;!&ndash;      hidden input:  QnA팝업에 넘길 데이터&ndash;&gt;
-            <input id="PopupParentsQnATitle" type="hidden">
-            <input id="PopupParentsQnAUserNm" type="hidden">
-            <input id="PopupParentsQnACompNm" type="hidden">
-            <input id="PopupParentsQnAPhoneNo" type="hidden">
-            <input id="PopupParentsQnATelNo" type="hidden">
-            <input id="PopupParentsQnAContent" type="hidden">
-
-            <div class="justify-center relative">
-                <div class="flex">
-                    <div class=" text-2xl font-bold">Q&A</div>
-                    <button onclick="location.href='/noticeQnA'"  type="button" class="absolute left-20 top-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
-                </div>
-                <hr class="six mb-5">
-                <div class=" grid-cols-2 sm:flex " style="height: 20vh;">
-                    <div class = "px-4 w-full h-full">
-                        <div class = "ag-theme-balham h-full " id="mainQnAQuickGrid"  ></div>
-                    </div>
-                </div>
+        <div class="xl:w-1/3 w-full flex flex-col p-2" >
+            <div class="flex">
+                <div class=" text-2xl font-bold">Q&A</div>
+                <button onclick="location.href='/company/notice/qna'"  type="button" class="m-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
             </div>
+            <hr class="six mb-5">
+            <div class="sixteen wide ag-theme-balham  w-full h-[30vh] xl:flex-1" id="mainQnAQuickGrid"></div>
         </div>
-    　
-    </div>-->
-    <footer class="mt-5 md:mt-40  px-12 inset-x-0 bottom-0 text-center object-none object-right-bottom ">
-        <hr class="six mb-0 md:mb-5">
-        <p class="font-extralight text-xs"> 서울특별시 금천구 가산디지털2로 166, 9층 901호 (가산동, 에이스 K1타워) </p>
-        <p class="font-extralight text-xs">
-            <span class="font-semibold">Tel.</span>
-            070-8786-7295~6 　
-            <span class="font-semibold">Fax.</span>
-            070-8787-9632　
-            <span class="font-semibold">대표자</span> 장재혁　
-            <span class="font-semibold">사업자등록번호</span>
-            204-81-81190
-        </p>
-        <p class="font-extralight text-xs">Copyright ITZON CO., Ltd. All Rights reserved.</p>
-    </footer>
-</div>
-<th:block th:replace="fragments/common/importFragment :: i-footer"></th:block>
-<script src="/js/main/main.js"></script>
+
+    </div>
+    <th:block th:replace="fragments/common/footerFragment :: footer"></th:block>
+    <th:block th:replace="fragments/common/importFragment :: i-footer"></th:block>
+    <script src="/js/web/main/main.js"></script>
 </body>
 
 </html>

@@ -46,6 +46,7 @@ class SecurityConfig (
 //            .antMatchers("/**").permitAll()
             .antMatchers("/css/**", "/js/**", "/img/**", "/lib/**", "/signup").permitAll()
             .antMatchers("/api/common/signup/check","/api/common/signup", "/login").permitAll()
+            .antMatchers("/company/**").permitAll()
             .anyRequest().authenticated()
 
             .and()
