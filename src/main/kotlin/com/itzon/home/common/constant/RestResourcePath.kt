@@ -1,4 +1,4 @@
-package com.itzon.itz.common.constant
+package com.itzon.home.common.constant
 
 private const val REST_ROOT = "/api"
 
