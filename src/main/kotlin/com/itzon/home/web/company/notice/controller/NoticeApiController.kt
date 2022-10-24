@@ -1,6 +1,5 @@
 package com.itzon.home.web.company.notice.controller
-
-//import com.itzon.homepage.domain.TbNotice
+import com.itzon.home.common.constant.REST_COMPANY_NOTICE_NOTICE
 import com.itzon.home.common.constant.*
 import com.itzon.home.domain.table.TNoticeInfo
 import com.itzon.home.domain.table.TNoticeInfoDto
@@ -27,7 +26,8 @@ import javax.transaction.Transactional
 @RestController
 @Transactional
 //@RequestMapping("$REST_STAT_CONSULT_USER")
-@RequestMapping("$REST_COMPANY_NOTICE_NOTICE")
+@RequestMapping("$REST_COMPANY_NOTICE_NOTICE") // /api/company/notice/notice
+//@RequestMapping("/api/company/notice/notice")
 class NoticeApiController(
     private val noticeService: NoticeService,
 )
@@ -47,23 +47,34 @@ class NoticeApiController(
         println(noticeTitle)
         return noticeService.findByTitle(noticeTitle)
     }
-//
-//    //공지내용으로 조회
-//    @GetMapping("/web/notice/noticeNotice/findByContent/{searchNoticeContent}")
-//    fun findByContent(@PathVariable searchNoticeContent : String) : List<TNoticeInfoDto> {
-//        println("controllerSearchNoticeContent")
-//        println(searchNoticeContent)
-//        return noticeService.findByContent(searchNoticeContent)
-//    }
 
-//    //공지제목+공지내용+작성자로 검색
-//
-//    @GetMapping("/web/notice/noticeNotice/findAllByTitleOrContentOrCreId/{searchNoticeTitleOrContentOrCreId}")
-//    fun findByCreId(@PathVariable searchNoticeTitleOrContentOrCreId : String) : List<TNoticeInfoDto> {
-//        println("controllerSearchNoticeTitleOrContentOrCreId")
-//        println(searchNoticeTitleOrContentOrCreId)
-//        return noticeService.findByCreId(searchNoticeTitleOrContentOrCreId)
-//    }
+    //공지내용으로 조회
+    @GetMapping("/findByContent")
+    fun findByContent(@RequestParam noticeContent : String) : List<TNoticeInfoDto> {
+        println("controllerNoticeContent")
+        println(noticeContent)
+        return noticeService.findByContent(noticeContent)
+    }
+
+
+    //작성자로 조회
+    @GetMapping("/findByCreId")
+    fun findByCreId(@RequestParam noticeCreId : String) : List<TNoticeInfoDto> {
+        println("controllerNoticeCreId")
+        println(noticeCreId)
+        return noticeService.findByCreId(noticeCreId)
+    }
+
+
+
+    //공지제목+공지내용+작성자로 검색
+
+    @GetMapping("/findByNoticeSearchVal")
+    fun findByNoticeSearchVal(@RequestParam noticeSearchVal : String) : List<TNoticeInfoDto> {
+        println("noticeSearchVal")
+        println(noticeSearchVal)
+        return noticeService.findByNoticeSearchVal(noticeSearchVal)
+    }
 
     //전체조회
     @GetMapping("/findAll")

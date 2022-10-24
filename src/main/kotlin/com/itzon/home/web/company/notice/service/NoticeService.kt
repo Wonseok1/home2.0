@@ -45,6 +45,12 @@ class NoticeService(
         return tNoticeInfoRepo.findByCreId(searchNoticeCreId)
     }
 
+    fun findByNoticeSearchVal(noticeSearchVal: String): List<TNoticeInfoDto> {
+
+        return tNoticeInfoRepo.findByNoticeSearchVal(noticeSearchVal)
+    }
+
+
     fun findAll(): List<TNoticeInfoDto> {
 
         return tNoticeInfoRepo.findAll()
