@@ -24,7 +24,7 @@
         <p class="mt-3 text-xl text-white">아이티존은 혁신을 선도하는 기업으로 더 나은 기술을 지향합니다.</p>
     </div>
 </div>
-<div class="w-full xl:flex m-2">
+<div class="w-full xl:flex p-2 ">
     <div class="xl:w-1/3 m-1">
         <div class="justify-center">
             <div class=" text-2xl font-bold flex-wrap m-2">Quick Link</div>
@@ -184,120 +184,26 @@
         </div>
 
     </div>
-    <div class="xl:w-1/3 m-1">
+    <div class="xl:w-1/3 w-full  mx-2 flex flex-col p-2" >
         <div class="flex">
             <div class=" text-2xl font-bold">Notice</div>
             <button onclick="location.href='/company/notice/notice'"  type="button" class="m-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
         </div>
         <hr class="six mb-5">
-        <div class=" grid-cols-2 sm:flex " style="height: 20vh;">
-            <div class = "px-4 w-full h-full">
-                <div class = "ag-theme-balham h-full " id="mainNoticeQuickGrid" ></div>
-            </div>
-        </div>
+        <div class="sixteen wide ag-theme-balham  w-full h-[30vh] xl:flex-1" id="mainNoticeQuickGrid"></div>
     </div>
-    <div class="xl:w-1/3 m-1">
+    <div class="xl:w-1/3 w-full  mx-2 flex flex-col p-2" >
         <div class="flex">
             <div class=" text-2xl font-bold">Q&A</div>
             <button onclick="location.href='/company/notice/qna'"  type="button" class="m-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
         </div>
         <hr class="six mb-5">
-        <div class=" grid-cols-2 sm:flex " style="height: 20vh;">
-            <div class = "px-4 w-full h-full">
-                <div class = "ag-theme-balham h-full " id="mainQnAQuickGrid"  ></div>
-            </div>
-        </div>
+        <div class="sixteen wide ag-theme-balham  w-full h-[30vh] xl:flex-1" id="mainQnAQuickGrid"></div>
     </div>
+
+
 </div>
-<!----------------------------------------------메인 하단 혜진-------------------------------------------------------------------------->
-<!--<div>
-    <div class="gap-5 md:gap-12 my-5 flex px-1 md:px-10 flex-col md:flex-row">
-    &lt;!&ndash;    바로가기링크&ndash;&gt;
-        <div class="w-full md:w-1/5  flex-auto md:flex-initial">
-            <div class="justify-center">
-                <div class=" text-2xl font-bold flex-wrap">Quick Link</div>
-                <hr class="six mb-0 md:mb-5">
-            </div>
-            <div class="flex  flex-col gap-5">
-                <div class="flex  flex-row justify-center ">
-                    <div class="flex flex-row md:flex-col mt-4 md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center" >채용정보</div>
-                        <button onclick="location.href='/job'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
-                    </div>
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">오시는길</div>
-                        <button onclick="location.href='/directions'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ">GO</button>
-                    </div>
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">솔루션</div>
-                        <button onclick="location.href='/solution'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
-                    </div>
-                </div>
-                <div class="flex  flex-row justify-center">
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">컨설팅</div>
-                        <button onclick="location.href='/consulting'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
-                    </div>
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">시스템통합</div>
-                        <button onclick="location.href='/business'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
-                    </div>
-                    <div class="flex flex-row md:flex-col mt-4  md:mt-0 md:ml-4  rounded-md border p-3">
-                        <div class="m-2 w-20 font-bold text-center">구축사례</div>
-                        <button onclick="location.href='/projHistoryView'" type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">GO</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    &lt;!&ndash;    공지사항&ndash;&gt;
-        <div  class="w-full md:w-1/3 flex-auto md:flex-1 ">
-    &lt;!&ndash;     hidden input:   공지사항 팝업에 넘길 데이터&ndash;&gt;
-            <input id="PopupParentsNoticeTitle" type="hidden">
-            <input id="PopupParentsNoticeCreId" type="hidden">
-            <input id="PopupParentsNoticeStartDt" type="hidden">
-            <input id="PopupParentsNoticeEndDt" type="hidden">
-            <input id="PopupParentsNoticeContent" type="hidden">
-            <div class="justify-center relative" type="hidden">
-                <div class="flex">
-                    <div class=" text-2xl font-bold">Notice</div>
-                    <button onclick="location.href='/noticeNotice'"  type="button" class="absolute left-20 top-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
-                </div>
-                    <hr class="six mb-5">
-                <div class=" grid-cols-2 sm:flex " style="height: 20vh;">
-                    <div class = "px-4 w-full h-full">
-                        <div class = "ag-theme-balham h-full " id="mainNoticeQuickGrid" ></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    &lt;!&ndash;    Q&A&ndash;&gt;
-        <div  class="w-full md:w-1/3  flex-auto md:flex-1">
-
-    &lt;!&ndash;      hidden input:  QnA팝업에 넘길 데이터&ndash;&gt;
-            <input id="PopupParentsQnATitle" type="hidden">
-            <input id="PopupParentsQnAUserNm" type="hidden">
-            <input id="PopupParentsQnACompNm" type="hidden">
-            <input id="PopupParentsQnAPhoneNo" type="hidden">
-            <input id="PopupParentsQnATelNo" type="hidden">
-            <input id="PopupParentsQnAContent" type="hidden">
-
-            <div class="justify-center relative">
-                <div class="flex">
-                    <div class=" text-2xl font-bold">Q&A</div>
-                    <button onclick="location.href='/noticeQnA'"  type="button" class="absolute left-20 top-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> more > </button>
-                </div>
-                <hr class="six mb-5">
-                <div class=" grid-cols-2 sm:flex " style="height: 20vh;">
-                    <div class = "px-4 w-full h-full">
-                        <div class = "ag-theme-balham h-full " id="mainQnAQuickGrid"  ></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    　
-    </div>-->
-    <footer class="mt-5 md:mt-40  px-12 inset-x-0 bottom-0 text-center object-none object-right-bottom ">
+    <footer class="mt-5 px-12 text-center ">
         <hr class="six mb-0 md:mb-5">
         <p class="font-extralight text-xs"> 서울특별시 금천구 가산디지털2로 166, 9층 901호 (가산동, 에이스 K1타워) </p>
         <p class="font-extralight text-xs">
