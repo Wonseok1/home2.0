@@ -16,6 +16,7 @@ class TNoticeInfoRepo {
     fun findByTitle(noticeTitle: String): List<TNoticeInfoDto> {
         return TNoticeInfo.select {
             TNoticeInfo.noticeTitle eq noticeTitle
+//            TNoticeInfo.noticeTitle like "noticeTitle%"
         }.map { it.toDto() }
     }
 

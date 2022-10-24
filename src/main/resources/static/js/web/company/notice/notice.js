@@ -22,7 +22,8 @@ var noticeNotice = {
 
         //조회버튼이벤트
         $("#btnSearchNotice").on("click", function () {
-
+alert("마뜨나")
+alert($("#searchSelectBox").val())
             if($("#noticeSearchCondition").val()==""){
                 noticeNotice.findAll();
             }
@@ -97,22 +98,55 @@ var noticeNotice = {
     },
 
 
+    //전체검색
+    findAll : function () {
+        alert("조회클릭함")
+        agGrid.simpleHttpRequest({url: REST_COMPANY_NOTICE_NOTICE_URL + '/findAll'}).then(function(data) {
+            noticeNoticeGridOptions.api.setRowData(data);
+        });
+    },
+
+
     // //전체검색
     // findAll : function () {
     //     alert("조회클릭함")
-    //     agGrid.simpleHttpRequest({url: REST_COMMON_NOTICE_URL}).then(function(data) {
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: REST_COMPANY_NOTICE_NOTICE_URL + '/findAll',
+    //         contentType: 'application/json; charset=utf-8',
+    //         // async : false
+    //     }).done(function (data) {
+    //         alert("data")
+    //         alert(data)
     //         noticeNoticeGridOptions.api.setRowData(data);
+    //     }).fail(function (error) {
     //     });
     // },
 
 
-    //전체검색
-    findAll : function () {
+
+
+
+    // //공지제목으로 검색
+    // findAllByTitle : function(){
+    //     var searchNoticeTitle = $("#noticeSearchCondition").val();
+    //     agGrid.simpleHttpRequest({url: '/web/notice/noticeNotice/findByTitle/'+searchNoticeTitle}).then(function(data){
+    //         noticeNoticeGridOptions.api.setRowData(data);
+    //     });
+    // },
+
+    //제목으로검색
+    findAllByTitle : function () {
+
+        var noticeTitle = $("#noticeSearchCondition").val();
+        alert("findAllByTitle")
+        alert(noticeTitle)  //잘뜸
         alert("조회클릭함")
         $.ajax({
             type: 'GET',
-            url: REST_COMMON_NOTICE_URL + "/findUser",
+            url: REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle',
             contentType: 'application/json; charset=utf-8',
+            data: {noticeTitle:noticeTitle}
             // async : false
         }).done(function (data) {
             alert("data")
@@ -123,16 +157,6 @@ var noticeNotice = {
     },
 
 
-
-
-
-    //공지제목으로 검색
-    findAllByTitle : function(){
-        var searchNoticeTitle = $("#noticeSearchCondition").val();
-        agGrid.simpleHttpRequest({url: '/web/notice/noticeNotice/findByTitle/'+searchNoticeTitle}).then(function(data){
-            noticeNoticeGridOptions.api.setRowData(data);
-        });
-    },
 
     //공지 내용으로 검색
     findAllByContent : function(){

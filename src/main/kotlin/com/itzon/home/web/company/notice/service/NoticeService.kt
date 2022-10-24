@@ -1,4 +1,4 @@
-package com.itzon.homepage.web.notice.notice.service
+package com.itzon.home.web.company.notice.service
 
 import com.itzon.home.domain.repository.TNoticeInfoRepo
 import com.itzon.home.domain.table.TNoticeInfo

@@ -10,6 +10,8 @@ const val REST_COMMON_CODE                  = "$REST_COMMON/code"
 const val REST_COMMON_ORG                   = "$REST_COMMON/org"
 const val REST_COMMON_NOTICE                = "$REST_COMMON/notice"
 
+const val REST_COMPANY                       = "$REST_ROOT/company"
+
 const val REST_SYSTEM                       = "$REST_ROOT/system"
 
 const val REST_SYSTEM_COMMONCD              = "$REST_SYSTEM/commoncd"
@@ -70,4 +72,7 @@ const val REST_STAT                         = "$REST_ROOT/stat"
 const val REST_STAT_CONSULT                 = "$REST_STAT/consult"
 const val REST_STAT_CONSULT_TYPE            = "$REST_STAT_CONSULT/type"
 const val REST_STAT_CONSULT_USER            = "$REST_STAT_CONSULT/user"
-const val REST_STAT_CONSULT_GROUP           = "$REST_STAT_CONSULT/group";
+const val REST_STAT_CONSULT_GROUP           = "$REST_STAT_CONSULT/group"
+
+const val REST_COMPANY_NOTICE               = "$REST_COMPANY/notice"
+const val REST_COMPANY_NOTICE_NOTICE        = "$REST_COMPANY_NOTICE/notice"
