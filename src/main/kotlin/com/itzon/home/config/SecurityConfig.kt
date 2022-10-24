@@ -56,7 +56,6 @@ class SecurityConfig (
             .successHandler(authenticationSuccessHandler())
             .failureHandler(authenticationFailureHandler())
             .defaultSuccessUrl("/")
-//            .successForwardUrl("/")
             .permitAll()
 
             .and()

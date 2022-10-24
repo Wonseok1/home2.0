@@ -7,9 +7,7 @@ var main = {
         var mainQnAQuickGrid = document.querySelector('#mainQnAQuickGrid');
         new agGrid.Grid(mainQnAQuickGrid, mainQnAQuickGridOptions);
 
-        btnMenu.onclick = function () {
-            mobileMenu.classList.toggle("hidden");
-        };
+
     },
 
 
