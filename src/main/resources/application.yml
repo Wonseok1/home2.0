@@ -29,6 +29,20 @@ spring:
     cache-duration: -1
     encoding: UTF-8
 
+server:
+  servlet:
+    session:
+      timeout: 60m
+  ssl:
+    key-alias: inaf
+    key-store: inaf.pkcs12
+    key-store-password: test1234
+    key-password: test1234
+    trust-store: inaftrust.pkcs12
+    trust-store-password: test1234
+  error:
+    whitelabel:
+      enabled: false
 
 ---
 spring:
@@ -57,20 +71,8 @@ logging:
 
 server:
   port: 443
-  servlet:
-    session:
-      timeout: 60m
   ssl:
     enabled: true
-    key-alias: inaf
-    key-store: inaf.pkcs12
-    key-store-password: test1234
-    key-password: test1234
-    trust-store: inaftrust.pkcs12
-    trust-store-password: test1234
-  error:
-    whitelabel:
-      enabled: false
 
 cti:
   klcns:
@@ -121,21 +123,9 @@ logging:
     Exposed: debug
 
 server:
-  port: 8099
-  servlet:
-    session:
-      timeout: 60m
+  port: 8104
   ssl:
     enabled: false
-    key-alias: inaf
-    key-store: inaf.pkcs12
-    key-store-password: test1234
-    key-password: test1234
-    trust-store: inaftrust.pkcs12
-    trust-store-password: test1234
-  error:
-    whitelabel:
-      enabled: false
 
 cti:
   klcns:
@@ -144,8 +134,8 @@ cti:
     port: 18088
 
 port:
-  http: 80
-  https: 443
+  http: 8103
+  https: 8104
 
 itzon:
   server:
