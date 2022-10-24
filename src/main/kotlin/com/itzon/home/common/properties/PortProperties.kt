@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConstructorBinding
 @ConstructorBinding
 @ConfigurationProperties("port")
 class PortProperties (
-    val http : String,
-    val https : String,
+    val http : Int,
+    val https : Int,
         ){
 }

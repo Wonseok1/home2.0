@@ -12,10 +12,21 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import javax.sound.sampled.Port
 
-//@Configuration
+@Configuration
 class ConnectorConfig (
     val portProperties: PortProperties,
     ){
+    @Bean
+    fun servletContainer(): ServletWebServerFactory? {
+        val tomcat = TomcatServletWebServerFactory()
+        tomcat.addAdditionalTomcatConnectors(createStandardConnector())
+        return tomcat
+    }
 
+    private fun createStandardConnector(): Connector? {
+        val connector = Connector("org.apache.coyote.http11.Http11NioProtocol")
+        connector.port = portProperties.http
+        return connector
+    }
 }
 

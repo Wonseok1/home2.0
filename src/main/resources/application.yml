@@ -28,7 +28,8 @@ spring:
     basename: messages,ValidationMessages,PropertyNames
     cache-duration: -1
     encoding: UTF-8
-
+http:
+  port: 80
 server:
   port: 443
   servlet:
