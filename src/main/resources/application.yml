@@ -75,6 +75,9 @@ cti:
     #    url: 211.253.38.136
     port: 18088
 
+port:
+  http: 80
+  https: 443
 
 itzon:
   server:
