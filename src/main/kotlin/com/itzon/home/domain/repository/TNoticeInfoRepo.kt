@@ -2,6 +2,7 @@ package com.itzon.home.domain.repository
 
 import com.itzon.home.domain.table.*
 import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.like
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -14,23 +15,32 @@ class TNoticeInfoRepo {
     }
 
     fun findByTitle(noticeTitle: String): List<TNoticeInfoDto> {
+        println("noticeTitle22222")
+        println(noticeTitle)
         return TNoticeInfo.select {
-            TNoticeInfo.noticeTitle eq noticeTitle
-//            TNoticeInfo.noticeTitle like "noticeTitle%"
+            TNoticeInfo.noticeTitle like "%$noticeTitle%"
         }.map { it.toDto() }
     }
 
     fun findByContent(noticeContent: String): List<TNoticeInfoDto> {
         return TNoticeInfo.select {
-            TNoticeInfo.noticeContent eq noticeContent
+            TNoticeInfo.noticeContent like "%$noticeContent%"
         }.map { it.toDto() }
     }
 
     fun findByCreId(noticeCreId: String): List<TNoticeInfoDto> {
         return TNoticeInfo.select {
-            TNoticeInfo.noticeCreId eq noticeCreId
+            TNoticeInfo.noticeCreId like "%$noticeCreId%"
         }.map { it.toDto() }
     }
+
+    fun findByNoticeSearchVal(noticeSearchVal: String): List<TNoticeInfoDto> {
+        return TNoticeInfo.select {
+            (TNoticeInfo.noticeCreId like "%$noticeSearchVal%") or (TNoticeInfo.noticeTitle like "%$noticeSearchVal%") or (TNoticeInfo.noticeContent like "%$noticeSearchVal%")
+        }.map { it.toDto() }
+    }
+
+
 //    //그리드 행 클릭시 해당글번호의 첨부파일 찾기 //임시주석
 //    fun findFileInfo(noticeNo: Long): List<TFileInfoDto> {
 //        return TNoticeInfo.select {

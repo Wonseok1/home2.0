@@ -22,19 +22,21 @@ var noticeNotice = {
 
         //조회버튼이벤트
         $("#btnSearchNotice").on("click", function () {
-alert("마뜨나")
-alert($("#searchSelectBox").val())
+
             if($("#noticeSearchCondition").val()==""){
                 noticeNotice.findAll();
             }
             if($("#searchSelectBox").val()=='title'){
-                noticeNotice.findAllByTitle();
+                noticeNotice.findByTitle();
             }
             if($("#searchSelectBox").val()=='content'){
-                noticeNotice.findAllByContent();
+                noticeNotice.findByContent();
+            }
+            if($("#searchSelectBox").val()=='creId'){
+                noticeNotice.findByCreId();
             }
             if($("#searchSelectBox").val()=='all' && $("#noticeSearchCondition").val()!=""){
-                noticeNotice.findAllByTitleOrContentOr();
+                noticeNotice.findAllByTitleOrContentOrCreId();
             }
         });
 
@@ -97,60 +99,78 @@ alert($("#searchSelectBox").val())
         $("#noticeContent").prop('disabled', false);
     },
 
-
     //전체검색
     findAll : function () {
-        alert("조회클릭함")
-        agGrid.simpleHttpRequest({url: REST_COMPANY_NOTICE_NOTICE_URL + '/findAll'}).then(function(data) {
+
+        // alert(REST_COMPANY_NOTICE_NOTICE_URL) //NULL도 안나왕...
+        // alert(REST_COMPANY_NOTICE_NOTICE_URL.toString())  //NULL도 안나왕...
+        $.ajax({
+            type: 'GET',
+            // url: REST_COMPANY_NOTICE_NOTICE_URL + '/findAll',  // 얘는안됨 REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
+            url:'/api/company/notice/notice' + '/findAll',   //얘는되는데.....
+            contentType: 'application/json; charset=utf-8',
+            // async : false
+        }).done(function (data) {
+
             noticeNoticeGridOptions.api.setRowData(data);
+        }).fail(function (error) {
         });
     },
 
 
-    // //전체검색
-    // findAll : function () {
-    //     alert("조회클릭함")
-    //     $.ajax({
-    //         type: 'GET',
-    //         url: REST_COMPANY_NOTICE_NOTICE_URL + '/findAll',
-    //         contentType: 'application/json; charset=utf-8',
-    //         // async : false
-    //     }).done(function (data) {
-    //         alert("data")
-    //         alert(data)
-    //         noticeNoticeGridOptions.api.setRowData(data);
-    //     }).fail(function (error) {
-    //     });
-    // },
-
-
-
-
-
-    // //공지제목으로 검색
-    // findAllByTitle : function(){
-    //     var searchNoticeTitle = $("#noticeSearchCondition").val();
-    //     agGrid.simpleHttpRequest({url: '/web/notice/noticeNotice/findByTitle/'+searchNoticeTitle}).then(function(data){
-    //         noticeNoticeGridOptions.api.setRowData(data);
-    //     });
-    // },
-
     //제목으로검색
-    findAllByTitle : function () {
+    findByTitle : function () {
 
         var noticeTitle = $("#noticeSearchCondition").val();
-        alert("findAllByTitle")
-        alert(noticeTitle)  //잘뜸
-        alert("조회클릭함")
+
         $.ajax({
             type: 'GET',
-            url: REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle',
+            // url:REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle', //REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
+            url:'/api/company/notice/notice'  + '/findByTitle',
             contentType: 'application/json; charset=utf-8',
             data: {noticeTitle:noticeTitle}
             // async : false
         }).done(function (data) {
-            alert("data")
-            alert(data)
+
+            noticeNoticeGridOptions.api.setRowData(data);
+        }).fail(function (error) {
+        });
+    },
+
+
+    //내용으로검색
+    findByContent : function () {
+
+        var noticeContent = $("#noticeSearchCondition").val();
+
+        $.ajax({
+            type: 'GET',
+            // url:REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle', //REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
+            url:'/api/company/notice/notice'  + '/findByContent',
+            contentType: 'application/json; charset=utf-8',
+            data: {noticeContent:noticeContent}
+            // async : false
+        }).done(function (data) {
+
+            noticeNoticeGridOptions.api.setRowData(data);
+        }).fail(function (error) {
+        });
+    },
+
+    //작성자로검색
+    findByCreId : function () {
+
+        var noticeCreId = $("#noticeSearchCondition").val();
+
+        $.ajax({
+            type: 'GET',
+            // url:REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle', //REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
+            url:'/api/company/notice/notice'  + '/findByCreId',
+            contentType: 'application/json; charset=utf-8',
+            data: {noticeCreId:noticeCreId}
+            // async : false
+        }).done(function (data) {
+
             noticeNoticeGridOptions.api.setRowData(data);
         }).fail(function (error) {
         });
@@ -158,23 +178,37 @@ alert($("#searchSelectBox").val())
 
 
 
-    //공지 내용으로 검색
-    findAllByContent : function(){
-        var searchNoticeContent = $("#noticeSearchCondition").val();
-        agGrid.simpleHttpRequest({url: '/web/notice/noticeNotice/findByContent/'+searchNoticeContent}).then(function(data) {
-            console.log(data)
+    // //공지제목+공지내용+작성자로 검색
+    // findAllByTitleOrContentOrCreId : function(){
+    //     var noticeSearchVal = $("#noticeSearchCondition").val();
+    //     agGrid.simpleHttpRequest({url: '/web/notice/noticeNotice/findAllByTitleOrContentOrCreId/'+searchNoticeTitleOrContentOrCreId}).then(function(data) {
+    //         console.log(data)
+    //         noticeNoticeGridOptions.api.setRowData(data);
+    //     });
+    // },
+
+    //공지제목+공지내용+작성자로 검색
+    findAllByTitleOrContentOrCreId : function () {
+
+        var noticeSearchVal = $("#noticeSearchCondition").val();
+
+        $.ajax({
+            type: 'GET',
+            // url:REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle', //REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
+            url:'/api/company/notice/notice'  + '/findByNoticeSearchVal',
+            contentType: 'application/json; charset=utf-8',
+            data: {
+                noticeSearchVal:noticeSearchVal,
+            }
+            // async : false
+        }).done(function (data) {
+
             noticeNoticeGridOptions.api.setRowData(data);
+        }).fail(function (error) {
         });
     },
 
-    //공지제목+공지내용+작성자로 검색
-    findAllByTitleOrContentOrCreId : function(){
-        var searchNoticeTitleOrContentOrCreId = $("#noticeSearchCondition").val();
-        agGrid.simpleHttpRequest({url: '/web/notice/noticeNotice/findAllByTitleOrContentOrCreId/'+searchNoticeTitleOrContentOrCreId}).then(function(data) {
-            console.log(data)
-            noticeNoticeGridOptions.api.setRowData(data);
-        });
-    },
+
 
     //저장함수 ( noticeNo가 PK이자 자동증가값이라서 신규작성할 경우에는 formDatas에 넣으면 notNull인데 null드갔다 오류남
     //        근데또 formDatas에 안넣자니 수정할경우에는  PK인 noticeNo를 빼고 넘기면 신규로 인식해버림.. 그래서 걍
