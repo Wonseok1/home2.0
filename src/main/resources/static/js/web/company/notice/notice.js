@@ -101,19 +101,29 @@ var noticeNotice = {
 
     //전체검색
     findAll : function () {
+        $.ajax({
+            type: 'GET',
+            url:'/api/company/notice/notice/list',
+            // url: "/api/common/menu/findAll",
+            contentType: 'application/json; charset=utf-8'
+        }).done(function (data) {
+            console.log(data);
+        }).fail(function (error) {
+        });
 
         // alert(REST_COMPANY_NOTICE_NOTICE_URL) //NULL도 안나왕...
         // alert(REST_COMPANY_NOTICE_NOTICE_URL.toString())  //NULL도 안나왕...
         $.ajax({
             type: 'GET',
             // url: REST_COMPANY_NOTICE_NOTICE_URL + '/findAll',  // 얘는안됨 REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
-            url:'/api/company/notice/notice' + '/findAll',   //얘는되는데.....
+            url:'/api/company/notice/notice/list',   //얘는되는데.....
             contentType: 'application/json; charset=utf-8',
             // async : false
         }).done(function (data) {
-
+console.log("ehlsiff33")
             noticeNoticeGridOptions.api.setRowData(data);
         }).fail(function (error) {
+            console.log("error22222")
         });
     },
 
