@@ -34,12 +34,9 @@ server:
     session:
       timeout: 60m
   ssl:
-    key-alias: inaf
-    key-store: inaf.pkcs12
-    key-store-password: test1234
-    key-password: test1234
-    trust-store: inaftrust.pkcs12
-    trust-store-password: test1234
+    key-store: keystore.p12
+    key-store-password: itzon1234
+    key-store-type: PKCS12
   error:
     whitelabel:
       enabled: false
@@ -70,9 +67,9 @@ logging:
 
 
 server:
-  port: 80
+  port: 443
   ssl:
-    enabled: false
+    enabled: true
 
 cti:
   klcns:
