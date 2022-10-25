@@ -10,7 +10,7 @@ import org.jetbrains.exposed.sql.Table
 object TAuthGridSet : Table(name = "t_auth_grid_set") {
 
     val authGridPk = integer("auth_grid_pk").autoIncrement()
-    override val primaryKey     = PrimaryKey(authGridPk, name = "api_pk")
+    override val primaryKey     = PrimaryKey(authGridPk, name = "auth_grid_pk")
 
     val authId = varchar("auth_id", 100)
     val gridId = varchar("grid_id", 100)

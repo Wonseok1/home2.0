@@ -36,7 +36,6 @@ server:
   ssl:
     key-store: keystore.p12
     key-store-password: itzon1234
-    key-password: itzon1234
   error:
     whitelabel:
       enabled: false
