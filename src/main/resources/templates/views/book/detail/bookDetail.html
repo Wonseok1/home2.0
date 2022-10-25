@@ -8,39 +8,20 @@
     <th:block th:replace="fragments/common/importFragment :: i-header"></th:block>
 </head>
 <body class="overflow-hidden">
-<div>
-<!--    &lt;!&ndash; Off-canvas menu for mobile, show/hide based on off-canvas menu state. &ndash;&gt;-->
-<!--    <th:block th:replace="fragments/common/loaderFragment :: loader"></th:block>-->
-
-<!--    &lt;!&ndash;    <th:block th:replace="fragments/common/menuFragment :: mobileMenu"></th:block>&ndash;&gt;-->
-<!--    <div class="hidden" id="divNotice">-->
-<!--        <th:block th:replace="fragments/common/alertFragment :: notice"></th:block>-->
-<!--    </div>-->
-<!--    <div class="hidden" id="divAlert">-->
-<!--        <th:block th:replace="fragments/common/alertFragment :: alert"></th:block>-->
-<!--    </div>-->
-<!--    <div class="hidden" id="divConfirm">-->
-<!--        <th:block th:replace="fragments/common/alertFragment :: confirm"></th:block>-->
-<!--    </div>-->
-<!--    <div class="hidden" id="divError">-->
-<!--        <th:block th:replace="fragments/common/alertFragment :: error"></th:block>-->
-<!--    </div>-->
-    <!-- Static sidebar for desktop -->
-<!--    <th:block th:replace="fragments/common/menuFragment :: desktopMenu"></th:block>-->
-
+<div class="h-full w-full flex flex-col">
     <nav class="amazing-tabs">
         <div class="main-tabs-container">
             <div class="main-tabs-wrapper">
                 <ul class="main-tabs">
                     <li>
                         <button class="round-button" data-translate-value="0" data-color="red">
-            <span class="avatar">
-              <img src="https://images.pexels.com/photos/3756985/pexels-photo-3756985.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="user avatar" />
-            </span>
+                            <span class="avatar">
+                              <img src="https://images.pexels.com/photos/3756985/pexels-photo-3756985.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="user avatar" />
+                            </span>
                         </button>
                     </li>
                     <li>
-                        <button class="round-button gallery active" style="--round-button-active-color: #2962ff" data-translate-value="100%" data-color="blue">
+                        <button class="round-button gallery active text-3xl" style="--round-button-active-color: #2962ff" data-translate-value="100%" data-color="blue">
                             <i class="fa-solid fa-book"></i>
                         </button>
                     </li>
@@ -73,9 +54,9 @@
             </div>
         </div>
     </nav>
-    <div class="flex flex-col lg:w-1/2">
-        <div class="flex bg-blue-300"></div>
-        <div class="flex bg-blue-600"></div>
+    <div class="flex flex-1 ">
+        <div class="flex bg-blue-300 h-full lg:w-1/2 "></div>
+        <div class="flex bg-blue-600 h-full lg:w-1/2 "></div>
     </div>
 </div>
 
