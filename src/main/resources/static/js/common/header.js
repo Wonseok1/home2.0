@@ -1,4 +1,4 @@
-let header = {
+let headerjs = {
     init() {
         btnMenu.onclick = function () {
             mobileMenu.classList.toggle("hidden");
@@ -6,4 +6,4 @@ let header = {
     }
 }
 
-header.init();
+headerjs.init();

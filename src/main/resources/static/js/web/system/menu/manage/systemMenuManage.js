@@ -40,11 +40,6 @@ const systemMenuManage ={
             if (menu.menuLv == 0) {
                 $("#systemMenuManage_divForAppend").append(menuHtml);
             }else {
-                if (!tempArrayList.includes(menu.menuParentId)) {
-                    let arrowIcon = `<i class="fa-solid fa-angle-right ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150" onclick="systemMenuManage_${menu.menuId}DivForAppend.classList.toggle('hidden');></i>`;
-                    $("#systemMenuManage_" + menu.menuParentId).append(arrowIcon);
-                    tempArrayList.push(menu.menuParentId);
-                }
                 $("#systemMenuManage_"+ menu.menuParentId+"DivForAppend").append(menuHtml);
             }
             const menuDiv = document.getElementById('systemMenuManage_'+menu.menuId);
