@@ -22,6 +22,7 @@ import kotlin.collections.HashMap
 
 
 @Service
+@Transactional
 class NoticeService(
  private val tNoticeInfoRepo: TNoticeInfoRepo,
 // private val tbFileInfoRepository: TFileInfoRepository, //일단주석

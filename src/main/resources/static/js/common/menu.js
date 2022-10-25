@@ -45,7 +45,7 @@ var menu = {
             }else{
                 menuHtml += `<button 
                                     id="menu_${menuInfo.menuId}" 
-                                    onclick="menu_${menuInfo.menuId}DivForAppend.classList.toggle('hidden');menu_arrow_${menuInfo.menuId}.classList.toggle('arrow-down');menu_arrow_${menuInfo.menuId}.classList.toggle('arrow-up');" 
+                                    onclick="menu_${menuInfo.menuId}DivForAppend.classList.toggle('hidden');" 
                                     type="button" 
                                     class="bg-slate-${(800-(100*parseInt(menuInfo.menuLv)))} hover:bg-slate-${(800-(100*parseInt(menuInfo.menuLv)))} text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" 
                                     aria-controls="menu_${menuInfo.menuId}DivForAppend" aria-expanded="false">`;
@@ -59,8 +59,8 @@ var menu = {
             }else {
                 if (!tempArrayList.includes(menuInfo.menuParentId)) {
                     //let arrowIcon = '<i class="fa-solid fa-angle-right ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150"></i>';
-                    let arrowIcon = `<div id="menu_arrow_${menuInfo.menuParentId}"  class="arrow-down ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150"></div>`
-                    $("#menu_" + menuInfo.menuParentId).append(arrowIcon);
+                    // let arrowIcon = `<div id="menu_arrow_${menuInfo.menuParentId}"  class="arrow-down ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150"></div>`
+                    // $("#menu_" + menuInfo.menuParentId).append(arrowIcon);
                     tempArrayList.push(menuInfo.menuParentId);
                 }
                 $("#menu_"+ menuInfo.menuParentId+"DivForAppend").append(menuHtml);
