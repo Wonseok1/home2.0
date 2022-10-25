@@ -24,9 +24,10 @@ import javax.transaction.Transactional
 
 
 @RestController
-@Transactional
+//@Transactional
 //@RequestMapping("$REST_STAT_CONSULT_USER")
-@RequestMapping("$REST_COMPANY_NOTICE_NOTICE") // /api/company/notice/notice
+@RequestMapping("/api/company/notice/notice") // /api/company/notice/notice
+//@RequestMapping("$REST_COMPANY_NOTICE_NOTICE") // /api/company/notice/notice
 //@RequestMapping("/api/company/notice/notice")
 class NoticeApiController(
     private val noticeService: NoticeService,
@@ -49,7 +50,7 @@ class NoticeApiController(
     }
 
     //공지내용으로 조회
-    @GetMapping("/findByContent")
+    @GetMapping("/content")
     fun findByContent(@RequestParam noticeContent : String) : List<TNoticeInfoDto> {
         println("controllerNoticeContent")
         println(noticeContent)
@@ -58,7 +59,7 @@ class NoticeApiController(
 
 
     //작성자로 조회
-    @GetMapping("/findByCreId")
+    @GetMapping("/creID")
     fun findByCreId(@RequestParam noticeCreId : String) : List<TNoticeInfoDto> {
         println("controllerNoticeCreId")
         println(noticeCreId)
@@ -77,7 +78,7 @@ class NoticeApiController(
     }
 
     //전체조회
-    @GetMapping("/findAll")
+    @GetMapping("/list")
     fun findAll() : List<TNoticeInfoDto> {
         println("kjkjkjkjkjkjkjk")
         return noticeService.findAll()
