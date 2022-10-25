@@ -81,7 +81,7 @@ class SecurityConfig (
     @Bean
     fun webSecurityCustomizer(): WebSecurityCustomizer {
         return WebSecurityCustomizer { web: WebSecurity ->
-            web.ignoring().antMatchers("/ws-stomp/**")
+            web.ignoring().antMatchers("/ws-stomp/**", "/.well-known/**")
 //            web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**", "/signup")
         }
     }

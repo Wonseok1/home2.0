@@ -16,7 +16,7 @@ import javax.sound.sampled.Port
 class ConnectorConfig (
     val portProperties: PortProperties,
     ){
-    @Bean
+   /* @Bean
     fun servletContainer(): ServletWebServerFactory? {
         val tomcat = TomcatServletWebServerFactory()
         tomcat.addAdditionalTomcatConnectors(createStandardConnector())
@@ -27,6 +27,6 @@ class ConnectorConfig (
         val connector = Connector("org.apache.coyote.http11.Http11NioProtocol")
         connector.port = portProperties.http
         return connector
-    }
+    }*/
 }
 

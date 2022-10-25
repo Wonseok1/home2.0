@@ -70,9 +70,9 @@ logging:
 
 
 server:
-  port: 443
+  port: 80
   ssl:
-    enabled: true
+    enabled: false
 
 cti:
   klcns:

@@ -1,6 +1,9 @@
 bookList = {
     init() {
         grid.makeColumn(bookList_gridOptions, "bookList_grid");
+        bookList_btnNew.onclick = function () {
+            window.location.href = '/book/detail';
+        };
     }
 }
 
