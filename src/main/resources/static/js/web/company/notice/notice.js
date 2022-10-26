@@ -60,7 +60,7 @@ var noticeNotice = {
                     }
                 }
             }
-            submitForm();
+            // submitForm();
         })
 
         //삭제버튼이벤트
@@ -101,7 +101,7 @@ var noticeNotice = {
 
     //전체검색
     findAll : function () {
-        $.ajax({
+       /* $.ajax({
             type: 'GET',
             url:'/api/company/notice/notice/list',
             // url: "/api/common/menu/findAll",
@@ -109,7 +109,7 @@ var noticeNotice = {
         }).done(function (data) {
             console.log(data);
         }).fail(function (error) {
-        });
+        });*/
 
         // alert(REST_COMPANY_NOTICE_NOTICE_URL) //NULL도 안나왕...
         // alert(REST_COMPANY_NOTICE_NOTICE_URL.toString())  //NULL도 안나왕...
@@ -120,7 +120,7 @@ var noticeNotice = {
             contentType: 'application/json; charset=utf-8',
             // async : false
         }).done(function (data) {
-console.log("ehlsiff33")
+            console.log("ehlsiff33")
             noticeNoticeGridOptions.api.setRowData(data);
         }).fail(function (error) {
             console.log("error22222")
@@ -136,7 +136,7 @@ console.log("ehlsiff33")
         $.ajax({
             type: 'GET',
             // url:REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle', //REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
-            url:'/api/company/notice/notice'  + '/findByTitle',
+            url:'/api/company/notice/notice'  + '/Title',
             contentType: 'application/json; charset=utf-8',
             data: {noticeTitle:noticeTitle}
             // async : false
@@ -156,7 +156,7 @@ console.log("ehlsiff33")
         $.ajax({
             type: 'GET',
             // url:REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle', //REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
-            url:'/api/company/notice/notice'  + '/findByContent',
+            url:'/api/company/notice/notice'  + '/Content',
             contentType: 'application/json; charset=utf-8',
             data: {noticeContent:noticeContent}
             // async : false
@@ -175,7 +175,7 @@ console.log("ehlsiff33")
         $.ajax({
             type: 'GET',
             // url:REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle', //REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
-            url:'/api/company/notice/notice'  + '/findByCreId',
+            url:'/api/company/notice/notice'  + '/CreId',
             contentType: 'application/json; charset=utf-8',
             data: {noticeCreId:noticeCreId}
             // async : false
@@ -205,7 +205,7 @@ console.log("ehlsiff33")
         $.ajax({
             type: 'GET',
             // url:REST_COMPANY_NOTICE_NOTICE_URL + '/findByTitle', //REST_COMPANY_NOTICE_NOTICE_URL 못찾음오류남 임시주석
-            url:'/api/company/notice/notice'  + '/findByNoticeSearchVal',
+            url:'/api/company/notice/notice'  + '/AllVal',
             contentType: 'application/json; charset=utf-8',
             data: {
                 noticeSearchVal:noticeSearchVal,
@@ -225,21 +225,32 @@ console.log("ehlsiff33")
     //        save함수랑 update함수로 나눔)
     save(){
         var formDatas = {
-            // noticeNo: $("#noticeNo").val(),
+            noticeNo:0,
             noticeTitle: $("#noticeTitle").val(),
             noticeContent: $("#noticeContent").val(),
             noticeCreId: $("#noticeCreId").val(),
             noticeFileNm: $("#noticeFileNm").val(),
 
         }
+        // var formDatas = {
+        //     noticeNo:0,
+        //     noticeTitle:"tt",
+        //     noticeContent: "tt",
+        //     noticeCreId:"tt",
+        //     noticeFileNm: "tt",
+        //
+        // }
 
-        console.log("formDatas가몰까나")
-        console.log(formDatas)
-        console.log("formDatas.noticeContent가몰까나")
-        console.log(formDatas.noticeContent)
+
+
+
+        // console.log("formDatas가몰까나")
+        // console.log(formDatas)
+        // console.log("formDatas.noticeContent가몰까나")
+        // console.log(formDatas.noticeContent)
         $.ajax({
             type:'POST',
-            url:REST_COMMON_NOTICE,
+            url:'/api/company/notice/notice'  +'/sn',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(formDatas)
         }).done(function(data){
@@ -259,14 +270,17 @@ console.log("ehlsiff33")
 
     //수정함수
     update(){
+        alert("수정탐")
         var formDatas = {
             noticeNo: $("#noticeNo").val(),
             noticeTitle: $("#noticeTitle").val(),
             noticeContent: $("#noticeContent").val(),
+            noticeCreId: $("#noticeCreId").val(),
+            noticeFileNm: $("#noticeFileNm").val(),
         }
         $.ajax({
             type:'POST',
-            url:'/web/notice/noticeNotice/saveNotice',
+            url:'/api/company/notice/notice'  +'/sn',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(formDatas)
         }).done(function(data){
@@ -285,19 +299,54 @@ console.log("ehlsiff33")
 
     //삭제함수
     delete(){
-        var selectedRows = noticeNoticeGridOptions.api.getSelectedRows();
+        alert("dhsl")//OK
+        // var selectedRows = noticeNoticeGridOptions.api.getSelectedRows();
+        let selectedRows = {
+            noticeNo:noticeNoticeGridOptions.api.getSelectedRows()[0].noticeNo,
+            noticeTitle:noticeNoticeGridOptions.api.getSelectedRows()[0].noticeTitle,
+            noticeContent:noticeNoticeGridOptions.api.getSelectedRows()[0].noticeContent,
+            noticeCreId:noticeNoticeGridOptions.api.getSelectedRows()[0].noticeCreId,
+            noticeFileNm:noticeNoticeGridOptions.api.getSelectedRows()[0].noticeFileNm,
+            ordNo:noticeNoticeGridOptions.api.getSelectedRows()[0].ordNo
+        }
+
+        console.log("selectedRows")
+        console.log(selectedRows)
+        // console.log(selectedRows)
+        // console.log(selectedRows[0].noticeNo)
+        // var noticeNo=selectedRows[0].noticeNo
+        // console.log(noticeNo)
+        // console.log(noticeNo+1)
+        let data = {
+            noticeNo : noticeNoticeGridOptions.api.getSelectedRows()[0].noticeNo
+        }
+        console.log("data.noticeNo = "+data.noticeNo)
+        console.log("data.noticeNo2 = "+typeof (data.noticeNo))
+        let test = noticeNoticeGridOptions.api.getSelectedRows()[0].noticeNo
+        console.log("test = "+test)
+        console.log("data = "+data)
         $.ajax({
             type: 'DELETE',
-            url : '/web/notice/noticeNotice/deleteNotice',
+            // url:'/api/company/notice/notice/delete',
+            url:'/api/company/notice/notice/deleteNotice',
+            // data : JSON.stringify(selectedRows),
             contentType: 'application/json; charset=utf-8',
-            data : JSON.stringify(selectedRows)
-        }).done(function (){
+            data :  JSON.stringify(selectedRows)
+        }).done(function (data) {
             alert("삭제되었습니다.");
             noticeNotice.findAll();
             $("#formNotice")[0].reset();
             $("#noticeFileList").children().remove()
-            $("#result").children().remove()
-        }).fail(function (error){
+            $("#result").children().remove() }).fail(function (error) {
+
+
+        // }).done(function (){
+        //     alert("삭제되었습니다.");
+        //     noticeNotice.findAll();
+        //     $("#formNotice")[0].reset();
+        //     $("#noticeFileList").children().remove()
+        //     $("#result").children().remove()
+        // }).fail(function (error){
 
         });
 
@@ -404,7 +453,8 @@ var noticeNoticeGridOptions = {
         $("#noticeTitle").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeTitle);
         $("#noticeContent").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeContent);
         // $("#result").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeContent);
-
+        noticeNotice.inputAllow()
+        //임시주석
         var noticeNo = noticeNoticeGridOptions.api.getSelectedRows()[0].noticeNo
         console.log(noticeNo);
         $.ajax({
