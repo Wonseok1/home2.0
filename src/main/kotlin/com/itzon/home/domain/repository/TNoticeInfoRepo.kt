@@ -2,7 +2,6 @@ package com.itzon.home.domain.repository
 
 import com.itzon.home.domain.table.*
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.like
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -51,31 +50,34 @@ class TNoticeInfoRepo {
 //----------------------------------------------요기까지함  -------------------
 
 
-//    fun isExist(tNoticeInfoDto: TNoticeInfoDto): Boolean {
+    //    fun isExist(tNoticeInfoDto: TNoticeInfoDto): Boolean {
 //        return !TNoticeInfo.select { TNoticeInfo.menuId eq tNoticeInfoDto.menuId }.empty()
 //    }
 //
-//    fun insert(tNoticeInfoDto: TNoticeInfoDto){
-//        TNoticeInfo.insert{
+    fun insert(tNoticeInfoDto: TNoticeInfoDto){
+        TNoticeInfo.insert{
 //            it[noticeNo] = tNoticeInfoDto.noticeNo
-//            it[noticeTitle] = tNoticeInfoDto.noticeTitle
-//            it[noticeContent] = tNoticeInfoDto.noticeContent
-//            it[noticeCreId] = tNoticeInfoDto.noticeCreId
-//            it[noticeFileNm] = tNoticeInfoDto.noticeFileNm
+            it[noticeTitle] = tNoticeInfoDto.noticeTitle.toString()
+            it[noticeContent] = tNoticeInfoDto.noticeContent.toString()
+            it[noticeCreId] = tNoticeInfoDto.noticeCreId.toString()
+            it[noticeFileNm] = tNoticeInfoDto.noticeFileNm.toString()
 //            it[ordNo] = tNoticeInfoDto.ordNo
-//        }
-//    }
-//    fun update(tNoticeInfoDto: TNoticeInfoDto) {
-//        TNoticeInfo.update ({TNoticeInfo.menuId eq tNoticeInfoDto.menuId}){
-//            it[ordNo] = tNoticeInfoDto.ordNo
-//        }
-//    }
-//    fun delete(tNoticeInfoDto: TNoticeInfoDto) {
-//        TNoticeInfo.deleteWhere {
-//            TNoticeInfo.menuId eq tNoticeInfoDto.menuId
-//        }
-//    }
-//
+        }
+    }
+    fun update(tNoticeInfoDto: TNoticeInfoDto) {
+        TNoticeInfo.update ({TNoticeInfo.noticeNo eq tNoticeInfoDto.noticeNo}){
+            it[noticeTitle] = tNoticeInfoDto.noticeTitle
+            it[noticeContent] =tNoticeInfoDto.noticeContent
+            it[noticeCreId] =tNoticeInfoDto.noticeCreId
+            it[noticeFileNm] = tNoticeInfoDto.noticeFileNm
+        }
+    }
+    fun delete(noticeNo: Int) {
+        TNoticeInfo.deleteWhere {
+            TNoticeInfo.noticeNo eq noticeNo
+        }
+    }
+
 //    fun findByNoticeNo(toLong: Long): TNoticeInfo {
 //
 //    }

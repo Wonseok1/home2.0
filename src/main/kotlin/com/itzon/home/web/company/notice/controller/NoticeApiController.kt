@@ -1,12 +1,9 @@
 package com.itzon.home.web.company.notice.controller
-import com.itzon.home.common.constant.REST_COMPANY_NOTICE_NOTICE
-import com.itzon.home.common.constant.*
-import com.itzon.home.domain.table.TNoticeInfo
+import com.itzon.home.common.annotation.ApiRequestLog
 import com.itzon.home.domain.table.TNoticeInfoDto
 import com.itzon.home.web.company.notice.service.NoticeService
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
-import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.servlet.ModelAndView
 
 import org.springframework.web.multipart.MultipartHttpServletRequest
@@ -19,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod
 
 import org.springframework.web.bind.annotation.RequestMapping
 import java.lang.Exception
-import javax.servlet.http.HttpSession
-import javax.transaction.Transactional
 
 
 @RestController
@@ -42,7 +37,7 @@ class NoticeApiController(
 //    }
 //
     //공지제목으로 조회
-    @GetMapping("/findByTitle")
+    @GetMapping("/Title")
     fun findByTitle(@RequestParam noticeTitle : String) : List<TNoticeInfoDto> {
         println("controllerSearchNoticeTitle")
         println(noticeTitle)
@@ -70,7 +65,7 @@ class NoticeApiController(
 
     //공지제목+공지내용+작성자로 검색
 
-    @GetMapping("/findByNoticeSearchVal")
+    @GetMapping("/AllVal")
     fun findByNoticeSearchVal(@RequestParam noticeSearchVal : String) : List<TNoticeInfoDto> {
         println("noticeSearchVal")
         println(noticeSearchVal)
@@ -84,17 +79,21 @@ class NoticeApiController(
         return noticeService.findAll()
     }
 
-////    저장
-//    @PostMapping("/web/notice/noticeNotice/saveNotice")
-//    fun saveNotice(@RequestBody map : Map<String,Any> ) :String {
-//        return noticeService.saveNotice(map)
-//    }
-//
-//    //삭제
-//    @DeleteMapping("/web/notice/noticeNotice/deleteNotice")
-//    fun deleteNotice(@RequestBody list : List<Map<String,Any>> ) :String {
-//        return noticeService.deleteNotice(list)
-//    }
+//    저장
+    @PostMapping("/sn")
+    fun saveNotice(@RequestBody tNoticeInfoList : TNoticeInfoDto ) {
+    println("33333333")
+    noticeService.saveNotice(tNoticeInfoList.noticeNo,tNoticeInfoList.noticeTitle,tNoticeInfoList.noticeContent,tNoticeInfoList.noticeCreId,tNoticeInfoList.noticeFileNm)
+
+    }
+
+    //삭제
+    @DeleteMapping("/deleteNotice")
+    @ApiRequestLog
+    fun deleteNotice(@RequestBody tNoticeInfo: TNoticeInfoDto) {
+
+        noticeService.deleteNotice(tNoticeInfo.noticeNo)
+    }
 //
 //    @Transactional
 //    @ResponseBody
@@ -104,12 +103,11 @@ class NoticeApiController(
 //        return noticeService.saveNoticeFile(multipartFile,response, request)
 //    }
 
-@RequestMapping("/fileDownload2")
-fun fileDownload2(request:HttpServletRequest , response:HttpServletResponse ) {
+    @RequestMapping("/fileDownload2")
+    fun fileDownload2(request:HttpServletRequest , response:HttpServletResponse ) {
 
- return noticeService.fileDownload2(request,response)
-
-}
+     return noticeService.fileDownload2(request,response)
+    }
 
 
     @Controller("mainController") //애너테이션을 이용해 빈으로 자동 변환

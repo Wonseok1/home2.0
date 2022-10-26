@@ -1,24 +1,14 @@
 package com.itzon.home.web.company.notice.service
 
 import com.itzon.home.domain.repository.TNoticeInfoRepo
-import com.itzon.home.domain.table.TNoticeInfo
 import com.itzon.home.domain.table.TNoticeInfoDto
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.ResponseBody
-import org.springframework.web.multipart.MultipartFile
-import org.springframework.web.multipart.MultipartHttpServletRequest
 import java.io.File
 import java.io.FileInputStream
-import java.net.URLEncoder
-import java.util.*
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-
-
 
 
 @Service
@@ -62,66 +52,78 @@ class NoticeService(
 
 
 
+
+    @Transactional
+    fun saveNotice(noticeNo:Int,noticeTitle: String,noticeContent: String,noticeCreId: String, noticeFileNm:String? ) {
+
+        val path = "/static/File/"
+//        println("write.jsp - realPath : $path")
 //
-//    @Transactional
-//    fun saveNotice(map: Map<String, Any>): String {
-//
-//        val path = "/static/File/"
-////        println("write.jsp - realPath : $path")
-////
-//        println(map)
-//        println("TEST!@")
-//        println("조회")
-//        var result: String = ""
-//
-//            //("noticeNo" in map) : map에 해당키 존재하는지여부체크
-//            if("noticeNo" in map){
-//                println("ReReReTest! ")
-//                println(map)
-//
-//                val tbNotice : TNoticeInfo = tNoticeInfoRepo.findByNoticeNo((map["noticeNo"].toString().toInt()).toLong())
+//        println(tNoticeInfoList)
+        println("TEST!@")
+        println("조회")
+        var result: String = ""
+
+//            ("noticeNo" in map) : map에 해당키 존재하는지여부체크
+            if(noticeNo!=0 || noticeNo>0) {
+                println("ReReReTest! ")
+                println(noticeNo)
+                tNoticeInfoRepo.update(
+                    TNoticeInfoDto(
+
+                        noticeNo = noticeNo,
+                        noticeTitle = noticeTitle,
+                        noticeContent = noticeContent
+//                        , noticeStartDt = map["noticeStartDt"] as Int
+//                        , noticeEndDt = map["noticeEndDt"] as Int
+                        , noticeCreId = noticeCreId,
+                        noticeFileNm = noticeFileNm
+//                    , ordNo = tNoticeInfoList[0].ordNo
+//                        , useYn = map["useYn"].toString()
+                    )
+                )
+//                val tbNotice: TNoticeInfo =
+//                    tNoticeInfoRepo.findByNoticeNo((map["noticeNo"].toString().toInt()).toLong())
 //                tbNotice.update(map)
-//
-//                result = "update"
-//                println("update")
-//                println("update")
-//            }else {
-//                tNoticeInfoRepo.save(
-//                    TbNotice(
-//
-//                        noticeTitle =  map["noticeTitle"].toString()
-//                        , noticeContent = if(map["noticeContent"].toString() == "") "" else map["noticeContent"].toString()
-////                        , noticeStartDt = map["noticeStartDt"] as Int
-////                        , noticeEndDt = map["noticeEndDt"] as Int
-//                        , noticeCreId = map["noticeCreId"] .toString()
-//                        , noticeFileNm = path+map["noticeFileNm"] .toString()
-////                        , ordNo = (map["ordNo"].toString().toInt()).toLong()
-////                        , useYn = map["useYn"].toString()
-//                    )
-//                )
-//                println("save")
-//                println(map["noticeNo"])
-//                result = "save"
+
+                result = "update"
+                println("update")
+                println("update")
+            }else {
+                tNoticeInfoRepo.insert(
+                    TNoticeInfoDto(
+
+                        noticeNo = 0,
+                        noticeTitle = noticeTitle, noticeContent = noticeContent
+//                        , noticeStartDt = map["noticeStartDt"] as Int
+//                        , noticeEndDt = map["noticeEndDt"] as Int
+                        , noticeCreId = noticeCreId, noticeFileNm = noticeFileNm
+//                    , ordNo = tNoticeInfoList[0].ordNo
+//                        , useYn = map["useYn"].toString()
+                    )
+                )
+            }
+//        TNoticeInfo.batchInsert(tNoticeInfoList){
+//            this[TNoticeInfo.noticeTitle]=it.noticeTitle
+//            this[TNoticeInfo.noticeContent]=it.noticeContent.toString()
+//            this[TNoticeInfo.noticeCreId]=it.noticeCreId.toString()
+//            this[TNoticeInfo.noticeFileNm]=it.noticeFileNm
+//        }
+
+
+
+                println("save")
+                result = "save"
 //            }
 //        return result
-//    }//saveNotice() END
-//
-//    fun deleteNotice(list: List<Map<String, Any>>): String {
-//        println("deleteMap")
-//        println(list)
-//
-//        var result : String =""
-//        val pkLists = ArrayList<Long>()
-//        for(i in list) {
-//            pkLists.add((i["noticeNo"].toString().toInt().toLong()))
-//        }
-//        val pkList : List<TbNotice> = tNoticeInfoRepo.findByNoticeNoIn(pkLists)
-//        println(pkList)
-//        tNoticeInfoRepo.deleteAll(pkList)
-//        result="delete"
-//        return result
-//    }//deleteNotice() END
-//
+    }//saveNotice() END
+
+
+    fun deleteNotice(noticeNo: Int) {
+
+    return tNoticeInfoRepo.delete(noticeNo)
+    }//deleteNotice() END
+
 //
 //    @Transactional
 //    @ResponseBody

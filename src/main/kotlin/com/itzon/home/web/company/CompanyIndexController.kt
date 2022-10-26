@@ -42,6 +42,17 @@ class CompanyIndexController {
     fun getNotice() : String {
         return "views/company/notice/notice"
     }
+    @GetMapping("/company/notice/noticeManage")
+    fun getNoticeManage() : String {
+        return "views/company/notice/noticeManage"
+    }
+
+
+
+//    @GetMapping("/system/main/main/company/notice/noticeManage")
+//    fun getNoticeManage() : String {
+//        return "views/company/notice/noticeManage"
+//    }
     @GetMapping("/company/notice/qna")
     fun getQna() : String {
         return "views/company/notice/qna"
