@@ -232,13 +232,19 @@ const fileShare ={
                         tmp.text = fileNm;
                         tmp.address = fileList;
                         tmp.lv = level;
+
+                        console.log("tmp data");
+                        console.log(tmp);
                         fileShare_object['lv_' + level].push(tmp);
                     }
 
                     for (let i in fileShare_object['lv_' + (level-1)]) {
                         let id = fileShare_object['lv_' + (level-1)][i].id;
                         let add = fileShare_object['lv_' + level][0].address
+
                         if (id === add[(level-1)]) {
+                            console.log("id")
+                            console.log(id)
                             fileShare_object['lv_' + (level-1)][i].children =  fileShare_object['lv_' + level];
                         }
                     }
