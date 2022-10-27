@@ -58,9 +58,8 @@ class FileShareController (
     }
 
     @GetMapping("/list")
-    fun list(): Array<File>? {
-        val dir: File = File(sftpProperties.defaultpath)
-        return dir.listFiles()
+    fun list(): String {
+        return sftpProperties.defaultpath
 
     }
 

@@ -367,25 +367,21 @@ const fileShare ={
             contentType: 'application/json; charset=utf-8',
             async : false
         }).done(function (data) {
-            fileShare_object['lv_0'] = [];
-            fileShare_object['lv_1'] = [];
 
-            let tmp_0 = new Object();
-            tmp_0.id = "C:";
-            tmp_0.text = "C:";
-            tmp_0.address = "C:";
-            tmp_0.lv = 0;
-            fileShare_object['lv_0'].push(tmp_0);
-
-            let tmp_1 = new Object();
-            tmp_1.id = "test";
-            tmp_1.text = "test";
-            tmp_1.address = ["C:","test"];
-            tmp_1.lv = 1;
-            fileShare_object['lv_1'].push(tmp_1);
-
-            fileShare_object['lv_0'][0].children = fileShare_object['lv_1'];
-
+            let path = data.substring(1);
+            let pathList = path.split("/");
+            for (let i in pathList) {
+                fileShare_object['lv_'+i] = [];
+                let tmp = new Object();
+                tmp.id = pathList[i];
+                tmp.text = pathList[i];
+                tmp.address = pathList[i];
+                tmp.lv = i;
+                fileShare_object['lv_'+i].push(tmp);
+                if (i > 0) {
+                    fileShare_object['lv_'+ (i-1)][0].children = fileShare_object['lv_'+i];
+                }
+            }
             fileShare.treeData(fileShare_object['lv_0']);
 
         }).fail(function (error) {
