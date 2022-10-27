@@ -73,5 +73,9 @@ const  REST_SMS_SEND_URL                        = REST_SMS_URL+"/send";
 
 const  REST_COMPANY_NOTICE_URL                  = REST_COMPANY_URL+"/notice";
 const  REST_COMPANY_NOTICE_NOTICE_URL           = REST_COMPANY_NOTICE_URL+"/notice";
+
+
+const  REST_FILE_URL                             = REST_ROOT_URL+"/file";
+const  REST_FILE_SHARE_URL                       = REST_FILE_URL+"/share";
 const  REST_COMPANY_NOTICE_NOTICEMANAGE_URL     = REST_COMPANY_NOTICE_URL+"/noticeManage";
 // const  REST_COMPANY_NOTICE_NOTICE_URL           = "/api/company/notice/notice"

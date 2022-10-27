@@ -76,4 +76,7 @@ const val REST_STAT_CONSULT_GROUP           = "$REST_STAT_CONSULT/group"
 
 const val REST_COMPANY_NOTICE               = "$REST_COMPANY/notice"
 const val REST_COMPANY_NOTICE_NOTICE        = "$REST_COMPANY_NOTICE/notice"
+
+const val REST_FILE                         = "$REST_ROOT/file"
+const val REST_FILE_SHARE                   = "$REST_FILE/share"
 const val REST_COMPANY_NOTICE_NOTICEMANAGE        = "$REST_COMPANY_NOTICE/noticeManage"

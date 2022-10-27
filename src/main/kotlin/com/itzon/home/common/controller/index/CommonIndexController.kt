@@ -29,6 +29,11 @@ class CommonIndexController (
         return "views/system/main/main"
     }
 
+    @GetMapping("/system/file/file")
+    fun getFile(): String {
+        return "views/system/file/file"
+    }
+
     @GetMapping("/loginView")
     fun getLoginPage(model: Model, request : HttpServletRequest, response: HttpServletResponse): String {
         model.addAttribute("exception",request.getAttribute("loginFailMsg"));
