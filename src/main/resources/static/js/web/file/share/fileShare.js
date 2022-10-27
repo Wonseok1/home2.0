@@ -373,9 +373,10 @@ const fileShare ={
             for (let i in pathList) {
                 fileShare_object['lv_'+i] = [];
                 let tmp = new Object();
+                let num = Number(i)+1;
                 tmp.id = pathList[i];
                 tmp.text = pathList[i];
-                tmp.address = pathList[i];
+                tmp.address = pathList.slice(0,num);
                 tmp.lv = i;
                 fileShare_object['lv_'+i].push(tmp);
                 if (i > 0) {
