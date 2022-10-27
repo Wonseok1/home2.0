@@ -169,13 +169,16 @@ const fileShare ={
     clickList(selected) {
         fileShare_downloadData = "";
         let addr = selected[0].address;
-        let path = addr.join("/");
+        let path = "/"+addr.join("/");
         let checkFolder = selected[0].id.includes(".")
 
         if (!checkFolder) {
             let parameter = {
                 path: path,
             }
+
+            console.log("parameter")
+            console.log(parameter)
 
             $.ajax({
                 type: 'GET',
@@ -361,32 +364,24 @@ const fileShare ={
 
     //처음 폴더 생성
     mkdirTree() {
-        $.ajax({
-            type: 'GET',
-            url: REST_FILE_SHARE_URL + "/list",
-            contentType: 'application/json; charset=utf-8',
-            async : false
-        }).done(function (data) {
+        let data = $("#fileShare_path").val();
 
-            let path = data.substring(1);
-            let pathList = path.split("/");
-            for (let i in pathList) {
-                fileShare_object['lv_'+i] = [];
-                let tmp = new Object();
-                let num = Number(i)+1;
-                tmp.id = pathList[i];
-                tmp.text = pathList[i];
-                tmp.address = pathList.slice(0,num);
-                tmp.lv = i;
-                fileShare_object['lv_'+i].push(tmp);
-                if (i > 0) {
-                    fileShare_object['lv_'+ (i-1)][0].children = fileShare_object['lv_'+i];
-                }
+        let path = data.substring(1);
+        let pathList = path.split("/");
+        for (let i in pathList) {
+            fileShare_object['lv_'+i] = [];
+            let tmp = new Object();
+            let num = Number(i)+1;
+            tmp.id = pathList[i];
+            tmp.text = pathList[i];
+            tmp.address = pathList.slice(0,num);
+            tmp.lv = i;
+            fileShare_object['lv_'+i].push(tmp);
+            if (i > 0) {
+                fileShare_object['lv_'+ (i-1)][0].children = fileShare_object['lv_'+i];
             }
-            fileShare.treeData(fileShare_object['lv_0']);
-
-        }).fail(function (error) {
-        });
+        }
+        fileShare.treeData(fileShare_object['lv_0']);
     },
 
     treeData(data) {

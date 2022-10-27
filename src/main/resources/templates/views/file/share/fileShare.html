@@ -27,6 +27,7 @@
 <div class="flex h-full w-full">
     <div class="md:flex w-full pb-2">
 
+        <input id="fileShare_path" class="hidden" th:value="${@environment.getProperty('itzon.sftp.defaultpath')}">
         <div class="w-full mx-2 flex flex-col p-2 flex flex-col border border-zinc-500 rounded-md mt-4">
             <div class="flex justify-between w-full my-2 border border-zinc-500 rounded-lg">
                 <div class="flex  ml-2">

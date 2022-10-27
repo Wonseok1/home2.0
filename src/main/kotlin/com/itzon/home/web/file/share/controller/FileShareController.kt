@@ -57,15 +57,19 @@ class FileShareController (
         return fileShareService.testDownload(request,response)
     }
 
-    @GetMapping("/list")
-    fun list(): String {
-        return sftpProperties.defaultpath
-
-    }
+//    @GetMapping("/list")
+//    fun list(): String {
+//        return sftpProperties.defaultpath
+//
+//    }
 
     @GetMapping("/clickList")
     fun clickList(@RequestParam(value = "path") path: String): Array<File>? {
         val dir: File = File(path)
+        System.out.println("path")
+        System.out.println(path)
+        System.out.println(dir)
+        System.out.println(dir.listFiles())
         return dir.listFiles()
 
     }
