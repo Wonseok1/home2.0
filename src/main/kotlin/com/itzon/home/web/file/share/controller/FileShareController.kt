@@ -67,8 +67,6 @@ class FileShareController (
     fun clickList(@RequestParam(value = "path") path: String): Array<File>? {
         val dir: File = File(path)
         System.out.println("path")
-        System.out.println(path)
-        System.out.println(dir)
         System.out.println(dir.listFiles())
         return dir.listFiles()
 

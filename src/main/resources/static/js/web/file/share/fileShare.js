@@ -104,8 +104,19 @@ const fileShare ={
         $.ajax({
             type: 'GET',
             url: "/system/main/fileDownload1?filePath="+data[0].address.join("/")+"&fileName="+data[0].id,
-            contentType: 'application/json; charset=utf-8'
+            contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+            xhr: function () {
+                let xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    //response 데이터를 바이너리로 처리한다. 세팅하지 않으면 default가 text
+                    xhr.responseType = "blob";
+                };
+                return xhr;
+            }
         }).done(function (data) {
+            console.log(data)
+            console.log(data)
+
         }).fail(function (error) {
         });
 
@@ -187,6 +198,8 @@ const fileShare ={
                 contentType: 'application/json; charset=utf-8',
                 async : false
             }).done(function (data) {
+                console.log("file list data");
+                console.log(data);
                 if(data.length > 0) {
                     let tmpList = [];
                     if (data[0].includes("/")) {
@@ -229,6 +242,9 @@ const fileShare ={
                             fileShare_object['lv_' + (level-1)][i].children =  fileShare_object['lv_' + level];
                         }
                     }
+
+                    console.log("tree data setting");
+                    console.log(fileShare_object['lv_0']);
                     fileShare.treeData(fileShare_object['lv_0']);
                 }
             });
