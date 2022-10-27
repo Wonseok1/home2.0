@@ -200,6 +200,9 @@ const fileShare ={
             }).done(function (data) {
                 console.log("file list data");
                 console.log(data);
+
+
+
                 if(data.length > 0) {
                     let tmpList = [];
                     if (data[0].includes("/")) {
@@ -215,6 +218,8 @@ const fileShare ={
                         let index;
                         let fileNm;
                         let fileList;
+
+                        data = data[i].substring(1);
 
                         if (data[0].includes("/")) {
                             index = data[i].lastIndexOf("/");
@@ -261,14 +266,7 @@ const fileShare ={
 
     refreshWhenDeleteFile(selected) {
         let addr = selected[0].address;
-        let path;
-
-        if (addr.length > 1) {
-            path = addr.join("/");
-        } else {
-            path = addr;
-        }
-
+        let path = addr.join("/");
         let checkFolder = selected[0].id.includes(".")
 
         if (!checkFolder) {
@@ -395,29 +393,29 @@ const fileShare ={
     mkdirTree() {
         let data = $("#fileShare_path").val();
 
-        fileShare_object['lv_0'] = [];
-        let tmp = new Object();
-        tmp.id = data;
-        tmp.text = data;
-        tmp.address = [data];
-        tmp.lv = 0;
-        fileShare_object['lv_0'].push(tmp);
+        // fileShare_object['lv_0'] = [];
+        // let tmp = new Object();
+        // tmp.id = data;
+        // tmp.text = data;
+        // tmp.address = [data];
+        // tmp.lv = 0;
+        // fileShare_object['lv_0'].push(tmp);
 
-        // let path = data.substring(1);
-        // let pathList = path.split("/");
-        // for (let i in pathList) {
-        //     fileShare_object['lv_'+i] = [];
-        //     let tmp = new Object();
-        //     let num = Number(i)+1;
-        //     tmp.id = pathList[i];
-        //     tmp.text = pathList[i];
-        //     tmp.address = pathList.slice(0,num);
-        //     tmp.lv = i;
-        //     fileShare_object['lv_'+i].push(tmp);
-        //     if (i > 0) {
-        //         fileShare_object['lv_'+ (i-1)][0].children = fileShare_object['lv_'+i];
-        //     }
-        // }
+        let path = data.substring(1);
+        let pathList = path.split("/");
+        for (let i in pathList) {
+            fileShare_object['lv_'+i] = [];
+            let tmp = new Object();
+            let num = Number(i)+1;
+            tmp.id = pathList[i];
+            tmp.text = pathList[i];
+            tmp.address = pathList.slice(0,num);
+            tmp.lv = i;
+            fileShare_object['lv_'+i].push(tmp);
+            if (i > 0) {
+                fileShare_object['lv_'+ (i-1)][0].children = fileShare_object['lv_'+i];
+            }
+        }
         fileShare.treeData(fileShare_object['lv_0']);
     },
 
