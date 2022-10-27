@@ -219,14 +219,16 @@ const fileShare ={
                         let fileNm;
                         let fileList;
 
-                        data = data[i].substring(1);
+
 
                         if (data[0].includes("/")) {
+                            data = data[i].substring(1);
                             index = data[i].lastIndexOf("/");
                             fileNm = data[i].substr(index+1);
                             fileList = data[i].split("/");
 
                         } else if (data[0].includes("\\")) {
+                            data = data[i].substring(1);
                             index = data[i].lastIndexOf("\\");
                             fileNm = data[i].substr(index+1);
                             fileList = data[i].split("\\");
