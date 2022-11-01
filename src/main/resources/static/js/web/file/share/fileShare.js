@@ -183,7 +183,7 @@ const fileShare ={
         fileShare_downloadData = "";
         let addr = selected[0].address;
         let path = addr.join("/");
-        let checkFolder = selected[0].id.includes(".")
+        let checkFolder = selected[0].id.includes(".jpg")
 
         if (!checkFolder) {
             let parameter = {

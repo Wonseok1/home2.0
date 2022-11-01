@@ -66,9 +66,17 @@ class FileShareController (
     @GetMapping("/clickList")
     fun clickList(@RequestParam(value = "path") path: String): Array<File>? {
         val dir: File = File(path)
-        System.out.println("path")
-        System.out.println(dir.listFiles())
-        return dir.listFiles()
+
+        if (dir.isDirectory) {
+            System.out.println("path")
+            System.out.println(dir.listFiles())
+            return dir.listFiles()
+        } else {
+            System.out.println("image or else")
+            return null
+        }
+
+
 
     }
 
