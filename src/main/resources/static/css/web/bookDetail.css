@@ -60,9 +60,15 @@ button {
 
 nav.amazing-tabs {
     background-color: var(--white);
+    opacity: 0.25;
     border-radius: 2.5rem;
     user-select: none;
     padding-top: 1rem;
+}
+
+
+nav.amazing-tabs:hover {
+    opacity: 0.8;
 }
 
 .main-tabs-container {
@@ -88,8 +94,8 @@ ul.main-tabs li {
 
 .avatar,
 .avatar img {
-    height: 4rem;
-    width: 4rem;
+    height: 2rem;
+    width: 2rem;
     border-radius: 50%;
     pointer-events: none;
 }
@@ -99,8 +105,8 @@ ul.main-tabs li {
 }
 
 .round-button {
-    height: 4.8rem;
-    width: 4.8rem;
+    height: 2.4rem;
+    width: 2.4rem;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -116,10 +122,37 @@ ul.main-tabs li {
 
 .round-button svg {
     pointer-events: none;
-    height: 2.8rem;
-    width: 2.8rem;
+    height: 1.4rem;
+    width: 1.4rem;
     transform: translate(0, 0);
 }
+
+
+
+.round-input {
+    height: 2.4rem;
+    width: 5rem;
+    padding: 1.5rem;
+    border-radius: 5%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-900);
+    transition: color 0.2s ease-in-out;
+}
+
+.round-input:hover,
+.round-input.active {
+    color: var(--round-button-active-color);
+}
+
+.round-input svg {
+    pointer-events: none;
+    height: 1.4rem;
+    width: 1.4rem;
+    transform: translate(0, 0);
+}
+
 
 .main-slider {
     pointer-events: none;
@@ -133,8 +166,8 @@ ul.main-tabs li {
 }
 
 .main-slider-circle {
-    height: 4.8rem;
-    width: 4.8rem;
+    height: 2.4rem;
+    width: 2.4rem;
     border-radius: 50%;
     transition: background-color 0.4s ease-in-out;
     background-color: var(--main-slider-color);
