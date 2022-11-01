@@ -183,97 +183,95 @@ const fileShare ={
         fileShare_downloadData = "";
         let addr = selected[0].address;
         let path = addr.join("/");
-        let checkFolder = selected[0].id.includes(".jpg")
+        // let checkFolder = selected[0].id.includes(".jpg")
 
-        if (!checkFolder) {
-            let parameter = {
-                path: path,
-            }
-
-            console.log("parameter")
-            console.log(parameter)
-
-            $.ajax({
-                type: 'GET',
-                url: REST_FILE_SHARE_URL + "/clickList",
-                data: parameter,
-                contentType: 'application/json; charset=utf-8',
-                async : false
-            }).done(function (data) {
-                console.log("file list data");
-                console.log(data);
-
-
-                if(data.length > 0) {
-                    let deleteRoot = data[0].substr(fileShare_firstPath.length);
-                    let tmpList = [];
-                    if (deleteRoot.includes("/")) {
-                        tmpList = deleteRoot.split("/");
-                    } else if (deleteRoot.includes("\\")) {
-                        tmpList = deleteRoot.split("\\");
-                    }
-
-                    let level = tmpList.length - 1;
-                    fileShare_object['lv_' + level] = [];
-
-                    console.log("level")
-                    console.log(level)
-
-                    for (let i in data) {
-                        let index;
-                        let fileNm;
-                        let fileList;
-
-
-                        if (data[0].includes("/")) {
-                            // data = data[i].substring(1);
-                            index = data[i].lastIndexOf("/");
-                            fileNm = data[i].substr(index+1);
-                            fileList = data[i].split("/");
-
-                        } else if (data[0].includes("\\")) {
-                            // data = data[i].substring(1);
-                            index = data[i].lastIndexOf("\\");
-                            fileNm = data[i].substr(index+1);
-                            fileList = data[i].split("\\");
-                        }
-
-                        let tmp = new Object();
-                        tmp.id = fileNm;
-                        tmp.text = fileNm;
-                        tmp.address = fileList;
-                        tmp.lv = level;
-
-                        fileShare_object['lv_' + level].push(tmp);
-                    }
-                    for (let i in fileShare_object['lv_' + (level-1)]) {
-                        let id = fileShare_object['lv_' + (level-1)][i].id;
-                        let add = fileShare_object['lv_' + level][0].address;
-                        let addLength = add.length;
-
-                        if (id === fileShare_firstPath) {
-                            let index = id.lastIndexOf("/");
-                            id = id.substr(index+1);
-                        }
-                        console.log("id 체크");
-                        console.log(id);
-                        console.log(add[(addLength-2)]);
-
-                        if (id === add[(addLength-2)]) {
-
-                            fileShare_object['lv_' + (level-1)][i].children =  fileShare_object['lv_' + level];
-                        }
-                    }
-
-                    console.log("tree data setting");
-                    console.log(fileShare_object['lv_0']);
-                    console.log(fileShare_object['lv_1']);
-                    fileShare.treeData(fileShare_object['lv_0']);
-                }
-            });
-        } else {
-            fileShare_downloadData = selected;
+        let parameter = {
+            path: path,
         }
+
+        console.log("parameter")
+        console.log(parameter)
+
+        $.ajax({
+            type: 'GET',
+            url: REST_FILE_SHARE_URL + "/clickList",
+            data: parameter,
+            contentType: 'application/json; charset=utf-8',
+            async : false
+        }).done(function (data) {
+            console.log("file list data");
+            console.log(data);
+
+
+            if(data.length > 0) {
+                let deleteRoot = data[0].substr(fileShare_firstPath.length);
+                let tmpList = [];
+                if (deleteRoot.includes("/")) {
+                    tmpList = deleteRoot.split("/");
+                } else if (deleteRoot.includes("\\")) {
+                    tmpList = deleteRoot.split("\\");
+                }
+
+                let level = tmpList.length - 1;
+                fileShare_object['lv_' + level] = [];
+
+                console.log("level")
+                console.log(level)
+
+                for (let i in data) {
+                    let index;
+                    let fileNm;
+                    let fileList;
+
+
+                    if (data[0].includes("/")) {
+                        // data = data[i].substring(1);
+                        index = data[i].lastIndexOf("/");
+                        fileNm = data[i].substr(index+1);
+                        fileList = data[i].split("/");
+
+                    } else if (data[0].includes("\\")) {
+                        // data = data[i].substring(1);
+                        index = data[i].lastIndexOf("\\");
+                        fileNm = data[i].substr(index+1);
+                        fileList = data[i].split("\\");
+                    }
+
+                    let tmp = new Object();
+                    tmp.id = fileNm;
+                    tmp.text = fileNm;
+                    tmp.address = fileList;
+                    tmp.lv = level;
+
+                    fileShare_object['lv_' + level].push(tmp);
+                }
+                for (let i in fileShare_object['lv_' + (level-1)]) {
+                    let id = fileShare_object['lv_' + (level-1)][i].id;
+                    let add = fileShare_object['lv_' + level][0].address;
+                    let addLength = add.length;
+
+                    if (id === fileShare_firstPath) {
+                        let index = id.lastIndexOf("/");
+                        id = id.substr(index+1);
+                    }
+                    console.log("id 체크");
+                    console.log(id);
+                    console.log(add[(addLength-2)]);
+
+                    if (id === add[(addLength-2)]) {
+
+                        fileShare_object['lv_' + (level-1)][i].children =  fileShare_object['lv_' + level];
+                    }
+                }
+
+                console.log("tree data setting");
+                console.log(fileShare_object['lv_0']);
+                fileShare.treeData(fileShare_object['lv_0']);
+            } else {
+                fileShare_downloadData = selected;
+            }
+        });
+
     },
 
     refreshWhenDeleteFile(selected) {
