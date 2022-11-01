@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@Transactional
 @RequestMapping("$REST_SYSTEM_AUTH_MENU")
 class SystemAuthMenuController (
     private val systemAuthMenuService: SystemAuthMenuService

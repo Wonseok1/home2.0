@@ -70,6 +70,9 @@ const  REST_SMS_URL                             = REST_ROOT_URL+"/sms";
 const  REST_SMS_SCRIPT_URL                      = REST_SMS_URL+"/script";
 const  REST_SMS_SEND_URL                        = REST_SMS_URL+"/send";
 
+const REST_BOOK_URL                             = REST_ROOT_URL + "/book";
+const REST_BOOK_DETAIL_URL                             = REST_BOOK_URL + "/detail";
+
 
 const  REST_COMPANY_NOTICE_URL                  = REST_COMPANY_URL+"/notice";
 const  REST_COMPANY_NOTICE_NOTICE_URL           = REST_COMPANY_NOTICE_URL+"/notice";

@@ -4,6 +4,18 @@ bookList = {
         bookList_btnNew.onclick = function () {
             window.location.href = '/book/detail';
         };
+    },
+    findAll() {
+        $.ajax({
+            type: 'GET',
+            url: REST_BOOK_URL,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+        }).done(function (data) {
+            bookList_gridOptions.api.setRowData(data);
+        }).fail(function (error) {
+
+        });
     }
 }
 
@@ -21,10 +33,10 @@ let bookList_gridOptions = {
     onCellClicked: params => {
     },
     onGridReady() {
-        systemAuthManage.findAll();
+        bookList.findAll();
     },
     onRowClicked(event) {
-        console.log(event)
+        location.href = REST_BOOK_DETAIL_URL+"/"+event.node.data.bookPk;
     }
 }
 

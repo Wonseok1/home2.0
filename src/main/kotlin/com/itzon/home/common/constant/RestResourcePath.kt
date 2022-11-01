@@ -68,6 +68,10 @@ const val REST_SMS                          = "$REST_ROOT/sms"
 const val REST_SMS_SCRIPT                   = "$REST_SMS/script"
 const val REST_SMS_SEND                     = "$REST_SMS/send"
 
+const val REST_BOOK                         = "$REST_ROOT/book"
+const val REST_BOOK_DETAIL                  = "$REST_BOOK/detail"
+
+
 const val REST_STAT                         = "$REST_ROOT/stat"
 const val REST_STAT_CONSULT                 = "$REST_STAT/consult"
 const val REST_STAT_CONSULT_TYPE            = "$REST_STAT_CONSULT/type"

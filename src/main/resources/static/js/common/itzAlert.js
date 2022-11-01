@@ -48,7 +48,13 @@ const itzAlert = {
         alert_title.innerHTML = msgBoxJson?.title ?? "알림"
         alert_message.innerHTML = msgBoxJson?.message ?? "완료되었습니다."
         alert_btn_confirm.innerHTML = msgBoxJson?.confirm ?? "확인"
+        if (msgBoxJson.cancel) {
+            alert_btn_cancel.classList.remove('hidden');
+        }else{
+            alert_btn_cancel.classList.add('hidden');
+        }
         alert_btn_cancel.innerHTML = msgBoxJson?.cancel ?? "취소"
+
         alert_btn_confirm.addEventListener('click', function () {
             alert_btn_confirm.addEventListener('click', function () {
                 if (callback) {
