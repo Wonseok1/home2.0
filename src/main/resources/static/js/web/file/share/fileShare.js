@@ -216,6 +216,9 @@ const fileShare ={
                     let level = tmpList.length - 1;
                     fileShare_object['lv_' + level] = [];
 
+                    console.log("level")
+                    console.log(level)
+
                     for (let i in data) {
                         let index;
                         let fileNm;
@@ -245,20 +248,26 @@ const fileShare ={
                     }
                     for (let i in fileShare_object['lv_' + (level-1)]) {
                         let id = fileShare_object['lv_' + (level-1)][i].id;
-                        let add = fileShare_object['lv_' + level][0].address
+                        let add = fileShare_object['lv_' + level][0].address;
+                        let addLength = add.length;
 
                         if (id === fileShare_firstPath) {
                             let index = id.lastIndexOf("/");
                             id = id.substr(index+1);
                         }
+                        console.log("id 체크");
+                        console.log(id);
+                        console.log(add[(addLength-2)]);
 
-                        if (id === add[(level)]) {
+                        if (id === add[(addLength-2)]) {
+
                             fileShare_object['lv_' + (level-1)][i].children =  fileShare_object['lv_' + level];
                         }
                     }
 
                     console.log("tree data setting");
                     console.log(fileShare_object['lv_0']);
+                    console.log(fileShare_object['lv_1']);
                     fileShare.treeData(fileShare_object['lv_0']);
                 }
             });
