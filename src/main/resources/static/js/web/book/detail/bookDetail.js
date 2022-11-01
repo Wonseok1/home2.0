@@ -137,6 +137,9 @@ bookDetail = {
         bookDetail_bookPage.addEventListener('keyup', function () {
             bookDetail.changePage(bookDetail_bookPage.value);
         });
+        bookDetail_btnOut.onclick = function () {
+            window.location.href = "/system/main/main"
+        };
     },
     loadBook() {
         $.ajax({
