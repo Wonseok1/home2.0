@@ -54,8 +54,6 @@ class BookApiController(
             )
         }
 
-
-        println(imgPath)
         val exts = arrayOf(".bmp", ".jpg", ".gif", ".png", ".jpeg")
         for (ext in exts) {
             val f = File(imgPath + ext)
