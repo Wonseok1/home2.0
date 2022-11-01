@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="flex h-full w-full">
+    <div class="md:flex w-full pb-2">
+        <div class="w-full md:w-2/3  mx-2 flex flex-col">
+            <div>
+                <h3 class="mt-2 text-lg leading-6 font-medium text-gray-900"  th:text="${menu.menuNm}"></h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500" th:text="${menu.menuComment}" ></p>
+            </div>
+            <div class="sixteen wide ag-theme-balham flex-1 w-full" id="dailyUseWords_grid"></div>
+        </div>
+        <div class="w-full md:w-1/3  mx-2 flex flex-col">
+            <div class="h-full">
+                <div class="flex mt-2 justify-end">
+                    <button id="myDailyWord_btnNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                        <i class="fa-solid fa-circle-plus -ml-1 mr-2 h-3 w-3"></i>
+                        신규
+                    </button>
+                    <button id="myDailyWord_btnSave" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                        <i class="fa-solid fa-floppy-disk -ml-1 mr-2 h-3 w-3"></i>
+                        저장
+                    </button>
+                    <button id="myDailyWord_btnDelete" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none ">
+                        <i class="fa-solid fa-trash-can -ml-1 mr-2 h-3 w-3"></i>
+                        삭제
+                    </button>
+                </div>
+                <div class="my-4">
+                    <label for="dailyUseWordTitle" class="my-2 mr-1 text-sm font-medium bg-zinc-400 text-white rounded-md px-2">상용구 제목</label>
+                    <input type="text" id="dailyUseWordTitle" class="w-full appearance-none block flex-1 py-1  border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm">
+                </div>
+                <div class="my-4 h-1/3 ">
+                    <label for="dailyUseWordContent" class="my-2 mr-1 text-sm font-medium bg-zinc-400 text-white rounded-md px-2">상용구 내용</label>
+                    <textarea id="dailyUseWordContent" class="w-full h-full resize-none appearance-none block flex-1 py-1  border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" ></textarea>
+                </div>
+                <div class="my-4 mt-12">
+                    <label for="dailyUseWordUseYn" class="my-2 mr-1 text-sm font-medium bg-zinc-400 text-white rounded-md px-2">사용여부</label>
+                    <input type="text" name="name" id="dailyUseWordUseYn" class="w-full appearance-none block flex-1  py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm">
+                </div>
+                <div class="my-4">
+                    <label for="dailyUseWordOrdNo" class="my-2 mr-1 text-sm font-medium bg-zinc-400 text-white rounded-md px-2">정렬순서</label>
+                    <input type="text" name="name" id="dailyUseWordOrdNo" class="w-full appearance-none block flex-1  py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm">
+                </div>
+                <div class="my-4 hidden">
+                    <label for="dailyWordsPk" class="my-2 mr-1 text-sm font-medium bg-zinc-400 text-white rounded-md px-2">pk</label>
+                    <input type="text" name="name" id="dailyWordsPk" class="w-full appearance-none block flex-1  py-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

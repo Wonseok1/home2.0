@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<div class="flex flex-col w-full h-full p-4">
+    <h3 class="mb-2 text-xl font-bold text-gray-900" th:text="${menu.menuNm}"></h3>
+    <div class="h-full">
+        <div class="w-full h-full mt-2 p-2 flex flex-col border border-zinc-500 rounded-md">
+            <div class="my-1 h-full flex flex-col">
+
+                <input type="text" id="" class="hidden">
+                <div class="w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">받는 사람</label>
+                    <input type="text" name="name" id="" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="mt-2 w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">참조</label>
+                    <input type="text" name="name" id="" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="mt-2 w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">제목</label>
+                    <input type="text" name="name" id="" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="mt-2 w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">파일첨부</label>
+                    <input type="file" name="name" id="" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="h-full">
+                    <div class="mt-2 w-full h-full">
+                        <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">내용</label>
+                        <textarea id="" class="resize-none w-full h-5/6 flex-1 appearance-none block p-1  border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" style="font-size: small;"></textarea>
+                    </div>
+                </div>
+                <div class="flex w-full my-2 p-1 items-center">
+                    <div class="flex flex-1 justify-end ">
+                        <button id="" name="" type="button" class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                            <span>보내기</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
