@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<div class="flex flex-col w-full h-full p-4">
+    <div class="h-full">
+        <div class="w-full h-full mt-2 p-2 flex flex-col border border-zinc-500 rounded-md">
+            <div class="my-1 h-full flex flex-col">
+                <input type="text" id="" class="hidden">
+
+                <div class="flex justify-between mx-1">
+                    <h3 id="mailReceive_title" class="mb-2 text-lg leading-6 font-bold text-gray-900">
+                    </h3>
+                    <input type="text" id="mailReceive_date" readonly>
+                </div>
+
+                <div class="w-full mt-2">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">보낸 사람</label>
+                    <input type="text" name="name" id="mailReceive_from" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" readonly>
+                </div>
+
+                <div class="w-full mt-2">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">받는 사람</label>
+                    <input type="text" name="name" id="mailReceive_to" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" readonly>
+                </div>
+
+                <div class="h-full">
+                    <div class="w-full h-full mt-2">
+                        <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">내용</label>
+                        <textarea id="mailReceive_content" class="resize-none w-full h-5/6 flex-1 appearance-none block p-1  border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" style="font-size: small;" readonly></textarea>
+                    </div>
+                </div>
+
+                <div class="flex w-full my-2 p-1 items-center">
+                    <div class="flex flex-1 justify-end ">
+                        <button id="mailReceive_reply" name="" type="button" class="inline-flex items-center mx-1 px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                            <span>답장</span>
+                        </button>
+                        <button id="mailReceive_forward" name="" type="button" class="inline-flex items-center mx-1 px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                            <span>전달</span>
+                        </button>
+                        <button id="mailReceive_list" name="" type="button" class="inline-flex items-center ml-1 px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                            <span>목록</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="mailReceive_replyDiv" class="w-full h-full mt-2 p-2 flex flex-col border border-zinc-500 rounded-md hidden">
+            <div class="my-1 h-full flex flex-col">
+                <div class="flex justify-between">
+                    <h3 class="mb-2 text-base leading-6 font-bold text-gray-900">
+                        <i class="fa-solid fa-reply"></i> 답장
+                    </h3>
+                    <i id="mailReceive_replyX" class="fa-solid fa-xmark text-xl mr-1 cursor-pointer"></i>
+                </div>
+                <div class="w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">받는 사람</label>
+                    <input type="text" name="name" id="mailReceive_replyTo" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">참조</label>
+                    <input type="text" name="name" id="mailReceive_replyToOther" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="mt-2 w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">파일첨부</label>
+                    <input type="file" name="name" id="mailReceive_replyFile" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="h-full">
+                    <div class="mt-2 w-full h-full">
+                        <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">내용</label>
+                        <textarea id="mailReceive_replyContent" class="resize-none w-full h-5/6 flex-1 appearance-none block p-1  border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" style="font-size: small;"></textarea>
+                    </div>
+                </div>
+                <div class="flex w-full my-2 p-1 items-center">
+                    <div class="flex flex-1 justify-end ">
+                        <button id="mailReceive_replySend" name="" type="button" class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                            <span>보내기</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mailReceive_forwardDiv" class="w-full h-full mt-2 p-2 flex flex-col border border-zinc-500 rounded-md hidden">
+            <div class="my-1 h-full flex flex-col">
+                <div class="flex justify-between">
+                    <h3 class="mb-2 text-base leading-6 font-bold text-gray-900">
+                        <i class="fa-solid fa-reply -scale-x-100"></i> 전달
+                    </h3>
+                    <i id="mailReceive_forwardX" class="fa-solid fa-xmark text-xl mr-1 cursor-pointer"></i>
+                </div>
+                <div class="w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">받는 사람</label>
+                    <input type="text" name="name" id="mailReceive_forwardTo" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">참조</label>
+                    <input type="text" name="name" id="mailReceive_forwardToOther" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="mt-2 w-full">
+                    <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">파일첨부</label>
+                    <input type="file" name="name" id="mailReceive_forwardFile" class="w-full appearance-none block flex-1 p-1 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" placeholder="" autocomplete="off" style="font-size: small;" >
+                </div>
+                <div class="h-full">
+                    <div class="mt-2 w-full h-full">
+                        <label for="" class="text-sm font-medium bg-zinc-400 text-white rounded-md px-2">내용</label>
+                        <textarea id="mailReceive_forwardContent" class="resize-none w-full h-5/6 flex-1 appearance-none block p-1  border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 sm:text-sm" style="font-size: small;"></textarea>
+                    </div>
+                </div>
+                <div class="flex w-full my-2 p-1 items-center">
+                    <div class="flex flex-1 justify-end ">
+                        <button id="mailReceive_forwardSend" name="" type="button" class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                            <span>보내기</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</html>

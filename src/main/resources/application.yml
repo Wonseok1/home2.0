@@ -45,9 +45,6 @@ spring:
       idle-timeout: 10000
   exposed:
     generate-ddl: true
-#  jpa:
-#    hibernate:
-#      ddl-auto: none
 
 logging:
   level:
@@ -101,9 +98,6 @@ spring:
       idle-timeout: 10000
   exposed:
     generate-ddl: true
-#  jpa:
-#    hibernate:
-#      ddl-auto: none
 
 logging:
   level:

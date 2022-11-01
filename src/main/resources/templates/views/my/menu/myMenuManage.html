@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div class="flex h-full w-full">
+    <div class="md:flex w-full pb-2">
+        <div class="w-full md:w-1/2  mx-2 flex flex-col">
+            <div>
+                <h3 class="mt-2 text-lg leading-6 font-medium text-gray-900">메뉴</h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">메뉴 화면목록 </p>
+            </div>
+            <div class="mt-2 sixteen wide ag-theme-balham flex-1 w-full" id="allMenuManage_grid"></div>
+        </div>
+        <div class="w-full md:w-1/2  mx-2 flex flex-col">
+            <div>
+                <h3 class="mt-2 text-lg leading-6 font-medium text-gray-900"  th:text="${menu.menuNm}"></h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500" th:text="${menu.menuComment}" ></p>
+            </div>
+            <div class="flex my-2 h-10">
+                <button id="myMenuManage_btnDelete" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 focus:outline-none ">
+                    <!-- Heroicon name: solid/mail -->
+                    <i class="fa-solid fa-trash-can -ml-1 mr-2 mt-1 h-5 w-5"></i>
+                    삭제
+                </button>
+            </div>
+            <div class="mt-2 sixteen wide ag-theme-balham flex-1 w-full" id="myMenuManage_grid"></div>
+        </div>
+    </div>
+</div>
+
+</html>
