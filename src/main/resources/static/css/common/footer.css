@@ -1,0 +1,100 @@
+footer {position:relative; width:100%; height:100px; background:#f8f7f7;min-width:320px; z-index:5}
+.footer-in {position:relative; font-size:12px; color:#666; padding-top:20px; font-weight: 600; }
+.footer-in:after {clear:both; display:block; content:"";}
+.footer-in .f-left {position:relative;float:left; padding-left:140px; letter-spacing:0}
+.footer-in .f-left p {letter-spacing:0; line-height:20px;}
+.footer-in .f-left p span {display:inline-block; background:url(/img/footer_bar2.gif) no-repeat left 5px; padding-left:12px; margin-left:10px}
+.footer-in .f-left p span:first-child {margin-left:0; padding-left:0; background:none}
+.footer-in .f-left p span.post {margin-left:0; padding-left:5px; background:none}
+.footer-in .f-left p .bratt, .footer-in .f-left p .bratt02 {display:none !important}
+.footer-in .f-right {float:right}
+.footer-in .f-logo {display:block; position:absolute; left:0; top:20px; width: 130px}
+.footer-in .f-logo img {max-width:100%}
+.footer-in .f-right:after {clear:both; display:block; content:"";}
+.footer-in .f-right ul.terms {float:left; margin-right:0; padding-top:41px}
+.footer-in .f-right ul.terms:after {clear:both; display:block; content:"";}
+.footer-in .f-right ul.terms li {float:left; background:url(/img/footer_bar.gif) no-repeat 0 4px; padding:0 10px 0 12px; }
+.footer-in .f-right ul.terms li a {color:#666; }
+.footer-in .f-right ul.terms li:first-child {background:none; padding-left:0; font-family:NotoSansCJKkr-Medium; }
+.footer-in .f-right ul.terms li:first-child a {color:#1b5389;}
+.footer-in .f-right ul.terms li:last-child {padding-right:0}
+.footer-in .elect {position:absolute; top:23px; right:0px; text-align:center; width:190px; height:30px; line-height:30px; font-size:13px; border:1px solid #d7d6d6; box-sizing:border-box;}
+
+.bratt {display:none;}
+.bratt02 {display:none;}
+.bratts {display:none;}
+
+@media only screen and (min-width:1280px) {
+    footer {max-width:1920px;margin:0 auto}
+    .footer-in {max-width:1100px;  margin:0 auto}
+    .footer-in .family {right:0px; top:23px; }
+    .footer-in .f-left p span.ex2 {margin-left:0; padding-left:0; background:none}
+}
+
+@media only screen and (max-width:1279px) {
+    footer {height:139px}
+    .footer-in {padding:20px 50px 0}
+    .footer-in .f-logo {left:50px; top:52px}
+    .footer-in .f-left {float:none; padding-left:84px; margin-top:2px}
+    .footer-in .f-left p br {display:none}
+    .footer-in .f-right {float:none; padding-left:84px;}
+    .footer-in .elect {top:55px; right:50px; text-align:left; padding:0 10px 0 12px}
+    .footer-in .family {right:50px; top:20px}
+    .footer-in .f-right ul.terms {padding-top:0}
+    .bratt02 {display:block;}
+}
+@media only screen and (min-width:768px) and (max-width:1279px) {
+    .footer-in .f-left p .bratt02 {display:block !important}
+    .footer-in .f-left p span.ex1, .footer-in .f-left p span.ex3 {margin-left:0; padding-left:0; background:none}
+}
+
+@media only screen and (max-width:767px) {
+    footer {height:217px}
+    .footer-in {padding:15px 0 0; font-size:11px}
+    .footer-in .f-logo {width:100px; height:28px; left:15px; top:112px}
+    .footer-in .f-left {padding-left:0px; padding-top:43px; margin-top:0; font-family:NotoSansCJKkr-Light; }
+    .footer-in .f-left .tel {display:block; padding-left:0; }
+    .footer-in .f-left a {color:#848484}
+    .footer-in .f-left p:first-child {padding-left:135px; line-height:16px}
+    .footer-in .f-left p:last-child {text-align:center; color:#999; border-top:1px solid #ccc; font-size:9px; line-height:15px; margin-top:12px; padding-top:12px}
+    .footer-in .f-right {padding:0 15px; box-sizing:border-box;}
+    .footer-in .f-right ul.terms {float:none; width:100%; margin-right:0; padding-top:0; margin-bottom:15px;}
+    .footer-in .f-right ul.terms li {width:18%; text-align:center; padding:0; background-size:1px 10px}
+    .footer-in .f-right ul.terms li:nth-child(odd) {width:32%}
+    .footer-in .elect {top:40px; left:15px; width:47%; margin-right:2%; box-sizing:border-box}
+    .footer-in .family {top:40px; width:47%; right:15px; height:35px; box-sizing:border-box}
+    .footer-in .f-left p span {background-size:1px 10px; padding-left:6px; margin-left:5px}
+    .footer-in .f-left p span.post {padding-left:0;}
+    .footer-in .f-left p .bratt {display:block !important;}
+    .footer-in .f-left p span.ex1, .footer-in .f-left p span.ex2, .footer-in .f-left p span.ex4 {margin-left:0; padding-left:0; background:none}
+    .footer-in .f-left p br {display:block;}
+
+    .bratt {display:block;}
+    .bratt02 {display:none;}
+}
+
+@media only screen and (max-width:680px) {
+    .footer-in .elect {width:47%; text-align:center}
+    .footer-in .family {width:47%}
+}
+
+@media only screen and (max-width:600px) {
+    .footer-in .elect {width:46%; text-align:center}
+    .footer-in .family {width:46%}
+}
+
+@media only screen and (max-width:430px) {
+    .footer-in .elect {width:50.5%; text-align:center}
+    .footer-in .family {width:45.5%}
+}
+@media only screen and (max-width:400px) {
+    .footer-in .elect {width:55%; text-align:center}
+    .footer-in .family {width:45%}
+}
+@media only screen and (max-width:367px) {
+    footer {height:225px}
+}
+
+@media only screen and (max-width:350px) {
+    .footer-in .elect {padding:0 5px 0 9px; text-align:center}
+}

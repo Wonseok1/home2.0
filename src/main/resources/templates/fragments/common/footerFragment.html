@@ -3,7 +3,7 @@
 
 
 
-<th:block th:fragment="footer">
+<!--<th:block th:fragment="footer">
     <footer class="my-10 px-12 text-center ">
         <hr class="six mb-0 md:mb-5">
         <p class="font-extralight text-xs"> 서울특별시 금천구 가산디지털2로 166, 9층 901호 (가산동, 에이스 K1타워) </p>
@@ -17,6 +17,50 @@
             204-81-81190
         </p>
         <p class="font-extralight text-xs">Copyright ITZON CO., Ltd. All Rights reserved.</p>
+    </footer>
+</th:block>-->
+<th:block th:fragment="footer">
+    <link rel="stylesheet" href="/css/common/footer.css">
+
+<!-- position fixed로 두게 될 경우 처음엔 브라우저 맨 하단에 박히나, 화면에 스크롤이 생길 경우 최하단에 박히지 않음 // 컨텐츠의 높이만큼 footer 높이 계산함 -->
+    <footer class="md:max-w-screen" style="position: relative; transform: translateY(0%);">
+        <div class="footer-in">
+            <span class="f-logo">
+<!--                <img src="/img/itzonlogo2.png" alt="(주)아이티존">-->
+                <img class="h-12 w-auto sm:h-13" src="/img/itzonlogo2.png" alt="">
+            </span>
+            <div class="f-right">
+                <ul class="terms">
+                    <li>
+                        <a href="#">개인정보취급처리방침</a>
+                    </li>
+                    <li>
+                        <a href="">사이트맵</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="f-left">
+                <p>
+                    <span>서울특별시 금천구 가산디지털2로 166, 901호(가산동,에이스K1타워)</span>
+                    <span class="bratt"></span>
+                    <span class="post">우: 08503</span>
+                    <span class="bratt"></span>
+                    <span class="bratt02"></span>
+                    <span class="ex1">대표자 : 장재혁</span>
+                    <span>사업자번호 : 204-81-81190</span>
+                    <br>
+                    <span class="ex2">대표번호 : 070-8786-7295~6</span>
+                    <span class="bratt02"></span>
+                    <span class="ex3">팩스번호 : 070-8787-9632</span>
+                    <span class="bratt"></span>
+                    <span class="ex4">이메일 : support@itzon.co.kr</span>
+                </p>
+                <p>
+                    Copyright ⓒ ITZON. All rights Reserved.
+                </p>
+            </div>
+            <a href="https://it-zon.co.kr" class="elect" target="_blank">아이티존 홈페이지 바로가기</a>
+        </div>
     </footer>
 </th:block>
 
