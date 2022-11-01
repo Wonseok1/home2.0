@@ -5,13 +5,15 @@ fileShare_parentFolder_refresh = {};
 fileShare_parentFolder_delete = {};
 fileShare_downloadData = {};
 fileShare_downloadList = [];
+fileShare_firstPath = "";
 
 const fileShare ={
     init() {
-        fileShare.mkdirTree();
+        fileShare.getFirstPath();
+        // fileShare.mkdirTree();
 
         $("#fileShare_refresh").on("click", function () {
-            fileShare.mkdirTree();
+            fileShare.getFirstPath();
         });
 
         $("#fileShare_newFolder").on("click", function () {
@@ -180,7 +182,7 @@ const fileShare ={
     clickList(selected) {
         fileShare_downloadData = "";
         let addr = selected[0].address;
-        let path = "/"+addr.join("/");
+        let path = addr.join("/");
         let checkFolder = selected[0].id.includes(".")
 
         if (!checkFolder) {
@@ -202,13 +204,13 @@ const fileShare ={
                 console.log(data);
 
 
-
                 if(data.length > 0) {
+                    let deleteRoot = data[0].substr(fileShare_firstPath.length);
                     let tmpList = [];
-                    if (data[0].includes("/")) {
-                        tmpList = data[0].split("/");
-                    } else if (data[0].includes("\\")) {
-                        tmpList = data[0].split("\\");
+                    if (deleteRoot.includes("/")) {
+                        tmpList = deleteRoot.split("/");
+                    } else if (deleteRoot.includes("\\")) {
+                        tmpList = deleteRoot.split("\\");
                     }
 
                     let level = tmpList.length - 1;
@@ -220,15 +222,14 @@ const fileShare ={
                         let fileList;
 
 
-
                         if (data[0].includes("/")) {
-                            data = data[i].substring(1);
+                            // data = data[i].substring(1);
                             index = data[i].lastIndexOf("/");
                             fileNm = data[i].substr(index+1);
                             fileList = data[i].split("/");
 
                         } else if (data[0].includes("\\")) {
-                            data = data[i].substring(1);
+                            // data = data[i].substring(1);
                             index = data[i].lastIndexOf("\\");
                             fileNm = data[i].substr(index+1);
                             fileList = data[i].split("\\");
@@ -240,18 +241,18 @@ const fileShare ={
                         tmp.address = fileList;
                         tmp.lv = level;
 
-                        console.log("tmp data");
-                        console.log(tmp);
                         fileShare_object['lv_' + level].push(tmp);
                     }
-
                     for (let i in fileShare_object['lv_' + (level-1)]) {
                         let id = fileShare_object['lv_' + (level-1)][i].id;
                         let add = fileShare_object['lv_' + level][0].address
 
-                        if (id === add[(level-1)]) {
-                            console.log("id")
-                            console.log(id)
+                        if (id === fileShare_firstPath) {
+                            let index = id.lastIndexOf("/");
+                            id = id.substr(index+1);
+                        }
+
+                        if (id === add[(level)]) {
                             fileShare_object['lv_' + (level-1)][i].children =  fileShare_object['lv_' + level];
                         }
                     }
@@ -284,11 +285,12 @@ const fileShare ={
                 async : false
             }).done(function (data) {
                 if(data.length > 0) {
+                    let deleteRoot = data[0].substr(fileShare_firstPath.length);
                     let tmpList = [];
-                    if (data[0].includes("/")) {
-                        tmpList = data[0].split("/");
-                    } else if (data[0].includes("\\")) {
-                        tmpList = data[0].split("\\");
+                    if (deleteRoot.includes("/")) {
+                        tmpList = deleteRoot.split("/");
+                    } else if (deleteRoot.includes("\\")) {
+                        tmpList = deleteRoot.split("\\");
                     }
 
                     let level = tmpList.length - 1;
@@ -317,14 +319,22 @@ const fileShare ={
                         tmp.lv = level;
                         fileShare_object['lv_' + level].push(tmp);
                     }
-
                     for (let i in fileShare_object['lv_' + (level-1)]) {
                         let id = fileShare_object['lv_' + (level-1)][i].id;
                         let add = fileShare_object['lv_' + level][0].address
-                        if (id === add[(level-1)]) {
+
+                        if (id === fileShare_firstPath) {
+                            let index = id.lastIndexOf("/");
+                            id = id.substr(index+1);
+                        }
+
+                        if (id === add[(level)]) {
                             fileShare_object['lv_' + (level-1)][i].children =  fileShare_object['lv_' + level];
                         }
                     }
+
+                    console.log("tree data setting");
+                    console.log(fileShare_object['lv_0']);
                     fileShare.treeData(fileShare_object['lv_0']);
 
                 } else {
@@ -389,6 +399,24 @@ const fileShare ={
             });
         }
 
+    },
+
+
+    //첫번째 경로 가져오기
+    getFirstPath() {
+        let data = $("#fileShare_path").val();
+
+        fileShare_firstPath = data;
+
+        fileShare_object['lv_0'] = [];
+        let tmp = new Object();
+        tmp.id = data;
+        tmp.text = data;
+        tmp.address = [data];
+        tmp.lv = 0;
+        fileShare_object['lv_0'].push(tmp);
+
+        fileShare.treeData(fileShare_object['lv_0']);
     },
 
     //처음 폴더 생성
