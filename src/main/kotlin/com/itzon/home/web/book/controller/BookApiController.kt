@@ -5,6 +5,7 @@ import com.itzon.home.common.properties.BookProperties
 import com.itzon.home.domain.table.TBookInfoDto
 import com.itzon.home.domain.table.TBookPageSetDto
 import com.itzon.home.domain.table.TUserInfoDto
+import com.itzon.home.web.book.dto.BookPageSetSaveRequestDto
 import com.itzon.home.web.book.service.BookService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -42,6 +43,17 @@ class BookApiController(
         response.contentType = "image/gif"
         val bout = response.outputStream
         var imgPath: String = bookProperties.defaultPath + File.separator+ tBookInfoDto.bookPath + File.separator + tBookInfoDto.bookFileNm+ String.format("%03d", pageNo)
+
+        if (pageNo % 2 == 1) {
+            bookService.savePageSet(
+                BookPageSetSaveRequestDto(
+                    bookPk = bookPk,
+                    pageNum = pageNo,
+                    userId = tUserInfoDto.userId
+                )
+            )
+        }
+
 
         println(imgPath)
         val exts = arrayOf(".bmp", ".jpg", ".gif", ".png", ".jpeg")

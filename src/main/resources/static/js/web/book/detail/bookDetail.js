@@ -151,7 +151,7 @@ bookDetail = {
             console.log(data);
             console.log("data");
             if (data.length) {
-                var leftPage = data.pageNum;
+                var leftPage = data[0].pageNum;
                 bookDetail.changePage(leftPage);
             }else{
                 bookDetail.changePage(1);
