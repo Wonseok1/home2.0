@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<div class="flex h-full w-full">
+    <div class="h-full flex-1 flex flex-col">
+        <div>
+            <h3 class="mx-2 mt-2 text-lg leading-6 font-medium text-gray-900"  th:text="${menu.menuNm}"></h3>
+        </div>
+        <div class="flex justify-end">
+            <div class="lg:flex my-2 mx-1 flex-wrap">
+                <button id="historyManage_btnNew" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
+                    <i class="fa-solid fa-circle-plus -ml-1 mr-2 h-3 w-3"></i>
+                    신규
+                </button>
+                <button id="historyManage_btnSave" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
+                    <i class="fa-solid fa-floppy-disk -ml-1 mr-2 h-3 w-3"></i>
+                    저장
+                </button>
+                <button id="historyManage_btnDelete" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-rose-500 hover:bg-rose-600 focus:outline-none">
+                    <i class="fa-solid fa-trash-can -ml-1 mr-2 h-3 w-3"></i>
+                    삭제
+                </button>
+            </div>
+        </div>
+        <div class="sixteen wide ag-theme-balham flex-1 mx-2 my-2" id="historyManage_grid"></div>
+    </div>
+</div>
+
+</html>

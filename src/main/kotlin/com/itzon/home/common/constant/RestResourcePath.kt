@@ -10,7 +10,8 @@ const val REST_COMMON_CODE                  = "$REST_COMMON/code"
 const val REST_COMMON_ORG                   = "$REST_COMMON/org"
 const val REST_COMMON_NOTICE                = "$REST_COMMON/notice"
 
-const val REST_COMPANY                       = "$REST_ROOT/company"
+const val REST_COMPANY                      = "$REST_ROOT/company"
+const val REST_COMPANY_HISTORY              = "$REST_COMPANY/history"
 
 const val REST_SYSTEM                       = "$REST_ROOT/system"
 
