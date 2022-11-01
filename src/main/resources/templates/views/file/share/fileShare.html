@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      style="height: 100%;">
+<head>
+    <link rel="favicon" href="/img/icon/itz_logo_icon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ITZ">
+
+    <th:block th:replace="fragments/common/importFragment :: i-header"></th:block>
+</head>
+<body class="overflow-hidden">
+<div class="hidden" id="newFolderModal">
+    <th:block th:replace="fragments/common/fileShareNewFolderFragment :: newFolder"></th:block>
+</div>
+<div class="hidden" id="uploadModal">
+    <th:block th:replace="fragments/common/fileShareUploadFragment :: upload"></th:block>
+</div>
+
+<div class="flex h-full w-full">
+    <div class="md:flex w-full pb-2">
+
+        <input id="fileShare_path" class="hidden" th:value="${@environment.getProperty('itzon.sftp.defaultpath')}">
+        <div class="w-full mx-2 flex flex-col p-2 flex flex-col border border-zinc-500 rounded-md mt-4">
+            <div class="flex justify-between w-full my-2 border border-zinc-500 rounded-lg">
+                <div class="flex  ml-2">
+                    <h3 class="flex p-2 text-lg font-bold leading-6 font-medium text-gray-900">목록</h3>
+                </div>
+                <div class="flex">
+                    <button id="fileShare_refresh" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-400 hover:bg-zinc-500 focus:outline-none">
+                        <i class="fa-solid fa-arrow-rotate-right -ml-1 mr-2 h-3 w-3"></i>
+                        새로고침
+                    </button>
+                    <button id="fileShare_newFolder" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
+                        <i class="fa-solid fa-floppy-disk -ml-1 mr-2 h-3 w-3"></i>
+                        폴더생성
+                    </button>
+                    <button id="fileShare_upload" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
+                        <i class="fa-solid fa-turn-up -ml-1 mr-2 h-3 w-3"></i>
+                        업로드
+                    </button>
+                    <div id="fileShare_downloadLink">
+                        <button id="fileShare_download" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
+                            <i class="fa-solid fa-level-down-alt -ml-1 mr-2 h-3 w-3"></i>
+                            다운로드
+                        </button>
+                    </div>
+
+                    <button id="fileShare_delete" type="button" class="my-1 mr-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-rose-500 hover:bg-rose-600 focus:outline-none">
+                        <i class="fa-solid fa-trash-can -ml-1 mr-2 h-3 w-3"></i>
+                        삭제
+                    </button>
+                </div>
+            </div>
+            <div class="flex mt-2 pt-1 border-solid border border-zinc-500" style="height: 90%;">
+
+                <div class="sixteen wide ag-theme-balham flex-1 w-full overflow-auto" id="fileShare_fileTree"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <th:block th:replace="fragments/common/importFragment :: i-footer"></th:block>
+    <script src="/js/common/common.js"></script>
+    <script src="/js/web/system/file/file.js"></script>
+</body>
+
+</html>
