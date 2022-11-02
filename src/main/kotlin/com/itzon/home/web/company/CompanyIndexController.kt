@@ -18,6 +18,12 @@ class CompanyIndexController {
     fun getProjectView() : String {
         return "views/company/project/projectView"
     }
+
+    @GetMapping("/company/project/projectManage")
+    fun getProjectManage() : String {
+        return "views/company/project/projectManage"
+    }
+
     @GetMapping("/company/direction/direction")
     fun getDirection() : String {
         return "views/company/direction/direction"

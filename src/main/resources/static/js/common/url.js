@@ -9,6 +9,8 @@ const REST_COMMON_ORG_URL                       = REST_COMMON_URL + "/org";
 
 const REST_COMPANY_URL                          = REST_ROOT_URL + "/company";
 const REST_COMPANY_HISTORY_MANAGE_URL           = REST_COMPANY_URL + "/historyManage";
+const REST_COMPANY_PROJECT_URL                  = REST_COMPANY_URL + "/project";
+const REST_COMPANY_PROJECT_MANAGE_URL           = REST_COMPANY_PROJECT_URL + "/projectManage";
 
 const REST_SYSTEM_URL                           = REST_ROOT_URL + "/system";
 const REST_STAT_URL                             = REST_ROOT_URL + "/stat";
