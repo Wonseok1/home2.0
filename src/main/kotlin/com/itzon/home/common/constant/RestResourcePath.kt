@@ -12,6 +12,7 @@ const val REST_COMMON_NOTICE                = "$REST_COMMON/notice"
 
 const val REST_COMPANY                      = "$REST_ROOT/company"
 const val REST_COMPANY_HISTORY              = "$REST_COMPANY/history"
+const val REST_COMPANY_HISTORY_MANAGE       = "$REST_COMPANY/historyManage"
 
 const val REST_SYSTEM                       = "$REST_ROOT/system"
 
