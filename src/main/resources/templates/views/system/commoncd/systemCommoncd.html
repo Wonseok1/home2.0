@@ -6,10 +6,8 @@
 
 <div class="flex h-full w-full">
     <div class="md:flex w-full pb-2">
-        <div class="w-full md:w-1/2  mx-2 flex flex-col">
-            <div>
-            </div>
-            <div class="flex my-2 h-10 justify-between">
+        <div class="flex flex-col flex-1 w-full h-full my-2 bg-white rounded-md p-2 min-h-[13rem] md:w-1/2">
+            <div class="my-2">
                 <h3 class="mt-4 text-xl leading-6 font-bold text-gray-900"  th:text="${menu.menuNm}"></h3>
                 <div class="mt-2">
                     <button id="systemCommoncd_btnInfoNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
@@ -25,16 +23,11 @@
                         저장
                      </button>
                 </div>
-
-
             </div>
-            <div class="mt-2 sixteen wide ag-theme-balham flex-1 w-full" id="systemCommonCdInfo_grid"></div>
+            <div class="mt-1 ag-theme-balham flex-1 w-full" id="systemCommonCdInfo_grid"></div>
         </div>
-        <div class="w-full md:w-1/2  mx-2 flex flex-col">
-            <div>
-
-            </div>
-                <div class="flex my-2 h-10 justify-between">
+        <div class="flex flex-col flex-1 w-full h-full my-2 bg-white rounded-md p-2 min-h-[13rem] md:w-1/2">
+                <div class=" my-2">
                 <h3 class="mt-4 text-xl leading-6 font-bold text-gray-900" >상세코드 관리</h3>
                     <div class="mt-2">
                         <button id="systemCommoncd_btnDetailNew" type="button" class="mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
@@ -51,7 +44,7 @@
                         </button>
                     </div>
             </div>
-            <div class="mt-2 sixteen wide ag-theme-balham flex-1 w-full" id="systemCommoncdDtl_grid"></div>
+            <div class="mt-1 ag-theme-balham flex-1 w-full" id="systemCommoncdDtl_grid"></div>
         </div>
 
     </div>

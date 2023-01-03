@@ -22,107 +22,110 @@ const grid = {
                 gridId: id
             },
         }).done(function (gridColumnList) {
-            gridColumnList.forEach(function (columnInfo) {
+            if (gridColumnList) {
+                gridColumnList.forEach(function (columnInfo) {
 
-                if (columnInfo.useYn) {
-                    if (columnInfo.gridColumn == 'default') {
-                        console.log("default", columnInfo)
-                        //grid Default option 추가
-                        let defaultColumnDef = {
-                            hide            : columnInfo.hideYn,
-                            minWidth        : columnInfo.minWidth,
-                            maxWidth        : columnInfo.maxWidth,
-                            width           : columnInfo.width,
-                            editable        : columnInfo.editYn,
-                            sortable        : columnInfo.sortYn,
-                        }
-
-                        if (columnInfo.filterYn) {
-                            defaultColumnDef.filter = columnInfo.filter;
-                            if (columnInfo.floatingFilterYn) {
-                                defaultColumnDef.floatingFilter = columnInfo.floatingFilterYn
+                    if (columnInfo.useYn) {
+                        if (columnInfo.gridColumn == 'default') {
+                            console.log("default", columnInfo)
+                            //grid Default option 추가
+                            let defaultColumnDef = {
+                                hide            : columnInfo.hideYn,
+                                minWidth        : columnInfo.minWidth,
+                                maxWidth        : columnInfo.maxWidth,
+                                width           : columnInfo.width,
+                                editable        : columnInfo.editYn,
+                                sortable        : columnInfo.sortYn,
                             }
-                            if (columnInfo.filterParams) {
-                                defaultColumnDef.filterParams = {
-                                    buttons: columnInfo.filterParams.split(','),
-                                    closeOnApply : true,
-                                };
-                            }
-                        }
-                        if (columnInfo.flexYn) {
-                            defaultColumnDef.flex =  1;
-                        }
 
-                        if (columnInfo.type) {
-                            var typeList = columnInfo.type.split(',');
-                            if (typeList.length == 1) {
-                                defaultColumnDef.type = typeList[0];
-                            } else {
-                                defaultColumnDef.type = typeList;
-                            }
-                        }
-
-
-                        gridOption.defaultColDef = defaultColumnDef;
-                    }else{
-                        let columnDef = {
-                            field           : columnInfo.gridColumn,
-                            headerName      : columnInfo.gridColumnNm,
-                            hide            : columnInfo.hideYn,
-                            minWidth        : columnInfo.minWidth,
-                            maxWidth        : columnInfo.maxWidth,
-                            width           : columnInfo.width,
-                            editable        : columnInfo.editYn,
-                            sortable        : columnInfo.sortYn,
-                        }
-                        columnDef.pinned =  columnInfo?.pinned
-
-                        console.log('filterYn', columnInfo.filterYn)
-                        if (columnInfo.filterYn) {
-                            columnDef.filter = columnInfo.filter;
-                            if (columnInfo.filterParams) {
-                                columnDef.filterParams = {
-                                    buttons: columnInfo.filterParams.split(','),
-                                    closeOnApply : true,
-                                };
-                            }
-                            if (columnInfo.floatingFilterYn) {
-                                columnDef.floatingFilter = columnInfo.floatingFilterYn
-                            }
-                        }
-
-                        if (columnInfo.cellEditor) {
-                            columnDef.cellEditor = columnInfo.cellEditor;
-                            columnDef.cellEditorParams = function (params) {
-                                return{
-                                    values: columnInfo.cellEditorParams.split(','),
-                                    formatValue: function (value) {
-                                        return value;
-                                    }
+                            if (columnInfo.filterYn) {
+                                defaultColumnDef.filter = columnInfo.filter;
+                                if (columnInfo.floatingFilterYn) {
+                                    defaultColumnDef.floatingFilter = columnInfo.floatingFilterYn
                                 }
-                            };
-                        }
-                        if (columnInfo.flexYn) {
-                            columnDef.flex =  1;
-                        }
-                        if (columnInfo.type) {
-                            var typeList = columnInfo.type.split(',');
-                            if (typeList.length == 1) {
-                                columnDef.type = typeList[0];
-                            } else {
-                                columnDef.type = typeList;
+                                if (columnInfo.filterParams) {
+                                    defaultColumnDef.filterParams = {
+                                        buttons: columnInfo.filterParams.split(','),
+                                        closeOnApply : true,
+                                    };
+                                }
                             }
+                            if (columnInfo.flexYn) {
+                                defaultColumnDef.flex =  1;
+                            }
+
+                            if (columnInfo.type) {
+                                var typeList = columnInfo.type.split(',');
+                                if (typeList.length == 1) {
+                                    defaultColumnDef.type = typeList[0];
+                                } else {
+                                    defaultColumnDef.type = typeList;
+                                }
+                            }
+
+
+                            gridOption.defaultColDef = defaultColumnDef;
+                        }else{
+                            let columnDef = {
+                                field           : columnInfo.gridColumn,
+                                headerName      : columnInfo.gridColumnNm,
+                                hide            : columnInfo.hideYn,
+                                minWidth        : columnInfo.minWidth,
+                                maxWidth        : columnInfo.maxWidth,
+                                width           : columnInfo.width,
+                                editable        : columnInfo.editYn,
+                                sortable        : columnInfo.sortYn,
+                            }
+                            columnDef.pinned =  columnInfo?.pinned
+
+                            console.log('filterYn', columnInfo.filterYn)
+                            if (columnInfo.filterYn) {
+                                columnDef.filter = columnInfo.filter;
+                                if (columnInfo.filterParams) {
+                                    columnDef.filterParams = {
+                                        buttons: columnInfo.filterParams.split(','),
+                                        closeOnApply : true,
+                                    };
+                                }
+                                if (columnInfo.floatingFilterYn) {
+                                    columnDef.floatingFilter = columnInfo.floatingFilterYn
+                                }
+                            }
+
+                            if (columnInfo.cellEditor) {
+                                columnDef.cellEditor = columnInfo.cellEditor;
+                                columnDef.cellEditorParams = function (params) {
+                                    return{
+                                        values: columnInfo.cellEditorParams.split(','),
+                                        formatValue: function (value) {
+                                            return value;
+                                        }
+                                    }
+                                };
+                            }
+                            if (columnInfo.flexYn) {
+                                columnDef.flex =  1;
+                            }
+                            if (columnInfo.type) {
+                                var typeList = columnInfo.type.split(',');
+                                if (typeList.length == 1) {
+                                    columnDef.type = typeList[0];
+                                } else {
+                                    columnDef.type = typeList;
+                                }
+                            }
+
+                            gridOption.columnDefs.push(columnDef);
                         }
-
-                        gridOption.columnDefs.push(columnDef);
                     }
-                }
 
-                if (rowIdColumn) {
-                    gridOption.getRowId = params => params.data[rowIdColumn ];
-                }
+                    if (rowIdColumn) {
+                        gridOption.getRowId = params => params.data[rowIdColumn ];
+                    }
 
-            });
+                });
+            }
+
             const gridDiv = document.querySelector('#'+id);
             new agGrid.Grid(gridDiv, gridOption);
         }).fail(function (error) {
