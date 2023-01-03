@@ -1,17 +1,6 @@
 
 var menu = {
     loadMenu() {
-        /*$.ajax({
-            type: 'GET',
-            url: "/api/system/menu/manage",
-            data: {
-                menuLv: 0
-            },
-            contentType: 'application/json; charset=utf-8'
-        }).done(function (menuList) {
-            menu.makeMenu(menuList);
-        }).fail(function (error) {
-        });*/
         $.ajax({
             type: 'GET',
             url: REST_COMMON_MENU_URL,
@@ -19,6 +8,7 @@ var menu = {
             contentType: 'application/json; charset=utf-8'
         }).done(function (menuList) {
             menu.makeMenu(menuList);
+            menu.makeMobileMenu(menuList);
         }).fail(function (error) {
         });
     },
@@ -26,6 +16,11 @@ var menu = {
         const menuArrowDiv = document.getElementById('menu_arrow_'+menu.menuId);
         menuArrowDiv.classList.toggle("arrow-up");
         menuArrowDiv.classList.toggle("arrow-down");
+    },
+    makeMobileMenu(menuList) {
+        let tempArrayList = new Array();
+        console.log(menuList);
+
     },
     makeMenu(menuList) {
         let tempArrayList = new Array();
@@ -70,15 +65,43 @@ var menu = {
                 menuDiv.addEventListener('click', function () {
                     tab.openPage(menuInfo);
                 });
-            }else{
-                /*if (menuDiv) {
-                    menuDiv.addEventListener('click', function () {
-                        menu.changeArrow(menuInfo);
-                    });
-                }*/
-
             }
-
+        });
+        menuList.forEach(function (menuInfo) {
+            let menuHtml = '';
+            if (menuInfo.menuPageId) {
+                menuHtml += `<button 
+                                    id="mobileMenu_${menuInfo.menuId}" 
+                                    onclick="mobileMenu_${menuInfo.menuId}DivForAppend.classList.toggle('hidden');" 
+                                    type="button" 
+                                    class="bg-slate-${(800-(100*parseInt(menuInfo.menuLv)))} hover:bg-slate-${(800-(100*parseInt(menuInfo.menuLv)))} text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" 
+                                    aria-controls="mobileMenu_${menuInfo.menuId}DivForAppend" aria-expanded="false">`;
+            }else{
+                menuHtml += `<button 
+                                    id="mobileMenu_${menuInfo.menuId}" 
+                                    onclick="mobileMenu_${menuInfo.menuId}DivForAppend.classList.toggle('hidden');" 
+                                    type="button" 
+                                    class="bg-slate-${(800-(100*parseInt(menuInfo.menuLv)))} hover:bg-slate-${(800-(100*parseInt(menuInfo.menuLv)))} text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" 
+                                    aria-controls="mobileMenu_${menuInfo.menuId}DivForAppend" aria-expanded="false">`;
+            }
+            menuHtml +=     `<i class="${menuInfo.menuIcon} mr-3 flex-shrink-0 h-6 w-6 "></i>`;
+            menuHtml +=     `<span class="flex-1 text-sm ml-2" style="white-space: nowrap;">${menuInfo.menuNm}</span>`;
+            menuHtml +=  `</button>`;
+            menuHtml +=  `<div class="menu-spread space-y-1 hidden ml-2" id="mobileMenu_${menuInfo.menuId}DivForAppend"></div>`;
+            if (menuInfo.menuLv == 0) {
+                $("#divMobileMenu_divForAppend").append(menuHtml);
+            }else {
+                if (!tempArrayList.includes(menuInfo.menuParentId)) {
+                    tempArrayList.push(menuInfo.menuParentId);
+                }
+                $("#mobileMenu_"+ menuInfo.menuParentId+"DivForAppend").append(menuHtml);
+            }
+            const menuDiv = document.getElementById('mobileMenu_'+menuInfo.menuId);
+            if (menuInfo.menuPageId && menuDiv) {
+                menuDiv.addEventListener('click', function () {
+                    tab.openPage(menuInfo);
+                });
+            }
         });
     },
     makeMyMenu(menuList) {

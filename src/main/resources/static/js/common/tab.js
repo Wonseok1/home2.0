@@ -29,7 +29,7 @@ let tab = {
                 selectedPageId = menuInfo.menuId;
             }
         }
-
+        divMobileMenu.classList.add('hidden')
     },
     openMyPage(menuInfo) {
         common.loadPage(menuInfo, true);
