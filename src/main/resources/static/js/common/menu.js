@@ -117,6 +117,19 @@ var menu = {
                 tab.openPage(menuInfo);
             });
         });
+
+        menuList.forEach(function (menuInfo) {
+            let menuHtml = '';
+            menuHtml += `<button id="myMobileMenu_${menuInfo.menuId}" onclick="myMoblieMenu_divForAppend.classList.toggle('hidden');" type="button" class="bg-slate-${(800-(100*3))} hover:bg-slate-${(800-(100*3))} text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" >`;
+            menuHtml +=     `<i class="${menuInfo.menuIcon} mr-3 flex-shrink-0 h-6 w-6 "></i>`;
+            menuHtml +=     `<span class="flex-1 text-sm ml-2" style="white-space: nowrap;">${menuInfo.menuNm}</span>`;
+            menuHtml +=  `</button>`;
+            $("#myMobileMenu_divForAppend").append(menuHtml);
+            const menuDiv = document.getElementById('myMobileMenu_'+menuInfo.menuId);
+            menuDiv.addEventListener('click', function () {
+                tab.openPage(menuInfo);
+            });
+        });
     },
     expandMenu() {
         divMenu.classList.remove("md:w-14");

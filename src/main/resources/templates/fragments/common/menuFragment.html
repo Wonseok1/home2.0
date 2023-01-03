@@ -130,6 +130,13 @@
                         <div class="flex-1 px-4 py-4 overflow-x-hidden" style="white-space: nowrap;"> IT-ZON</div>
                     </div>
                     <div class="mt-5 space-y-1 px-2" id="divMobileMenu_divForAppend">
+                        <button id="btn_myMobileMenu" onclick="myMobileMenu_divForAppend.classList.toggle('hidden');myMobileMenu_arrow.classList.toggle('arrow-down');myMobileMenu_arrow.classList.toggle('arrow-up');" type="button" class="bg-slate-800 hover:bg-slate-800 text-white hover:text-gray-100 group w-full flex items-center pl-2 pr-1 py-2 text-left text-xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-white" aria-controls="myMobileMenu_arrow_divForAppend" aria-expanded="false">
+                            <i class="fa-solid fa-book mr-3 flex-shrink-0 h-6 w-6 "></i>
+                            <span class="flex-1 text-sm ml-2" style="white-space: nowrap;">마이 메뉴</span>
+                            <div id="myMobileMenu_arrow" class="arrow-down ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-100 transition-colors ease-in-out duration-150"></div>
+                        </button>
+                        <div class="menu-spread space-y-1 hidden ml-2" id="myMobileMenu_divForAppend">
+                        </div>
                     </div>
                 </div>
                 <div class="flex flex-shrink-0 bg-gray-700 p-4">
