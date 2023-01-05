@@ -11,19 +11,19 @@
 <body>
 
 
-<div class="overflow-hidden bg-white">
+<div class="overflow-hidden bg-gray-100">
     <div class="relative mx-auto max-w-7xl pt-16 px-6 lg:px-8 ">
-        <div class="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
-            <div class="block">
+        <div class="text-base w-full flex">
+            <div class="block w-full">
                 <h2 class="text-lg font-semibold text-indigo-600">무엇을 도와드릴까요?</h2>
                 <h3 class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Q&A게시판!!</h3>
-                <div class="flex item-center my-1">
-                    <select id="searchSelectBox" name="qnAPhoneNo" autocomplete="tel" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
+                <div class="flex item-center my-2 w-full">
+                    <select id="searchSelectBox" name="qnAPhoneNo" autocomplete="tel" class="block rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
                         <option value="all">전체</option>
                         <option value="title">제목</option>
                         <option value="content">내용</option>
                     </select>
-                    <input type="text" id="qnASearchCondition" name="qnAPhoneNo"  class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
+                    <input type="text" id="qnASearchCondition" name="qnAPhoneNo"  class="block mx-2 flex-1 rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
                     <button type="button" id = "btnSearchQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">　<i class="fa-solid fa-magnifying-glass"></i>　</button>
                 </div>
             </div>
@@ -58,7 +58,7 @@
 
 
 <div class="bg-gray-100">
-    <div class="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
+    <div class="mx-auto max-w-7xl py-5 px-6 sm:py-5 lg:px-8">
         <div class="relative bg-white shadow-xl">
             <h2 class="sr-only">문의 작성</h2>
 
