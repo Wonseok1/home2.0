@@ -353,15 +353,6 @@ var noticeNotice = {
 
     }, //delete() END
 
-    setData: function (data) {
-
-        $("#creId").val(data.creId);
-        $("#noticeNo").val(data.noticeNo);
-        $("#noticeTitle").val(data.noticeTitle);
-        $("#noticeContent").val(data.noticeContent);
-        $("#noticeStartDt").val(data.noticeStartDt);
-        $("#noticeEndDt").val(data.noticeEndDt);
-    },
 //전달받은 정보를 가지고 화면에 보기 좋게 출력
     output:function (data) {
         console.log(data.file)
@@ -390,7 +381,7 @@ var noticeNoticeGridOptions = {
         {headerName: "공지번호", field: 'noticeNo', editable: false, width: 10,hide : true}
         , {headerName: "작성자", field: 'noticeCreId', editable: false, width: 100}
         , {headerName: "제목", field: 'noticeTitle', editable: false, width: 400}
-        , {headerName: "내용", field: 'noticeContent', editable: false, width: 800}
+        , {headerName: "내용", field: 'noticeContent', editable: false, width: 800, flex:1}
         , {headerName: "등록일", field: 'creDt', editable: false, width: 140}
         , {headerName: "순번", field: 'ordNo', editable: false, width: 140}
     ],
@@ -445,19 +436,18 @@ var noticeNoticeGridOptions = {
         }else {
             return false
         }
-        noticeNotice.setData(event.data)
-        $("#noticeNo").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeNo);
-        $("#noticeCreId").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeCreId);
-        $("#noticeStartDt").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeStartDt);
-        $("#noticeEndDt").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeEndDt);
-        $("#noticeTitle").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeTitle);
-        $("#noticeContent").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeContent);
-        // $("#result").val(noticeNoticeGridOptions.api.getSelectedRows()[0].noticeContent);
+        let selectedRows = noticeNoticeGridOptions.api.getSelectedRows()[0]
+        console.log(selectedRows)
+        $("#noticeNo").val(selectedRows.noticeNo);
+        noticeCreId.innerHTML=selectedRows.noticeCreId;
+        noticeTitle.innerHTML=selectedRows.noticeTitle;
+        noticeContent.innerHTML=selectedRows.noticeContent;
+        // $("#result").val(selectedRows.noticeContent);
         noticeNotice.inputAllow()
         //임시주석
-        var noticeNo = noticeNoticeGridOptions.api.getSelectedRows()[0].noticeNo
+        var noticeNo = selectedRows.noticeNo
         console.log(noticeNo);
-        $.ajax({
+        /*$.ajax({
             type: 'GET',
             url : '/web/notice/noticeNotice/findFileInfo/'+noticeNo,
             contentType: 'application/json; charset=utf-8',
@@ -479,13 +469,8 @@ var noticeNoticeGridOptions = {
                 $("#result").append("<a href='"+ data[i].down_Link +"' download>"+data[i].file_name+"　　</a>");
                 // $("#result").append("<br/>");
             }
-
-
         }).fail(function (error){
-
-        });
-
-
+        });*/
 
     },
     onGridReady(event) {

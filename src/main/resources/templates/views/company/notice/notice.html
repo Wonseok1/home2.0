@@ -22,8 +22,8 @@
                         <option>제목</option>
                         <option>내용</option>
                     </select>
-                    <input type="text" id="qnASearchCondition" name="qnAPhoneNo"  class="block flex-1 rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
-                    <button type="button" id = "btnSearchQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">　<i class="fa-solid fa-magnifying-glass"></i>　</button>
+                    <input type="text" id="noticeSearchCondition" name="noticeSearchCondition"  class="block flex-1 rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
+                    <button type="button" id = "btnSearchNotice" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">　<i class="fa-solid fa-magnifying-glass"></i>　</button>
                 </div>
             </div>
         </div>
@@ -40,18 +40,20 @@
             <div class="mx-auto max-w-md py-5 px-6 sm:max-w-3xl sm:py-5 lg:max-w-7xl lg:px-8">
                 <div class="lg:grid lg:grid-cols-3 lg:gap-8">
                     <div>
-                        <h2 class="text-3xl font-bold tracking-tight text-warm-gray-900">공지 제목</h2>
-                        <p class="mt-4 text-lg text-warm-gray-500">공지 작성자</p>
+                        <h2 class="text-3xl font-bold tracking-tight text-warm-gray-900" id="noticeTitle"></h2>
+                        <p class="mt-4 text-lg text-warm-gray-500" id="noticeCreId"></p>
                         <div class="py-2 my-2">
                             <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:inline-flex sm:w-auto">첨부파일</button>
+                            <div id="result" class="flex-col md:flex-row mr-2 relative flex flex-col font-black md:flex-row flex-auto"></div>
                         </div>
                     </div>
                     <div class="mt-12 lg:col-span-2 lg:mt-0">
                         <dl class="space-y-12">
                             <div>
-                                <dt class="text-lg font-medium text-warm-gray-900">공지 내용</dt>
-                                <dd class="mt-2 text-base text-warm-gray-500">공지 내용 상세</dd>
+                                <dt class="text-lg font-medium text-warm-gray-900"></dt>
+                                <dd class="mt-2 text-base text-warm-gray-500" id="noticeContent"></dd>
                             </div>
+                            <input   id="noticeNo" name="noticeNo" class="hidden" >
                         </dl>
                     </div>
                 </div>
