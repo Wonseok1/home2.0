@@ -10,132 +10,195 @@
 </head>
 <body>
 
-<div class="max-w-7xl m-0 m-auto flex border bg-cover w-100% h-20 blur-sm" style="background-image: url(/img/QnAImg.png)">
-    <div class="text-2xl leading-6 font-bold  text-gray-900 mb-3 "> 　</div>  <div class="font-bold"> </div>
-</div>
-<div class="max-w-7xl m-0 m-auto">
 
-    <div class=" flex-1 flex flex-col h-full" id="divRight">
-        <div class="px-4  max-h-screen">
-            <div class="ml-4 py-5 flex bg-red w-100% -mt-20 z-50">
-                <p class="text-3xl leading-6 font-bold  text-white mb-3   z-50">Q&A게시판!!　  <span class="text-sm">무엇을 도와드릴까요?</span>　</p>
+<div class="overflow-hidden bg-white">
+    <div class="relative mx-auto max-w-7xl pt-16 px-6 lg:px-8 ">
+        <div class="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
+            <div class="block">
+                <h2 class="text-lg font-semibold text-indigo-600">무엇을 도와드릴까요?</h2>
+                <h3 class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Q&A게시판!!</h3>
+                <div class="flex item-center my-1">
+                    <select id="searchSelectBox" name="qnAPhoneNo" autocomplete="tel" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
+                        <option value="all">전체</option>
+                        <option value="title">제목</option>
+                        <option value="content">내용</option>
+                    </select>
+                    <input type="text" id="qnASearchCondition" name="qnAPhoneNo"  class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
+                    <button type="button" id = "btnSearchQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">　<i class="fa-solid fa-magnifying-glass"></i>　</button>
+                </div>
             </div>
-            <!--            <div class="ml-4 mt-2">-->
-            <!--                <h3 class="text-2xl leading-6 font-bold  text-gray-900 mb-3 ">Q&A게시판</h3>-->
-            <!--            </div>-->
-            <div class=" grid-cols-2 sm:flex " style="height: 75vh;">
-
-                <!--조회조건 + QnA목록 그리드 + 상세정보-->
-                <div class = "px-4 w-full h-full">
-                    <!--조회조건-->
-                    <div class="bg-white px-4 py-5 border-y-2 border-gray-300 sm:px-6 relative">
-                        <div class="ml-4 mb-2 flex flex-col md:flex-row items-left justify-between flex-wrap sm:flex-nowrap absolute bottom-0 left-0" style="width:90%">
-                            <!--                            <div class="mx-6 mt-2 font-black invisible  md:visible">-->
-                            <!--                                조회기간-->
-                            <!--                                <input class="border-b  bg-white border-gray-500 text-sm text-gray-500 "  type="date" id="searchQnAStartDt">-->
-                            <!--                                ~-->
-                            <!--                                <input class="border-b  bg-white border-gray-500 text-sm text-gray-500 "  type="date" id="searchQnAEndDt">-->
-                            <!--                            </div>-->
-                            <div class="ml-2 mt-2 flex flex-auto font-black rounded" >구분
-                                <select  id="searchSelectBox" class="border bg-white border-gray-500 text-sm text-gray-500 rounded" >
-                                    <option value="all">전체</option>
-                                    <option value="title">제목</option>
-                                    <option value="content">내용</option>
-                                </select>
-                                <input class="rounded flex-Initial border bg-white border-gray-500 text-sm text-gray-500 w-[200px]" placeholder="  검색어를 입력해주세요 " type="text" id="qnASearchCondition">
-                            </div>
-
-                        </div>
-                        <div class="-ml-4 mb-1 flex items-center justify-between flex-wrap sm:flex-nowrap absolute bottom-0 right-3">
-                            <div class="ml-4 mt-2 flex-shrink-0">
-
-                                <button type="button" id = "btnSearchQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">　<i class="fa-solid fa-magnifying-glass"></i>　</button>
-                            </div>
-                        </div>
-                    </div>  <!--조회조건End-->
-
-                    <!-- QnA목록 그리드 -->
-                    <div class = "ag-theme-balham  h-1/2 mt-3" id="NoticeQnAGrid" ></div>
+        </div>
+    </div>
+</div>
+<div class="overflow-hidden bg-white h-full">
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8 h-full">
+        <div class="mt-1 ag-theme-balham flex-1 w-full min-h-[13rem] h-full" style="height: 300px;" id="NoticeQnAGrid" ></div>
+        <div class="my-2">
+            <div class="mt-2">
+                <button id="btnAnswer" type="button" class=" my-1 mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                    <i class="fa-solid fa-circle-plus -ml-1 mr-2 h-3 w-3"></i>
+                    답변
+                </button>
+                <button id="btnNewQnA" type="button" class="my-1 mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                    <i class="fa-solid fa-circle-plus -ml-1 mr-2 h-3 w-3"></i>
+                    신규
+                </button>
+                <button id="btnSaveQnA" type="button" class="my-1 mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-stone-400 hover:bg-stone-500 focus:outline-none ">
+                    <i class="fa-solid fa-arrows-spin -ml-1 mr-2 h-3 w-3"></i>
+                    저장
+                </button>
+                <button id="btnDeleteQnA" type="button" class="my-1 mx-1 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-semibold rounded-md text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none ">
+                    <i class="fa-solid fa-floppy-disk -ml-1 mr-2 h-3 w-3"></i>
+                    삭제
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-                    <div class="flex relative ">
-                        <div class="mt-2">
-                            <h3 class="text-lg leading-6 font-black  text-gray-900">문의내용</h3>
-                        </div>
-                        <!--답변popup/신규/저장/삭제Btn-->
-                        <div class="text-lg leading-6 font-medium text-gray-900 mr-2 mt-3 z-10 absolute bottom-0 right-4  " >
-                            <button type="button" id = "btnAnswer" name="btnAnswer" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">답변</button>
-                            <button type="button" id = "btnNewQnA" name="btnNewQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">신규</button>
-                            <button type="button" id = "btnSaveQnA" name="btnSaveQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">저장</button>
-                            <button type="button" id = "btnDeleteQnA" name="btnDeleteQnA" class="relative inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-black rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">삭제</button>
-                            <!--                            <input   id="qnAAnswer" name="qnAAnswer" class="hidden">-->
-                        </div>
+<div class="bg-gray-100">
+    <div class="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
+        <div class="relative bg-white shadow-xl">
+            <h2 class="sr-only">문의 작성</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3">
+                <!-- Contact information -->
+                <div class="relative overflow-hidden bg-indigo-700 py-10 px-6 sm:px-10 xl:p-12">
+                    <div class="pointer-events-none absolute inset-0 sm:hidden" aria-hidden="true">
+                        <svg class="absolute inset-0 h-full w-full" width="343" height="388" viewBox="0 0 343 388" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M-99 461.107L608.107-246l707.103 707.107-707.103 707.103L-99 461.107z" fill="url(#linear1)" fill-opacity=".1" />
+                            <defs>
+                                <linearGradient id="linear1" x1="254.553" y1="107.554" x2="961.66" y2="814.66" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fff"></stop>
+                                    <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
                     </div>
+                    <div class="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 sm:block lg:hidden" aria-hidden="true">
+                        <svg class="absolute inset-0 h-full w-full" width="359" height="339" viewBox="0 0 359 339" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M-161 382.107L546.107-325l707.103 707.107-707.103 707.103L-161 382.107z" fill="url(#linear2)" fill-opacity=".1" />
+                            <defs>
+                                <linearGradient id="linear2" x1="192.553" y1="28.553" x2="899.66" y2="735.66" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fff"></stop>
+                                    <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="pointer-events-none absolute top-0 right-0 bottom-0 hidden w-1/2 lg:block" aria-hidden="true">
+                        <svg class="absolute inset-0 h-full w-full" width="160" height="678" viewBox="0 0 160 678" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M-161 679.107L546.107-28l707.103 707.107-707.103 707.103L-161 679.107z" fill="url(#linear3)" fill-opacity=".1" />
+                            <defs>
+                                <linearGradient id="linear3" x1="192.553" y1="325.553" x2="899.66" y2="1032.66" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fff"></stop>
+                                    <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white">Contact information</h3>
+                    <p class="mt-6 max-w-3xl text-base text-indigo-50">
+                        서울특별시 금천구 가산디지털2로 166, 901호(가산동,에이스K1타워)
+                    </p>
+                    <dl class="mt-8 space-y-6">
+                        <dt><span class="sr-only">대표 번호</span></dt>
+                        <dd class="flex text-base text-indigo-50">
+                            <!-- Heroicon name: outline/phone -->
+                            <svg class="h-6 w-6 flex-shrink-0 text-indigo-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg>
+                            <span class="ml-3">070-8786-7295~6</span>
+                        </dd>
+                        <dt><span class="sr-only">팩스 번호</span></dt>
+                        <dd class="flex text-base text-indigo-50">
+                            <!-- Heroicon name: outline/envelope -->
+                            <svg class="h-6 w-6 flex-shrink-0 text-indigo-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                            <span class="ml-3">070-8787-9632 (FAX)</span>
+                        </dd>
+                        <dt><span class="sr-only">이메일</span></dt>
+                        <dd class="flex text-base text-indigo-50">
+                            <!-- Heroicon name: outline/envelope -->
+                            <svg class="h-6 w-6 flex-shrink-0 text-indigo-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                            <span class="ml-3">support@itzon.co.kr(공사중)<br></span>
+<!--                            <span class="ml-3">bcs0818@naver.com</span>-->
+                        </dd>
+                    </dl>
+                </div>
 
+                <!-- Contact form -->
+                <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
+                    <h3 class="text-lg font-medium text-gray-900">Send us a message</h3>
+                    <form id="noticeQnA_form" action="File" method="POST" class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
 
-                    <!--상세정보 + 신규/저장/삭제Btn-->
-                    <div class="border-2  bg-white border-gray-300 text-sm text-gray-800 h-1/2 relative" >
-                        <form id="noticeQnA_form" class="bg-white h-5/6" action="File" method="post" enctype="multipart/form-data" >
-                            <!--상세정보-->
-                            <div class="flex flex-row md:flex-row full  my-5 relative h-full absolute bottom-0 left-0" style="width:100%">
+                        <input   id="qnAPassWordHidden" name="qnAPassWordHidden" class="hidden" type="password">
+                        <input   id="qnAState" name="qnAState" class="hidden" type="password">
+                        <input   id="qnAId" name="qnAId" class="hidden" >
+                        <input   id="qnAOriginId" name="qnAOriginId" class="hidden">
+                        <input   id="qnAOrdId" name="qnAOrdId" class="hidden">
+                        <input   id="qnAGroupId" name="qnAGroupId" class="hidden">
 
-                                <div class="flex mt-1 flex-col px-5" style="width:70%">
-                                    <div class="mr-2 relative flex flex-col md:flex-row flex-auto font-black ">
-                                        <div class="w-[40px]">제목</div>
-                                        <input id="qnATitle" name="qnATitle" class="rounded flex h-max w-full flex-col md:flex-row border flex-auto border-gray-500 text-sm text-gray-500 " type="text">
-                                    </div>
-                                    <!--  hidden컬럼들-->
-                                    <input   id="qnAPassWordHidden" name="qnAPassWordHidden" class="hidden" type="password">
-                                    <input   id="qnAState" name="qnAState" class="hidden" type="password">
-                                    <input   id="qnAId" name="qnAId" class="hidden" >
-                                    <input   id="qnAOriginId" name="qnAOriginId" class="hidden">
-                                    <input   id="qnAOrdId" name="qnAOrdId" class="hidden">
-                                    <input   id="qnAGroupId" name="qnAGroupId" class="hidden">
-                                    <div class="mr-2  relative flex flex-col md:flex-row flex-auto font-black ">
-                                        <div class="w-[40px]">내용</div>
-                                        <textarea id="qnAContent" name="qnAContent" class="rounded flex  flex-col md:flex-row border flex-auto border-gray-500 text-sm text-gray-500 " rows="9" ></textarea>
-                                    </div>
-                                </div>
-                                <div class="pl-5  flex mt-1 flex-col " style="width:30%">
-                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-6 md:mb-12 " >
-                                        <div class="w-[60px]">비밀번호</div>
-                                        <input id="qnAPassWord" name="qnAPassWord" class="rounded  border   border-gray-500 text-sm text-gray-500  w-[70px]" type="password">
-                                    </div>
-                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-2 ">
-                                        <div class="w-[60px]">고객명</div>
-                                        <input id="qnAUserNm" name="qnAUserNm" class="rounded  border   white border-gray-500 text-sm text-gray-500 w-[70px]" type="text">
-                                    </div>
-                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-2 " >
-                                        <div class="w-[60px]">회사명</div>
-                                        <input id="qnACompNm" name="qnACompNm" class="rounded  border    border-gray-500 text-sm text-gray-500  w-[110px]" type="text">
-                                    </div>
-                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-2 " >
-                                        <div class="w-[60px]">핸드폰</div>
-                                        <input id="qnAPhoneNo" name="qnAPhoneNo" class="rounded  border   border-gray-500 text-sm text-gray-500  w-[110px]" type="text">
-                                    </div>
-                                    <div class="mr-2 relative flex  flex-col md:flex-row  font-black mb-2 " >
-                                        <div class="w-[60px]">연락처</div>
-                                        <input id="qnATelNo" name="qnATelNo" class="rounded  border   border-gray-500 text-sm text-gray-500  w-[110px]" type="text">
-                                    </div>
-
-                                </div>
-                                <!--첨부파일 보류 ... -->
-                                <!--                        <div class="mr-5 flex">-->
-                                <!--                            <label for="file">첨부파일</label>-->
-                                <!--                            <input multiple='multiple' style="z-index: 1" class="border bg-white border-gray-500 text-sm text-gray-500 " type="file" id="file" name="file"  accept="image/png, image/jpeg">-->
-                                <!--                            <input type="submit" class="-ml-7 border bg-white border-gray-500" style="z-index:2" 파일등록>-->
-                                <!--                        </div>-->
-
+                        <div>
+                            <label for="qnAUserNm" class="block text-sm font-medium text-gray-900">고객명</label>
+                            <div class="mt-1">
+                                <input type="text"  id="qnAUserNm" name="qnAUserNm" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                             </div>
-
-
-                            <!--                    <input type="file" id="fileUpload" />-->
-
-                        </form>
-
-                    </div> <!--상세정보 + 신규/저장/삭제Btn End-->
-
-                </div> <!--조회조건 + QnA목록 그리드 + 상세정보 End-->
+                        </div>
+                        <div>
+                            <label for="qnACompNm" class="block text-sm font-medium text-gray-900">회사명</label>
+                            <div class="mt-1">
+                                <input type="text" input id="qnACompNm" name="qnACompNm" autocomplete="family-name" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                        </div>
+                        <!--<div>
+                            <label for="email" class="block text-sm font-medium text-gray-900">Email</label>
+                            <div class="mt-1">
+                                <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                        </div>-->
+                        <div>
+                            <label for="qnAPhoneNo" class="block text-sm font-medium text-gray-900">핸드폰</label>
+                            <div class="mt-1">
+                                <input type="text" id="qnAPhoneNo" name="qnAPhoneNo" autocomplete="tel" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="qnAPhoneNo" class="block text-sm font-medium text-gray-900">연락처</label>
+                            <div class="mt-1">
+                                <input type="text" id="qnATelNo" name="qnATelNo" autocomplete="tel" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="phone-optional">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="qnAPassWord" class="block text-sm font-medium text-gray-900">비밀번호</label>
+                            <div class="mt-1">
+                                <input type="text" id="qnAPassWord" name="qnAPassWord" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="subject" class="block text-sm font-medium text-gray-900">제목</label>
+                            <div class="mt-1">
+                                <input type="text" name="subject" id="subject" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <div class="flex justify-between">
+                                <label for="qnAContent" class="block text-sm font-medium text-gray-900">문의 내용</label>
+                                <span id="message-max" class="text-sm text-gray-500">최대 500자</span>
+                            </div>
+                            <div class="mt-1">
+                                <textarea id="qnAContent" name="qnAContent" rows="4" class="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" aria-describedby="message-max"></textarea>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2 sm:flex sm:justify-end">
+                            <button type="submit" class="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
